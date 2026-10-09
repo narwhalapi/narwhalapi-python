@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "narwhalapi"
+version = "0.1.0"
+description = "Typed clients for the Narwhal API"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Narwhal API Team", email = "support@narwhalapi.com" }]
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = ["httpx>=0.27,<1"]
+keywords = [
+    "api", "sdk", "economics", "fx", "exchange-rates", "inflation", "holidays",
+    "palm-oil", "decimal",
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.urls]
+Homepage = "https://narwhalapi.com"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/narwhalapi"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/narwhalapi", "README.md", "CHANGELOG.md", "LICENSE", "pyproject.toml"]
+
+[tool.hatch.build.hooks.custom]
