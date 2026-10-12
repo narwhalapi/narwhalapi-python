@@ -1,5 +1,5 @@
-# Generated from spec/live/openapi.json sha256 b60f17d48a2e406d95b34c274a80961d2a3de2b5e7b056a082d0ded894340420. Do not edit.
-# Generated from spec/next/openapi.json sha256 b60f17d48a2e406d95b34c274a80961d2a3de2b5e7b056a082d0ded894340420. Do not edit.
+# Generated from spec/live/openapi.json sha256 549d8458a8dcfbbccea3ea4b23f7d9163c6525ce932e4c5f6657fdd9b728985c. Do not edit.
+# Generated from spec/next/openapi.json sha256 549d8458a8dcfbbccea3ea4b23f7d9163c6525ce932e4c5f6657fdd9b728985c. Do not edit.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -323,12 +323,60 @@ class QuoteRole:
     EXCLUDED: Literal["excluded"] = "excluded"
 
 
+class ReleaseStage:
+    """Known values; response fields also accept future strings."""
+
+    ADVANCE: Literal["advance"] = "advance"
+    FINAL: Literal["final"] = "final"
+    FIRST: Literal["first"] = "first"
+    FLASH: Literal["flash"] = "flash"
+    PRELIMINARY: Literal["preliminary"] = "preliminary"
+    SECOND: Literal["second"] = "second"
+    THIRD: Literal["third"] = "third"
+
+
 class ReleaseStatus:
     """Known values; response fields also accept future strings."""
 
     CANCELLED: Literal["cancelled"] = "cancelled"
     PUBLISHED: Literal["published"] = "published"
     SCHEDULED: Literal["scheduled"] = "scheduled"
+
+
+class ReleaseTopic:
+    """Known values; response fields also accept future strings."""
+
+    BALANCE_OF_PAYMENTS: Literal["balance_of_payments"] = "balance_of_payments"
+    BUSINESS_CONFIDENCE: Literal["business_confidence"] = "business_confidence"
+    CONSTRUCTION: Literal["construction"] = "construction"
+    CONSUMER_CONFIDENCE: Literal["consumer_confidence"] = "consumer_confidence"
+    CONSUMER_PRICES: Literal["consumer_prices"] = "consumer_prices"
+    EMPLOYMENT: Literal["employment"] = "employment"
+    ENERGY: Literal["energy"] = "energy"
+    GDP: Literal["gdp"] = "gdp"
+    HOME_SALES: Literal["home_sales"] = "home_sales"
+    HOUSE_PRICES: Literal["house_prices"] = "house_prices"
+    HOUSEHOLD_SPENDING: Literal["household_spending"] = "household_spending"
+    HOUSING_CONSTRUCTION: Literal["housing_construction"] = "housing_construction"
+    IMPORT_EXPORT_PRICES: Literal["import_export_prices"] = "import_export_prices"
+    INDUSTRIAL_PRODUCTION: Literal["industrial_production"] = "industrial_production"
+    INVESTMENT: Literal["investment"] = "investment"
+    JOBLESS_CLAIMS: Literal["jobless_claims"] = "jobless_claims"
+    LABOUR_FORCE: Literal["labour_force"] = "labour_force"
+    MANUFACTURING: Literal["manufacturing"] = "manufacturing"
+    MERCHANDISE_TRADE: Literal["merchandise_trade"] = "merchandise_trade"
+    MONEY_CREDIT: Literal["money_credit"] = "money_credit"
+    OTHER: Literal["other"] = "other"
+    POLICY_COMMUNICATION: Literal["policy_communication"] = "policy_communication"
+    POLICY_MINUTES: Literal["policy_minutes"] = "policy_minutes"
+    POLICY_RATE: Literal["policy_rate"] = "policy_rate"
+    PRODUCER_PRICES: Literal["producer_prices"] = "producer_prices"
+    PUBLIC_FINANCE: Literal["public_finance"] = "public_finance"
+    RETAIL_SALES: Literal["retail_sales"] = "retail_sales"
+    SERVICES: Literal["services"] = "services"
+    TOURISM: Literal["tourism"] = "tourism"
+    WAGES: Literal["wages"] = "wages"
+    WHOLESALE_TRADE: Literal["wholesale_trade"] = "wholesale_trade"
 
 
 class ResolutionKind:
@@ -682,6 +730,7 @@ class EconomicRelease:
     country: str
     family: str
     indicators: list[EconomicReleaseIndicator] | None = None
+    name: str
     notice: str | None = None
     observed_at: str | None = None
     officially_published_at: str | None = None
@@ -689,8 +738,11 @@ class EconomicRelease:
     release_id: str
     revision: int | None = None
     schedule: EconomicReleaseSchedule
+    series_id: str | None = None
+    stage: str | None = None
     status: str
     title: str
+    topic: str | None = None
     variant: str | None = None
     version: str
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
@@ -721,6 +773,7 @@ class EconomicReleaseIndicator:
 class EconomicReleaseSchedule:
     at: str | None = None
     date: str | None = None
+    local_date: str | None = None
     precision: str
     time_basis: str | None = None
     timezone: str | None = None
@@ -2064,6 +2117,7 @@ def decode_EconomicRelease(
         ]
         if data.get("indicators") is not None
         else None,
+        name=read_str(data["name"]),
         notice=read_str(data["notice"]) if data.get("notice") is not None else None,
         observed_at=read_str(data["observed_at"])
         if data.get("observed_at") is not None
@@ -2079,8 +2133,13 @@ def decode_EconomicRelease(
         if data.get("revision") is not None
         else None,
         schedule=decode_EconomicReleaseSchedule(data["schedule"]),
+        series_id=read_str(data["series_id"])
+        if data.get("series_id") is not None
+        else None,
+        stage=read_str(data["stage"]) if data.get("stage") is not None else None,
         status=read_str(data["status"]),
         title=read_str(data["title"]),
+        topic=read_str(data["topic"]) if data.get("topic") is not None else None,
         variant=read_str(data["variant"]) if data.get("variant") is not None else None,
         version=read_str(data["version"]),
         meta=meta if meta is not None else ResponseMeta(),
@@ -2133,6 +2192,9 @@ def decode_EconomicReleaseSchedule(
     return EconomicReleaseSchedule(
         at=read_str(data["at"]) if data.get("at") is not None else None,
         date=read_str(data["date"]) if data.get("date") is not None else None,
+        local_date=read_str(data["local_date"])
+        if data.get("local_date") is not None
+        else None,
         precision=read_str(data["precision"]),
         time_basis=read_str(data["time_basis"])
         if data.get("time_basis") is not None

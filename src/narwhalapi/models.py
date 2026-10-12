@@ -1,5 +1,5 @@
-# Generated from spec/live/openapi.json sha256 b60f17d48a2e406d95b34c274a80961d2a3de2b5e7b056a082d0ded894340420. Do not edit.
-# Generated from spec/next/openapi.json sha256 b60f17d48a2e406d95b34c274a80961d2a3de2b5e7b056a082d0ded894340420. Do not edit.
+# Generated from spec/live/openapi.json sha256 549d8458a8dcfbbccea3ea4b23f7d9163c6525ce932e4c5f6657fdd9b728985c. Do not edit.
+# Generated from spec/next/openapi.json sha256 549d8458a8dcfbbccea3ea4b23f7d9163c6525ce932e4c5f6657fdd9b728985c. Do not edit.
 """Public response models, request models, and known enum values."""
 
 from ._generated.models import (
@@ -116,7 +116,9 @@ from ._generated.models import (
     Quote,
     QuoteFreshness,
     QuoteRole,
+    ReleaseStage,
     ReleaseStatus,
+    ReleaseTopic,
     ResolutionKind,
     ScalarBody,
     ScalarEvent,
@@ -281,7 +283,9 @@ __all__ = [
     "Quote",
     "QuoteFreshness",
     "QuoteRole",
+    "ReleaseStage",
     "ReleaseStatus",
+    "ReleaseTopic",
     "ResolutionKind",
     "ScalarBody",
     "ScalarEvent",
