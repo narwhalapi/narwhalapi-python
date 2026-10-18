@@ -1,5 +1,5 @@
-# Generated from spec/live/openapi.json sha256 549d8458a8dcfbbccea3ea4b23f7d9163c6525ce932e4c5f6657fdd9b728985c. Do not edit.
-# Generated from spec/next/openapi.json sha256 549d8458a8dcfbbccea3ea4b23f7d9163c6525ce932e4c5f6657fdd9b728985c. Do not edit.
+# Generated from spec/live/openapi.json sha256 a8f87a3ac708cc35c7a08fa69c5bf4c3edeea4259ff31a8cc7a3f6ded6b553a8. Do not edit.
+# Generated from spec/next/openapi.json sha256 a8f87a3ac708cc35c7a08fa69c5bf4c3edeea4259ff31a8cc7a3f6ded6b553a8. Do not edit.
 from __future__ import annotations
 
 import builtins
@@ -19,7 +19,7 @@ from .._transport import (
 )
 from . import models
 
-LIVE_SPEC_SHA = "549d8458a8dcfbbccea3ea4b23f7d9163c6525ce932e4c5f6657fdd9b728985c"
+LIVE_SPEC_SHA = "a8f87a3ac708cc35c7a08fa69c5bf4c3edeea4259ff31a8cc7a3f6ded6b553a8"
 
 
 class CalendarSubscriptions:
@@ -2151,6 +2151,89 @@ class Economics:
 
         return iterate(page, cursor)
 
+    def read_series_observations(
+        self,
+        series_id: str,
+        *,
+        cursor: str | None = None,
+        end: str | None = None,
+        limit: int | None = None,
+        start: str | None = None,
+    ) -> models.ResourceHistory:
+        """Read Resource History
+
+        Stability: stable.
+
+        Args:
+            series_id: Required path parameter.
+            cursor: Optional query parameter.
+            end: Optional query parameter.
+            limit: Optional query parameter.
+            start: Optional query parameter.
+
+        Returns:
+            ResourceHistory: Decoded response with header metadata.
+        """
+        _query: Query = []
+        _query.extend(
+            encode_query("cursor", cursor, "single", required=False, decimal=False)
+        )
+        _query.extend(encode_query("end", end, "single", required=False, decimal=False))
+        _query.extend(
+            encode_query("limit", limit, "single", required=False, decimal=False)
+        )
+        _query.extend(
+            encode_query("start", start, "single", required=False, decimal=False)
+        )
+        return self._transport.request(
+            "GET",
+            encode_path(
+                "/v1/economics/series/{series_id}/observations",
+                {"series_id": series_id},
+            ),
+            _query,
+            None,
+            models.decode_ResourceHistory,
+        )
+
+    def read_series_observations_iter(
+        self,
+        series_id: str,
+        *,
+        cursor: str | None = None,
+        end: str | None = None,
+        limit: int | None = None,
+        start: str | None = None,
+    ) -> Iterator[models.ResourceObservation]:
+        """Read Resource History
+
+        Stability: stable.
+
+        Args:
+            series_id: Required path parameter.
+            cursor: Optional query parameter.
+            end: Optional query parameter.
+            limit: Optional query parameter.
+            start: Optional query parameter.
+
+        Returns:
+            Iterator[ResourceObservation]: Items yielded lazily across pages.
+        """
+
+        def page(
+            next_cursor: str | None,
+        ) -> tuple[builtins.list[models.ResourceObservation], str | None]:
+            result = self.read_series_observations(
+                series_id=series_id,
+                cursor=next_cursor,
+                end=end,
+                limit=limit,
+                start=start,
+            )
+            return [item for item in result.observations], result.next_cursor
+
+        return iterate(page, cursor)
+
 
 class Events:
     def __init__(self, transport: SyncTransport) -> None:
@@ -2521,7 +2604,13 @@ class Predictions:
         )
 
     def binary_history(
-        self, event_id: str, *, end: str, interval: str | None = None, start: str
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
     ) -> models.PredictionHistory:
         """Get Prediction History
 
@@ -2529,6 +2618,7 @@ class Predictions:
 
         Args:
             event_id: Required path parameter.
+            cursor: Optional query parameter.
             end: Required query parameter.
             interval: Optional query parameter.
             start: Required query parameter.
@@ -2537,6 +2627,9 @@ class Predictions:
             PredictionHistory: Decoded response with header metadata.
         """
         _query: Query = []
+        _query.extend(
+            encode_query("cursor", cursor, "single", required=False, decimal=False)
+        )
         _query.extend(encode_query("end", end, "single", required=True, decimal=False))
         _query.extend(
             encode_query("interval", interval, "single", required=False, decimal=False)
@@ -2553,6 +2646,44 @@ class Predictions:
             None,
             models.decode_PredictionHistory,
         )
+
+    def binary_history_iter(
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
+    ) -> Iterator[models.PredictionSeries]:
+        """Get Prediction History
+
+        Stability: stable.
+
+        Args:
+            event_id: Required path parameter.
+            cursor: Optional query parameter.
+            end: Required query parameter.
+            interval: Optional query parameter.
+            start: Required query parameter.
+
+        Returns:
+            Iterator[PredictionSeries]: Items yielded lazily across pages.
+        """
+
+        def page(
+            next_cursor: str | None,
+        ) -> tuple[builtins.list[models.PredictionSeries], str | None]:
+            result = self.binary_history(
+                event_id=event_id,
+                cursor=next_cursor,
+                end=end,
+                interval=interval,
+                start=start,
+            )
+            return [item for item in result.series], result.next_cursor
+
+        return iterate(page, cursor)
 
     def extreme(self, event_id: str, *, at: str | None = None) -> models.ExtremeEvent:
         """Get Prediction
@@ -2577,7 +2708,13 @@ class Predictions:
         )
 
     def extreme_history(
-        self, event_id: str, *, end: str, interval: str | None = None, start: str
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
     ) -> models.PredictionHistory:
         """Get Prediction History
 
@@ -2585,6 +2722,7 @@ class Predictions:
 
         Args:
             event_id: Required path parameter.
+            cursor: Optional query parameter.
             end: Required query parameter.
             interval: Optional query parameter.
             start: Required query parameter.
@@ -2593,6 +2731,9 @@ class Predictions:
             PredictionHistory: Decoded response with header metadata.
         """
         _query: Query = []
+        _query.extend(
+            encode_query("cursor", cursor, "single", required=False, decimal=False)
+        )
         _query.extend(encode_query("end", end, "single", required=True, decimal=False))
         _query.extend(
             encode_query("interval", interval, "single", required=False, decimal=False)
@@ -2609,6 +2750,44 @@ class Predictions:
             None,
             models.decode_PredictionHistory,
         )
+
+    def extreme_history_iter(
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
+    ) -> Iterator[models.PredictionSeries]:
+        """Get Prediction History
+
+        Stability: stable.
+
+        Args:
+            event_id: Required path parameter.
+            cursor: Optional query parameter.
+            end: Required query parameter.
+            interval: Optional query parameter.
+            start: Required query parameter.
+
+        Returns:
+            Iterator[PredictionSeries]: Items yielded lazily across pages.
+        """
+
+        def page(
+            next_cursor: str | None,
+        ) -> tuple[builtins.list[models.PredictionSeries], str | None]:
+            result = self.extreme_history(
+                event_id=event_id,
+                cursor=next_cursor,
+                end=end,
+                interval=interval,
+                start=start,
+            )
+            return [item for item in result.series], result.next_cursor
+
+        return iterate(page, cursor)
 
     def policy_path(self, authority: str) -> models.PolicyPath:
         """Get Policy Path
@@ -2686,7 +2865,13 @@ class Predictions:
         )
 
     def scalar_history(
-        self, event_id: str, *, end: str, interval: str | None = None, start: str
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
     ) -> models.PredictionHistory:
         """Get Prediction History
 
@@ -2694,6 +2879,7 @@ class Predictions:
 
         Args:
             event_id: Required path parameter.
+            cursor: Optional query parameter.
             end: Required query parameter.
             interval: Optional query parameter.
             start: Required query parameter.
@@ -2702,6 +2888,9 @@ class Predictions:
             PredictionHistory: Decoded response with header metadata.
         """
         _query: Query = []
+        _query.extend(
+            encode_query("cursor", cursor, "single", required=False, decimal=False)
+        )
         _query.extend(encode_query("end", end, "single", required=True, decimal=False))
         _query.extend(
             encode_query("interval", interval, "single", required=False, decimal=False)
@@ -2718,6 +2907,44 @@ class Predictions:
             None,
             models.decode_PredictionHistory,
         )
+
+    def scalar_history_iter(
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
+    ) -> Iterator[models.PredictionSeries]:
+        """Get Prediction History
+
+        Stability: stable.
+
+        Args:
+            event_id: Required path parameter.
+            cursor: Optional query parameter.
+            end: Required query parameter.
+            interval: Optional query parameter.
+            start: Required query parameter.
+
+        Returns:
+            Iterator[PredictionSeries]: Items yielded lazily across pages.
+        """
+
+        def page(
+            next_cursor: str | None,
+        ) -> tuple[builtins.list[models.PredictionSeries], str | None]:
+            result = self.scalar_history(
+                event_id=event_id,
+                cursor=next_cursor,
+                end=end,
+                interval=interval,
+                start=start,
+            )
+            return [item for item in result.series], result.next_cursor
+
+        return iterate(page, cursor)
 
     def timing(self, event_id: str, *, at: str | None = None) -> models.TimingEvent:
         """Get Prediction
@@ -2742,7 +2969,13 @@ class Predictions:
         )
 
     def timing_history(
-        self, event_id: str, *, end: str, interval: str | None = None, start: str
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
     ) -> models.PredictionHistory:
         """Get Prediction History
 
@@ -2750,6 +2983,7 @@ class Predictions:
 
         Args:
             event_id: Required path parameter.
+            cursor: Optional query parameter.
             end: Required query parameter.
             interval: Optional query parameter.
             start: Required query parameter.
@@ -2758,6 +2992,9 @@ class Predictions:
             PredictionHistory: Decoded response with header metadata.
         """
         _query: Query = []
+        _query.extend(
+            encode_query("cursor", cursor, "single", required=False, decimal=False)
+        )
         _query.extend(encode_query("end", end, "single", required=True, decimal=False))
         _query.extend(
             encode_query("interval", interval, "single", required=False, decimal=False)
@@ -2774,6 +3011,44 @@ class Predictions:
             None,
             models.decode_PredictionHistory,
         )
+
+    def timing_history_iter(
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
+    ) -> Iterator[models.PredictionSeries]:
+        """Get Prediction History
+
+        Stability: stable.
+
+        Args:
+            event_id: Required path parameter.
+            cursor: Optional query parameter.
+            end: Required query parameter.
+            interval: Optional query parameter.
+            start: Required query parameter.
+
+        Returns:
+            Iterator[PredictionSeries]: Items yielded lazily across pages.
+        """
+
+        def page(
+            next_cursor: str | None,
+        ) -> tuple[builtins.list[models.PredictionSeries], str | None]:
+            result = self.timing_history(
+                event_id=event_id,
+                cursor=next_cursor,
+                end=end,
+                interval=interval,
+                start=start,
+            )
+            return [item for item in result.series], result.next_cursor
+
+        return iterate(page, cursor)
 
     def get_topic(self, topic_id: str) -> models.PredictionTopicDetail:
         """Get Prediction Topic
@@ -5386,6 +5661,89 @@ class AsyncEconomics:
 
         return iterate_async(page, cursor)
 
+    async def read_series_observations(
+        self,
+        series_id: str,
+        *,
+        cursor: str | None = None,
+        end: str | None = None,
+        limit: int | None = None,
+        start: str | None = None,
+    ) -> models.ResourceHistory:
+        """Read Resource History
+
+        Stability: stable.
+
+        Args:
+            series_id: Required path parameter.
+            cursor: Optional query parameter.
+            end: Optional query parameter.
+            limit: Optional query parameter.
+            start: Optional query parameter.
+
+        Returns:
+            ResourceHistory: Decoded response with header metadata.
+        """
+        _query: Query = []
+        _query.extend(
+            encode_query("cursor", cursor, "single", required=False, decimal=False)
+        )
+        _query.extend(encode_query("end", end, "single", required=False, decimal=False))
+        _query.extend(
+            encode_query("limit", limit, "single", required=False, decimal=False)
+        )
+        _query.extend(
+            encode_query("start", start, "single", required=False, decimal=False)
+        )
+        return await self._transport.request(
+            "GET",
+            encode_path(
+                "/v1/economics/series/{series_id}/observations",
+                {"series_id": series_id},
+            ),
+            _query,
+            None,
+            models.decode_ResourceHistory,
+        )
+
+    def read_series_observations_iter(
+        self,
+        series_id: str,
+        *,
+        cursor: str | None = None,
+        end: str | None = None,
+        limit: int | None = None,
+        start: str | None = None,
+    ) -> AsyncIterator[models.ResourceObservation]:
+        """Read Resource History
+
+        Stability: stable.
+
+        Args:
+            series_id: Required path parameter.
+            cursor: Optional query parameter.
+            end: Optional query parameter.
+            limit: Optional query parameter.
+            start: Optional query parameter.
+
+        Returns:
+            AsyncIterator[ResourceObservation]: Items yielded lazily across pages.
+        """
+
+        async def page(
+            next_cursor: str | None,
+        ) -> tuple[builtins.list[models.ResourceObservation], str | None]:
+            result = await self.read_series_observations(
+                series_id=series_id,
+                cursor=next_cursor,
+                end=end,
+                limit=limit,
+                start=start,
+            )
+            return [item for item in result.observations], result.next_cursor
+
+        return iterate_async(page, cursor)
+
 
 class AsyncEvents:
     def __init__(self, transport: AsyncTransport) -> None:
@@ -5760,7 +6118,13 @@ class AsyncPredictions:
         )
 
     async def binary_history(
-        self, event_id: str, *, end: str, interval: str | None = None, start: str
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
     ) -> models.PredictionHistory:
         """Get Prediction History
 
@@ -5768,6 +6132,7 @@ class AsyncPredictions:
 
         Args:
             event_id: Required path parameter.
+            cursor: Optional query parameter.
             end: Required query parameter.
             interval: Optional query parameter.
             start: Required query parameter.
@@ -5776,6 +6141,9 @@ class AsyncPredictions:
             PredictionHistory: Decoded response with header metadata.
         """
         _query: Query = []
+        _query.extend(
+            encode_query("cursor", cursor, "single", required=False, decimal=False)
+        )
         _query.extend(encode_query("end", end, "single", required=True, decimal=False))
         _query.extend(
             encode_query("interval", interval, "single", required=False, decimal=False)
@@ -5792,6 +6160,44 @@ class AsyncPredictions:
             None,
             models.decode_PredictionHistory,
         )
+
+    def binary_history_iter(
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
+    ) -> AsyncIterator[models.PredictionSeries]:
+        """Get Prediction History
+
+        Stability: stable.
+
+        Args:
+            event_id: Required path parameter.
+            cursor: Optional query parameter.
+            end: Required query parameter.
+            interval: Optional query parameter.
+            start: Required query parameter.
+
+        Returns:
+            AsyncIterator[PredictionSeries]: Items yielded lazily across pages.
+        """
+
+        async def page(
+            next_cursor: str | None,
+        ) -> tuple[builtins.list[models.PredictionSeries], str | None]:
+            result = await self.binary_history(
+                event_id=event_id,
+                cursor=next_cursor,
+                end=end,
+                interval=interval,
+                start=start,
+            )
+            return [item for item in result.series], result.next_cursor
+
+        return iterate_async(page, cursor)
 
     async def extreme(
         self, event_id: str, *, at: str | None = None
@@ -5818,7 +6224,13 @@ class AsyncPredictions:
         )
 
     async def extreme_history(
-        self, event_id: str, *, end: str, interval: str | None = None, start: str
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
     ) -> models.PredictionHistory:
         """Get Prediction History
 
@@ -5826,6 +6238,7 @@ class AsyncPredictions:
 
         Args:
             event_id: Required path parameter.
+            cursor: Optional query parameter.
             end: Required query parameter.
             interval: Optional query parameter.
             start: Required query parameter.
@@ -5834,6 +6247,9 @@ class AsyncPredictions:
             PredictionHistory: Decoded response with header metadata.
         """
         _query: Query = []
+        _query.extend(
+            encode_query("cursor", cursor, "single", required=False, decimal=False)
+        )
         _query.extend(encode_query("end", end, "single", required=True, decimal=False))
         _query.extend(
             encode_query("interval", interval, "single", required=False, decimal=False)
@@ -5850,6 +6266,44 @@ class AsyncPredictions:
             None,
             models.decode_PredictionHistory,
         )
+
+    def extreme_history_iter(
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
+    ) -> AsyncIterator[models.PredictionSeries]:
+        """Get Prediction History
+
+        Stability: stable.
+
+        Args:
+            event_id: Required path parameter.
+            cursor: Optional query parameter.
+            end: Required query parameter.
+            interval: Optional query parameter.
+            start: Required query parameter.
+
+        Returns:
+            AsyncIterator[PredictionSeries]: Items yielded lazily across pages.
+        """
+
+        async def page(
+            next_cursor: str | None,
+        ) -> tuple[builtins.list[models.PredictionSeries], str | None]:
+            result = await self.extreme_history(
+                event_id=event_id,
+                cursor=next_cursor,
+                end=end,
+                interval=interval,
+                start=start,
+            )
+            return [item for item in result.series], result.next_cursor
+
+        return iterate_async(page, cursor)
 
     async def policy_path(self, authority: str) -> models.PolicyPath:
         """Get Policy Path
@@ -5929,7 +6383,13 @@ class AsyncPredictions:
         )
 
     async def scalar_history(
-        self, event_id: str, *, end: str, interval: str | None = None, start: str
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
     ) -> models.PredictionHistory:
         """Get Prediction History
 
@@ -5937,6 +6397,7 @@ class AsyncPredictions:
 
         Args:
             event_id: Required path parameter.
+            cursor: Optional query parameter.
             end: Required query parameter.
             interval: Optional query parameter.
             start: Required query parameter.
@@ -5945,6 +6406,9 @@ class AsyncPredictions:
             PredictionHistory: Decoded response with header metadata.
         """
         _query: Query = []
+        _query.extend(
+            encode_query("cursor", cursor, "single", required=False, decimal=False)
+        )
         _query.extend(encode_query("end", end, "single", required=True, decimal=False))
         _query.extend(
             encode_query("interval", interval, "single", required=False, decimal=False)
@@ -5961,6 +6425,44 @@ class AsyncPredictions:
             None,
             models.decode_PredictionHistory,
         )
+
+    def scalar_history_iter(
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
+    ) -> AsyncIterator[models.PredictionSeries]:
+        """Get Prediction History
+
+        Stability: stable.
+
+        Args:
+            event_id: Required path parameter.
+            cursor: Optional query parameter.
+            end: Required query parameter.
+            interval: Optional query parameter.
+            start: Required query parameter.
+
+        Returns:
+            AsyncIterator[PredictionSeries]: Items yielded lazily across pages.
+        """
+
+        async def page(
+            next_cursor: str | None,
+        ) -> tuple[builtins.list[models.PredictionSeries], str | None]:
+            result = await self.scalar_history(
+                event_id=event_id,
+                cursor=next_cursor,
+                end=end,
+                interval=interval,
+                start=start,
+            )
+            return [item for item in result.series], result.next_cursor
+
+        return iterate_async(page, cursor)
 
     async def timing(
         self, event_id: str, *, at: str | None = None
@@ -5987,7 +6489,13 @@ class AsyncPredictions:
         )
 
     async def timing_history(
-        self, event_id: str, *, end: str, interval: str | None = None, start: str
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
     ) -> models.PredictionHistory:
         """Get Prediction History
 
@@ -5995,6 +6503,7 @@ class AsyncPredictions:
 
         Args:
             event_id: Required path parameter.
+            cursor: Optional query parameter.
             end: Required query parameter.
             interval: Optional query parameter.
             start: Required query parameter.
@@ -6003,6 +6512,9 @@ class AsyncPredictions:
             PredictionHistory: Decoded response with header metadata.
         """
         _query: Query = []
+        _query.extend(
+            encode_query("cursor", cursor, "single", required=False, decimal=False)
+        )
         _query.extend(encode_query("end", end, "single", required=True, decimal=False))
         _query.extend(
             encode_query("interval", interval, "single", required=False, decimal=False)
@@ -6019,6 +6531,44 @@ class AsyncPredictions:
             None,
             models.decode_PredictionHistory,
         )
+
+    def timing_history_iter(
+        self,
+        event_id: str,
+        *,
+        cursor: str | None = None,
+        end: str,
+        interval: str | None = None,
+        start: str,
+    ) -> AsyncIterator[models.PredictionSeries]:
+        """Get Prediction History
+
+        Stability: stable.
+
+        Args:
+            event_id: Required path parameter.
+            cursor: Optional query parameter.
+            end: Required query parameter.
+            interval: Optional query parameter.
+            start: Required query parameter.
+
+        Returns:
+            AsyncIterator[PredictionSeries]: Items yielded lazily across pages.
+        """
+
+        async def page(
+            next_cursor: str | None,
+        ) -> tuple[builtins.list[models.PredictionSeries], str | None]:
+            result = await self.timing_history(
+                event_id=event_id,
+                cursor=next_cursor,
+                end=end,
+                interval=interval,
+                start=start,
+            )
+            return [item for item in result.series], result.next_cursor
+
+        return iterate_async(page, cursor)
 
     async def get_topic(self, topic_id: str) -> models.PredictionTopicDetail:
         """Get Prediction Topic

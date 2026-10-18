@@ -8,7 +8,7 @@ from collections.abc import Mapping
 from decimal import InvalidOperation
 
 from ._decode import read_json
-from ._generated.models import DeliveryEvent, decode_DeliveryEvent
+from ._generated.models import WebhookEvent, decode_WebhookEvent
 from .errors import WebhookVerificationError
 
 
@@ -18,7 +18,7 @@ def verify(
     secrets: str | list[str],
     tolerance_seconds: int = 300,
     now: float | None = None,
-) -> DeliveryEvent:
+) -> WebhookEvent:
     """Verify raw bytes; use the resulting event_id for idempotency."""
     keys = [secrets] if isinstance(secrets, str) else secrets
     if not keys or any(not key for key in keys):
@@ -55,6 +55,6 @@ def verify(
     if not matched:
         raise WebhookVerificationError("no_matching_signature")
     try:
-        return decode_DeliveryEvent(read_json(raw_body))
+        return decode_WebhookEvent(read_json(raw_body))
     except (ValueError, KeyError, TypeError, UnicodeError, InvalidOperation):
         raise WebhookVerificationError("invalid_body") from None

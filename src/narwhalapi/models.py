@@ -1,5 +1,5 @@
-# Generated from spec/live/openapi.json sha256 549d8458a8dcfbbccea3ea4b23f7d9163c6525ce932e4c5f6657fdd9b728985c. Do not edit.
-# Generated from spec/next/openapi.json sha256 549d8458a8dcfbbccea3ea4b23f7d9163c6525ce932e4c5f6657fdd9b728985c. Do not edit.
+# Generated from spec/live/openapi.json sha256 a8f87a3ac708cc35c7a08fa69c5bf4c3edeea4259ff31a8cc7a3f6ded6b553a8. Do not edit.
+# Generated from spec/next/openapi.json sha256 a8f87a3ac708cc35c7a08fa69c5bf4c3edeea4259ff31a8cc7a3f6ded6b553a8. Do not edit.
 """Public response models, request models, and known enum values."""
 
 from ._generated.models import (
@@ -111,6 +111,9 @@ from ._generated.models import (
     PredictionTopicDetail,
     PredictionTopics,
     PredictionVenue,
+    PredictionWebhookEvent,
+    PredictionWebhookSettlement,
+    PredictionWebhookStatus,
     Problem,
     ProducerArrangement,
     Quote,
@@ -120,6 +123,10 @@ from ._generated.models import (
     ReleaseStatus,
     ReleaseTopic,
     ResolutionKind,
+    ResourceHistory,
+    ResourceObservation,
+    ResourceObservationStatus,
+    ResourceUnit,
     ScalarBody,
     ScalarEvent,
     ScalarOutcome,
@@ -157,6 +164,9 @@ from ._generated.models import (
     WebhookDestinationInput,
     WebhookDestinationList,
     WebhookDestinationResponse,
+    WebhookDisabledReason,
+    WebhookEvent,
+    WebhookEventType,
     WebhookFamily,
     WebhookHistoryResponse,
     WebhookReplayResponse,
@@ -278,6 +288,9 @@ __all__ = [
     "PredictionTopicDetail",
     "PredictionTopics",
     "PredictionVenue",
+    "PredictionWebhookEvent",
+    "PredictionWebhookSettlement",
+    "PredictionWebhookStatus",
     "Problem",
     "ProducerArrangement",
     "Quote",
@@ -287,6 +300,10 @@ __all__ = [
     "ReleaseStatus",
     "ReleaseTopic",
     "ResolutionKind",
+    "ResourceHistory",
+    "ResourceObservation",
+    "ResourceObservationStatus",
+    "ResourceUnit",
     "ScalarBody",
     "ScalarEvent",
     "ScalarOutcome",
@@ -324,6 +341,9 @@ __all__ = [
     "WebhookDestinationInput",
     "WebhookDestinationList",
     "WebhookDestinationResponse",
+    "WebhookDisabledReason",
+    "WebhookEvent",
+    "WebhookEventType",
     "WebhookFamily",
     "WebhookHistoryResponse",
     "WebhookReplayResponse",

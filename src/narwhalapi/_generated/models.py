@@ -1,5 +1,5 @@
-# Generated from spec/live/openapi.json sha256 549d8458a8dcfbbccea3ea4b23f7d9163c6525ce932e4c5f6657fdd9b728985c. Do not edit.
-# Generated from spec/next/openapi.json sha256 549d8458a8dcfbbccea3ea4b23f7d9163c6525ce932e4c5f6657fdd9b728985c. Do not edit.
+# Generated from spec/live/openapi.json sha256 a8f87a3ac708cc35c7a08fa69c5bf4c3edeea4259ff31a8cc7a3f6ded6b553a8. Do not edit.
+# Generated from spec/next/openapi.json sha256 a8f87a3ac708cc35c7a08fa69c5bf4c3edeea4259ff31a8cc7a3f6ded6b553a8. Do not edit.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -301,6 +301,14 @@ class PredictionShape:
     TIMING: Literal["timing"] = "timing"
 
 
+class PredictionWebhookStatus:
+    """Known values; response fields also accept future strings."""
+
+    CLOSED: Literal["closed"] = "closed"
+    SETTLED: Literal["settled"] = "settled"
+    VOID: Literal["void"] = "void"
+
+
 class ProducerArrangement:
     """Known values; response fields also accept future strings."""
 
@@ -386,6 +394,32 @@ class ResolutionKind:
     PRICE_FIX: Literal["price_fix"] = "price_fix"
     PRICE_WINDOW: Literal["price_window"] = "price_window"
     RELEASE: Literal["release"] = "release"
+
+
+class ResourceObservationStatus:
+    """Known values; response fields also accept future strings."""
+
+    BREAK_IN_SERIES: Literal["break_in_series"] = "break_in_series"
+    BREAK_IN_SERIES_AND_DEFINITION_DIFFERS: Literal[
+        "break_in_series_and_definition_differs"
+    ] = "break_in_series_and_definition_differs"
+    DEFINITION_DIFFERS: Literal["definition_differs"] = "definition_differs"
+    ESTIMATED: Literal["estimated"] = "estimated"
+    PROVISIONAL: Literal["provisional"] = "provisional"
+
+
+class ResourceUnit:
+    """Known values; response fields also accept future strings."""
+
+    CURRENCY: Literal["currency"] = "currency"
+    CURRENCY_PER_HOUR: Literal["currency_per_hour"] = "currency_per_hour"
+    CURRENCY_PER_MONTH: Literal["currency_per_month"] = "currency_per_month"
+    CURRENCY_PER_WEEK: Literal["currency_per_week"] = "currency_per_week"
+    CURRENCY_PER_YEAR: Literal["currency_per_year"] = "currency_per_year"
+    INDEX: Literal["index"] = "index"
+    JOB: Literal["job"] = "job"
+    PERCENT: Literal["percent"] = "percent"
+    PERSON: Literal["person"] = "person"
 
 
 class SchedulePrecision:
@@ -501,6 +535,36 @@ class WebhookDeliveryState:
     LEASED: Literal["leased"] = "leased"
     PENDING: Literal["pending"] = "pending"
     SUCCEEDED: Literal["succeeded"] = "succeeded"
+
+
+class WebhookDisabledReason:
+    """Known values; response fields also accept future strings."""
+
+    CUSTOMER: Literal["customer"] = "customer"
+    PLAN_LIMIT: Literal["plan_limit"] = "plan_limit"
+
+
+class WebhookEventType:
+    """Known values; response fields also accept future strings."""
+
+    DATASET_PUBLISHED: Literal["dataset.published"] = "dataset.published"
+    DATASET_REVISED: Literal["dataset.revised"] = "dataset.revised"
+    HOLIDAY_CALENDAR_REVISED: Literal["holiday.calendar.revised"] = (
+        "holiday.calendar.revised"
+    )
+    PREDICTION_EVENT_CLOSED: Literal["prediction.event.closed"] = (
+        "prediction.event.closed"
+    )
+    PREDICTION_EVENT_SETTLED: Literal["prediction.event.settled"] = (
+        "prediction.event.settled"
+    )
+    RELEASE_CANCELLED: Literal["release.cancelled"] = "release.cancelled"
+    RELEASE_RESCHEDULED: Literal["release.rescheduled"] = "release.rescheduled"
+    RELEASE_SCHEDULED: Literal["release.scheduled"] = "release.scheduled"
+    RELEASE_UPDATED: Literal["release.updated"] = "release.updated"
+    WEBHOOK_TEST: Literal["webhook.test"] = "webhook.test"
+    YIELD_CURVE_PUBLISHED: Literal["yield_curve.published"] = "yield_curve.published"
+    YIELD_CURVE_REVISED: Literal["yield_curve.revised"] = "yield_curve.revised"
 
 
 class WebhookFamily:
@@ -1303,6 +1367,7 @@ class PredictionHistory:
     end: str
     event_id: str
     interval: str
+    next_cursor: str | None = None
     series: list[PredictionSeries]
     shape: str
     start: str
@@ -1384,6 +1449,24 @@ class PredictionVenue:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
+class PredictionWebhookEvent:
+    closes_at: str | None = None
+    event_id: str
+    release_id: str | None = None
+    resolves_at: str | None = None
+    settlements: list[PredictionWebhookSettlement]
+    shape: str
+    status: str
+    topic_id: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class PredictionWebhookSettlement:
+    status: str
+    venue: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
 class Problem:
     code: str
     detail: str
@@ -1401,6 +1484,26 @@ class Quote:
     probability: str
     role: str
     venue: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class ResourceHistory:
+    country: str
+    currency: str | None = None
+    next_cursor: str | None = None
+    observations: list[ResourceObservation]
+    series_id: str
+    source: SeriesSource | None = None
+    unit: str
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class ResourceObservation:
+    period: str
+    released_on: str | None = None
+    status: str | None = None
+    value: Decimal
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
@@ -1626,6 +1729,7 @@ class WebhookDestinationCreated:
     countries: list[str]
     created_at: str
     destination_id: str
+    disabled_reason: str | None = None
     enabled: bool
     families: list[str]
     secret: str
@@ -1656,12 +1760,33 @@ class WebhookDestinationResponse:
     countries: list[str]
     created_at: str
     destination_id: str
+    disabled_reason: str | None = None
     enabled: bool
     families: list[str]
     secret_version: int
     updated_at: str
     url: str
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class WebhookEvent:
+    country: str | None = None
+    cursor: str | None = None
+    event_id: str
+    family: str | None = None
+    holiday_country: str | None = None
+    holiday_generation: int | None = None
+    holiday_year: int | None = None
+    is_test: bool | None = None
+    prediction: PredictionWebhookEvent | None = None
+    publication_id: str | None = None
+    recorded_at: str
+    release_id: str | None = None
+    resource_id: str | None = None
+    resource_version: str | None = None
+    schema_version: str
+    type: str
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
@@ -3019,6 +3144,9 @@ def decode_PredictionHistory(
         end=read_str(data["end"]),
         event_id=read_str(data["event_id"]),
         interval=read_str(data["interval"]),
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
         series=[decode_PredictionSeries(item0) for item0 in read_list(data["series"])],
         shape=read_str(data["shape"]),
         start=read_str(data["start"]),
@@ -3158,6 +3286,41 @@ def decode_PredictionVenue(
     )
 
 
+def decode_PredictionWebhookEvent(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> PredictionWebhookEvent:
+    data = read_object(value)
+    return PredictionWebhookEvent(
+        closes_at=read_str(data["closes_at"])
+        if data.get("closes_at") is not None
+        else None,
+        event_id=read_str(data["event_id"]),
+        release_id=read_str(data["release_id"])
+        if data.get("release_id") is not None
+        else None,
+        resolves_at=read_str(data["resolves_at"])
+        if data.get("resolves_at") is not None
+        else None,
+        settlements=[
+            decode_PredictionWebhookSettlement(item0)
+            for item0 in read_list(data["settlements"])
+        ],
+        shape=read_str(data["shape"]),
+        status=read_str(data["status"]),
+        topic_id=read_str(data["topic_id"]),
+    )
+
+
+def decode_PredictionWebhookSettlement(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> PredictionWebhookSettlement:
+    data = read_object(value)
+    return PredictionWebhookSettlement(
+        status=read_str(data["status"]),
+        venue=read_str(data["venue"]),
+    )
+
+
 def decode_Problem(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> Problem:
@@ -3185,6 +3348,45 @@ def decode_Quote(
         probability=read_str(data["probability"]),
         role=read_str(data["role"]),
         venue=read_str(data["venue"]),
+    )
+
+
+def decode_ResourceHistory(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> ResourceHistory:
+    data = read_object(value)
+    return ResourceHistory(
+        country=read_str(data["country"]),
+        currency=read_str(data["currency"])
+        if data.get("currency") is not None
+        else None,
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        observations=[
+            decode_ResourceObservation(item0)
+            for item0 in read_list(data["observations"])
+        ],
+        series_id=read_str(data["series_id"]),
+        source=decode_SeriesSource(data["source"])
+        if data.get("source") is not None
+        else None,
+        unit=read_str(data["unit"]),
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_ResourceObservation(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> ResourceObservation:
+    data = read_object(value)
+    return ResourceObservation(
+        period=read_str(data["period"]),
+        released_on=read_str(data["released_on"])
+        if data.get("released_on") is not None
+        else None,
+        status=read_str(data["status"]) if data.get("status") is not None else None,
+        value=read_decimal(data["value"]),
     )
 
 
@@ -3542,6 +3744,9 @@ def decode_WebhookDestinationCreated(
         countries=[read_str(item0) for item0 in read_list(data["countries"])],
         created_at=read_str(data["created_at"]),
         destination_id=read_str(data["destination_id"]),
+        disabled_reason=read_str(data["disabled_reason"])
+        if data.get("disabled_reason") is not None
+        else None,
         enabled=read_bool(data["enabled"]),
         families=[read_str(item0) for item0 in read_list(data["families"])],
         secret=read_str(data["secret"]),
@@ -3587,12 +3792,55 @@ def decode_WebhookDestinationResponse(
         countries=[read_str(item0) for item0 in read_list(data["countries"])],
         created_at=read_str(data["created_at"]),
         destination_id=read_str(data["destination_id"]),
+        disabled_reason=read_str(data["disabled_reason"])
+        if data.get("disabled_reason") is not None
+        else None,
         enabled=read_bool(data["enabled"]),
         families=[read_str(item0) for item0 in read_list(data["families"])],
         secret_version=read_int(data["secret_version"]),
         updated_at=read_str(data["updated_at"]),
         url=read_str(data["url"]),
         meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_WebhookEvent(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> WebhookEvent:
+    data = read_object(value)
+    return WebhookEvent(
+        country=read_str(data["country"]) if data.get("country") is not None else None,
+        cursor=read_str(data["cursor"]) if data.get("cursor") is not None else None,
+        event_id=read_str(data["event_id"]),
+        family=read_str(data["family"]) if data.get("family") is not None else None,
+        holiday_country=read_str(data["holiday_country"])
+        if data.get("holiday_country") is not None
+        else None,
+        holiday_generation=read_int(data["holiday_generation"])
+        if data.get("holiday_generation") is not None
+        else None,
+        holiday_year=read_int(data["holiday_year"])
+        if data.get("holiday_year") is not None
+        else None,
+        is_test=read_bool(data["is_test"]) if data.get("is_test") is not None else None,
+        prediction=decode_PredictionWebhookEvent(data["prediction"])
+        if data.get("prediction") is not None
+        else None,
+        publication_id=read_str(data["publication_id"])
+        if data.get("publication_id") is not None
+        else None,
+        recorded_at=read_str(data["recorded_at"]),
+        release_id=read_str(data["release_id"])
+        if data.get("release_id") is not None
+        else None,
+        resource_id=read_str(data["resource_id"])
+        if data.get("resource_id") is not None
+        else None,
+        resource_version=read_str(data["resource_version"])
+        if data.get("resource_version") is not None
+        else None,
+        schema_version=read_str(data["schema_version"]),
+        type=read_str(data["type"]),
     )
 
 
