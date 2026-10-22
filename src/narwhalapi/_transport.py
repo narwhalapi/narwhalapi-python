@@ -203,7 +203,12 @@ def decode_response(
 ) -> T:
     try:
         return decoder(
-            read_json(response.content),
+            # A 204 answer has no body; it reads as an empty object.
+            read_json(
+                b"{}"
+                if response.status_code == 204 and not response.content
+                else response.content
+            ),
             ResponseMeta.from_headers(response.headers),
             response.content,
         )

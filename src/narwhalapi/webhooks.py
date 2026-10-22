@@ -55,6 +55,23 @@ def verify(
     if not matched:
         raise WebhookVerificationError("no_matching_signature")
     try:
-        return decode_WebhookEvent(read_json(raw_body))
+        return decode_WebhookEvent(_with_current_names(read_json(raw_body)))
     except (ValueError, KeyError, TypeError, UnicodeError, InvalidOperation):
         raise WebhookVerificationError("invalid_body") from None
+
+
+def _with_current_names(body: object) -> object:
+    """Queued retries and replays keep the body they were first sent with. A prediction body
+    sent before the 22 October 2026 lean contracts names the market `event_id`."""
+    if isinstance(body, dict):
+        prediction = body.get("prediction")
+        if (
+            isinstance(prediction, dict)
+            and "prediction_event_id" not in prediction
+            and "event_id" in prediction
+        ):
+            body["prediction"] = {
+                **prediction,
+                "prediction_event_id": prediction["event_id"],
+            }
+    return body

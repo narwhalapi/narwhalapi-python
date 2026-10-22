@@ -1,5 +1,5 @@
-# Generated from spec/live/openapi.json sha256 a8f87a3ac708cc35c7a08fa69c5bf4c3edeea4259ff31a8cc7a3f6ded6b553a8. Do not edit.
-# Generated from spec/next/openapi.json sha256 a8f87a3ac708cc35c7a08fa69c5bf4c3edeea4259ff31a8cc7a3f6ded6b553a8. Do not edit.
+# Generated from spec/live/openapi.json sha256 ba06d620d3f1f03774f3f30363a59e00f14ab7cde053c552d2164ad83a9ea678. Do not edit.
+# Generated from spec/next/openapi.json sha256 ba06d620d3f1f03774f3f30363a59e00f14ab7cde053c552d2164ad83a9ea678. Do not edit.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -38,13 +38,6 @@ class _PalmoilSeries:
     pass
 
 
-class Annualization:
-    """Known values; response fields also accept future strings."""
-
-    ANNUALIZED: Literal["annualized"] = "annualized"
-    NOT_ANNUALIZED: Literal["not_annualized"] = "not_annualized"
-
-
 class BarInterval:
     """Known values; response fields also accept future strings."""
 
@@ -54,20 +47,6 @@ class BarInterval:
     V1M: Literal["1m"] = "1m"
     V4H: Literal["4h"] = "4h"
     V5M: Literal["5m"] = "5m"
-
-
-class CentralBank:
-    """Known values; response fields also accept future strings."""
-
-    BANK_INDONESIA: Literal["bank-indonesia"] = "bank-indonesia"
-    BANK_OF_CANADA: Literal["bank-of-canada"] = "bank-of-canada"
-    BANK_OF_ENGLAND: Literal["bank-of-england"] = "bank-of-england"
-    BANK_OF_JAPAN: Literal["bank-of-japan"] = "bank-of-japan"
-    EUROPEAN_CENTRAL_BANK: Literal["european-central-bank"] = "european-central-bank"
-    FEDERAL_RESERVE: Literal["federal-reserve"] = "federal-reserve"
-    RESERVE_BANK_OF_AUSTRALIA: Literal["reserve-bank-of-australia"] = (
-        "reserve-bank-of-australia"
-    )
 
 
 class CommodityUnit:
@@ -111,22 +90,19 @@ class EconomicFamily:
     YIELD_CURVE: Literal["yield_curve"] = "yield_curve"
 
 
+class EconomicReleaseValueValueStatus:
+    """Known values; response fields also accept future strings."""
+
+    PENDING_CAPTURE: Literal["pending_capture"] = "pending_capture"
+    UNAVAILABLE: Literal["unavailable"] = "unavailable"
+
+
 class ExtremeObservation:
     """Known values; response fields also accept future strings."""
 
     ANY_RELEASE: Literal["any_release"] = "any_release"
     ANY_TRADE: Literal["any_trade"] = "any_trade"
     CLOSE: Literal["close"] = "close"
-
-
-class GrowthSeasonalAdjustment:
-    """Known values; response fields also accept future strings."""
-
-    MIXED: Literal["mixed"] = "mixed"
-    NOT_SEASONALLY_ADJUSTED: Literal["not_seasonally_adjusted"] = (
-        "not_seasonally_adjusted"
-    )
-    SEASONALLY_ADJUSTED: Literal["seasonally_adjusted"] = "seasonally_adjusted"
 
 
 class HolidayScope:
@@ -151,15 +127,6 @@ class IndicatorUnit:
     PERCENT: Literal["percent"] = "percent"
     RATIO: Literal["ratio"] = "ratio"
     THOUSANDS: Literal["thousands"] = "thousands"
-
-
-class IndicatorValueStatus:
-    """Known values; response fields also accept future strings."""
-
-    AVAILABLE: Literal["available"] = "available"
-    NOT_RELEASED: Literal["not_released"] = "not_released"
-    PENDING_CAPTURE: Literal["pending_capture"] = "pending_capture"
-    UNAVAILABLE: Literal["unavailable"] = "unavailable"
 
 
 class MarketSession:
@@ -281,15 +248,6 @@ class PredictionEventStatus:
     VOID: Literal["void"] = "void"
 
 
-class PredictionInterval:
-    """Known values; response fields also accept future strings."""
-
-    V1D: Literal["1d"] = "1d"
-    V1H: Literal["1h"] = "1h"
-    V1M: Literal["1m"] = "1m"
-    V5M: Literal["5m"] = "5m"
-
-
 class PredictionShape:
     """Known values; response fields also accept future strings."""
 
@@ -299,6 +257,13 @@ class PredictionShape:
     SCALAR: Literal["scalar"] = "scalar"
     SET: Literal["set"] = "set"
     TIMING: Literal["timing"] = "timing"
+
+
+class PredictionVenueSettlement:
+    """Known values; response fields also accept future strings."""
+
+    SETTLED: Literal["settled"] = "settled"
+    VOID: Literal["void"] = "void"
 
 
 class PredictionWebhookStatus:
@@ -314,21 +279,6 @@ class ProducerArrangement:
 
     PURCHASE_AGREEMENT: Literal["purchase_agreement"] = "purchase_agreement"
     SUPPORTED_SCHEME: Literal["supported_scheme"] = "supported_scheme"
-
-
-class QuoteFreshness:
-    """Known values; response fields also accept future strings."""
-
-    LIVE: Literal["live"] = "live"
-    NO_LIVE_QUOTES: Literal["no_live_quotes"] = "no_live_quotes"
-    STALE: Literal["stale"] = "stale"
-
-
-class QuoteRole:
-    """Known values; response fields also accept future strings."""
-
-    BLENDED: Literal["blended"] = "blended"
-    EXCLUDED: Literal["excluded"] = "excluded"
 
 
 class ReleaseStage:
@@ -422,30 +372,12 @@ class ResourceUnit:
     PERSON: Literal["person"] = "person"
 
 
-class SchedulePrecision:
+class ScalarEventAbove:
     """Known values; response fields also accept future strings."""
 
-    DATE: Literal["date"] = "date"
-    DEADLINE: Literal["deadline"] = "deadline"
-    ESTIMATED_RANGE: Literal["estimated_range"] = "estimated_range"
-    EXACT: Literal["exact"] = "exact"
-    UNKNOWN: Literal["unknown"] = "unknown"
-
-
-class ScheduleTimeBasis:
-    """Known values; response fields also accept future strings."""
-
-    CALENDAR: Literal["calendar"] = "calendar"
-    STANDARD_TIME: Literal["standard_time"] = "standard_time"
-
-
-class SeasonalAdjustment:
-    """Known values; response fields also accept future strings."""
-
-    NOT_SEASONALLY_ADJUSTED: Literal["not_seasonally_adjusted"] = (
-        "not_seasonally_adjusted"
-    )
-    SEASONALLY_ADJUSTED: Literal["seasonally_adjusted"] = "seasonally_adjusted"
+    MEDIAN: Literal["median"] = "median"
+    P10: Literal["p10"] = "p10"
+    P90: Literal["p90"] = "p90"
 
 
 class SettlementStatus:
@@ -475,29 +407,6 @@ class TopicGroup:
     US_ACTIVITY: Literal["us_activity"] = "us_activity"
     US_JOBS: Literal["us_jobs"] = "us_jobs"
     US_PRICES: Literal["us_prices"] = "us_prices"
-
-
-class ValueScale:
-    """Known values; response fields also accept future strings."""
-
-    BILLIONS: Literal["billions"] = "billions"
-    HUNDRED_MILLIONS: Literal["hundred_millions"] = "hundred_millions"
-    MILLIONS: Literal["millions"] = "millions"
-    THOUSANDS: Literal["thousands"] = "thousands"
-    UNITS: Literal["units"] = "units"
-
-
-class ValueTransformation:
-    """Known values; response fields also accept future strings."""
-
-    CHANGE: Literal["change"] = "change"
-    LEVEL: Literal["level"] = "level"
-    MONTH_OVER_MONTH: Literal["month_over_month"] = "month_over_month"
-    QUARTER_OVER_QUARTER: Literal["quarter_over_quarter"] = "quarter_over_quarter"
-    THREE_MONTH_ON_THREE_MONTH: Literal["three_month_on_three_month"] = (
-        "three_month_on_three_month"
-    )
-    YEAR_OVER_YEAR: Literal["year_over_year"] = "year_over_year"
 
 
 class Venue:
@@ -604,25 +513,20 @@ class YieldCurveType:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class BinaryBody:
-    deadline: str | None = None
-    labels: BinaryLabels
-    probability: str | None = None
-    quotes: list[Quote]
-
-
-@dataclass(frozen=True, slots=True, kw_only=True)
 class BinaryEvent:
     as_of: str | None = None
-    body: BinaryBody
     closes_at: str | None = None
     event_id: str
-    quality: PredictionQuality
+    labels: BinaryLabels | None = None
+    probability: str | None = None
     question: str
+    quotes: list[Quote]
     release_id: str | None = None
-    resolution: PredictionResolution
+    resolution: str
     resolves_at: str | None = None
-    shape: str
+    resolves_with: str | None = None
+    result: PredictionResult | None = None
+    stale: bool | None = None
     status: str
     topic_id: str
     unit: str | None = None
@@ -638,7 +542,6 @@ class BinaryLabels:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class CalendarCoverage:
-    nationwide: bool
     scope: str
     subdivision_codes: list[str] | None = None
 
@@ -648,7 +551,6 @@ class CalendarHoliday:
     date: str
     local_name: str | None = None
     name: str
-    nationwide: bool
     observed: bool | None = None
     scope: str
     subdivision_codes: list[str] | None = None
@@ -659,7 +561,6 @@ class CalendarHolidays:
     country: str
     coverage: list[CalendarCoverage]
     holidays: list[CalendarHoliday]
-    year: int
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
@@ -667,7 +568,6 @@ class CalendarHolidays:
 class CalendarHolidaysOnDate:
     country: str
     coverage: list[CalendarCoverage]
-    date: str
     holidays: list[CalendarHoliday]
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
@@ -676,7 +576,6 @@ class CalendarHolidaysOnDate:
 class CalendarNextHoliday:
     country: str
     coverage: list[CalendarCoverage]
-    from_date: str
     holiday: CalendarHoliday | None = None
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
@@ -684,7 +583,6 @@ class CalendarNextHoliday:
 @dataclass(frozen=True, slots=True, kw_only=True)
 class CalendarSubscriptionCreated:
     expires_at: str
-    refresh_note: str | None = None
     subscription_id: str
     url: str
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
@@ -702,13 +600,6 @@ class CalendarSubscriptionInput:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class CalendarSubscriptionRevoked:
-    revoked: bool | None = None
-    subscription_id: str
-    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
-
-
-@dataclass(frozen=True, slots=True, kw_only=True)
 class CommodityBar:
     close: Decimal
     high: Decimal | None = None
@@ -721,10 +612,9 @@ class CommodityBar:
 class CommodityBars:
     bars: list[CommodityBar]
     currency: str
-    end: str
-    interval: str
+    end: str | None = None
     next_cursor: str | None = None
-    start: str
+    start: str | None = None
     symbol: str
     unit: str
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
@@ -750,9 +640,8 @@ class CommoditySpot:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class Cpi:
-    base_period: str
-    base_value: Decimal
     country: str
+    index_base: str
     period: str
     released_on: str
     source: SeriesSource | None = None
@@ -761,94 +650,120 @@ class Cpi:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
+class CpiHistory:
+    as_of: str | None = None
+    country: str
+    index_base: str
+    next_cursor: str | None = None
+    observations: list[CpiHistoryObservation]
+    source: SeriesSource | None = None
+    start: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CpiHistoryObservation:
+    period: str
+    value: Decimal
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
 class DeliveryEvent:
     country: str
     cursor: str
     event_id: str
-    event_type: str
     family: str
-    holiday_country: str | None = None
     holiday_generation: int | None = None
     holiday_year: int | None = None
-    publication_id: str | None = None
     recorded_at: str
     release_id: str | None = None
     resource_id: str | None = None
     resource_version: str | None = None
-    schema_version: str | None = None
     type: str
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class EconomicCalendar:
-    as_of: str
     next_cursor: str | None = None
-    releases: list[EconomicRelease]
-    snapshot: str
-    status: str | None = None
+    releases: list[EconomicReleaseSummary]
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class EconomicRelease:
+class EconomicReleaseDetail:
+    at: str | None = None
+    between: list[str] | None = None
+    by: str | None = None
     country: str
+    date: str | None = None
     family: str
-    indicators: list[EconomicReleaseIndicator] | None = None
     name: str
     notice: str | None = None
     observed_at: str | None = None
-    officially_published_at: str | None = None
-    reference_period: str | None = None
+    period: str | None = None
     release_id: str
-    revision: int | None = None
-    schedule: EconomicReleaseSchedule
+    revision: int
     series_id: str | None = None
     stage: str | None = None
     status: str
-    title: str
+    timezone: str | None = None
     topic: str | None = None
-    variant: str | None = None
+    values: list[EconomicReleaseValue]
     version: str
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class EconomicReleaseIndicator:
-    actual: Decimal | None = None
-    actual_as_of: str | None = None
-    annualization: str | None = None
-    currency: str | None = None
-    index_base: str | None = None
-    measure: str
-    period: str
-    previous: Decimal | None = None
-    previous_as_of: str | None = None
-    previous_before_revision: Decimal | None = None
-    previous_period: str
-    scale: str | None = None
-    seasonal_adjustment: str
-    title: str
-    transformation: str
-    unit: str
-    value_status: str
+class EconomicReleaseSummary:
+    at: str | None = None
+    between: list[str] | None = None
+    by: str | None = None
+    country: str
+    date: str | None = None
+    family: str
+    name: str
+    notice: str | None = None
+    period: str | None = None
+    release_id: str
+    revision: int
+    series_id: str | None = None
+    stage: str | None = None
+    status: str
+    timezone: str | None = None
+    topic: str | None = None
+    values: list[EconomicReleaseValue]
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class EconomicReleaseSchedule:
-    at: str | None = None
-    date: str | None = None
-    local_date: str | None = None
-    precision: str
-    time_basis: str | None = None
-    timezone: str | None = None
-    until: str | None = None
-    until_date: str | None = None
+class EconomicReleaseValue:
+    actual: Decimal | None = None
+    annualized: bool | None = None
+    currency: str | None = None
+    index_base: str | None = None
+    measure: str
+    not_seasonally_adjusted: bool | None = None
+    period: str | None = None
+    previous: Decimal | None = None
+    previous_revised_from: Decimal | None = None
+    scale: str | None = None
+    transformation: str | None = None
+    unit: str
+    value_status: str | None = None
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class EventDetail:
-    event: DeliveryEvent
-    status: str | None = None
+    country: str
+    cursor: str
+    event_id: str
+    family: str
+    holiday_generation: int | None = None
+    holiday_year: int | None = None
+    recorded_at: str
+    release_id: str | None = None
+    resource_id: str | None = None
+    resource_version: str | None = None
+    type: str
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
@@ -857,34 +772,29 @@ class EventsPage:
     cursor: str
     events: list[DeliveryEvent]
     next_cursor: str | None = None
-    status: str | None = None
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
-
-
-@dataclass(frozen=True, slots=True, kw_only=True)
-class ExtremeBody:
-    down: list[ExtremeLevel]
-    observation: str
-    up: list[ExtremeLevel]
-    window: ExtremeWindow
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class ExtremeEvent:
     as_of: str | None = None
-    body: ExtremeBody
     closes_at: str | None = None
+    down: list[ExtremeLevel]
     event_id: str
-    quality: PredictionQuality
+    observation: str
     question: str
     release_id: str | None = None
-    resolution: PredictionResolution
+    resolution: str
     resolves_at: str | None = None
-    shape: str
+    resolves_with: str | None = None
+    result: PredictionResult | None = None
+    stale: bool | None = None
     status: str
     topic_id: str
     unit: str | None = None
+    up: list[ExtremeLevel]
     venues: list[PredictionVenue]
+    window: ExtremeWindow
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
@@ -916,16 +826,14 @@ class FxBars:
     bars: list[FxBar]
     base: str
     currency: str
-    end: str
-    interval: str
+    end: str | None = None
     next_cursor: str | None = None
-    start: str
+    start: str | None = None
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class FxConversion:
-    amount: Decimal
     converted: Decimal
     from_: str
     market_session: str
@@ -951,11 +859,10 @@ class FxHistoricalRate:
 @dataclass(frozen=True, slots=True, kw_only=True)
 class FxHistory:
     base: str
-    end_date: str
-    has_more: bool
+    end_date: str | None = None
     next_cursor: str | None = None
     observations: list[FxHistoricalObservation]
-    start_date: str
+    start_date: str | None = None
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
@@ -977,13 +884,12 @@ class FxRates:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class Gdp:
-    annualization: str
+    annualized: bool | None = None
     country: str
     currency: str
+    not_seasonally_adjusted: bool | None = None
     period: str
-    price_basis: str
     released_on: str
-    seasonal_adjustment: str
     source: SeriesSource | None = None
     value: Decimal
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
@@ -991,38 +897,60 @@ class Gdp:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class GdpGrowth:
-    annualization: str
+    annualized: bool | None = None
     country: str
+    not_seasonally_adjusted: bool | None = None
     period: str
-    price_basis: str
     quarter_over_quarter: Decimal
-    quarter_over_quarter_seasonal_adjustment: str | None = None
+    quarter_over_quarter_not_seasonally_adjusted: bool | None = None
     released_on: str
-    seasonal_adjustment: str
     source: SeriesSource | None = None
-    unit: str
     year_over_year: Decimal
-    year_over_year_seasonal_adjustment: str | None = None
+    year_over_year_not_seasonally_adjusted: bool | None = None
     year_to_date: Decimal | None = None
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class HistoricalEconomicsResponse:
+class GdpGrowthHistory:
+    annualized: bool | None = None
     as_of: str | None = None
+    country: str
     next_cursor: str | None = None
-    observations: list[HistoricalObservation]
+    not_seasonally_adjusted: bool | None = None
+    observations: list[GdpGrowthHistoryObservation]
+    quarter_over_quarter_not_seasonally_adjusted: bool | None = None
     source: SeriesSource | None = None
+    start: str | None = None
+    year_over_year_not_seasonally_adjusted: bool | None = None
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class HistoricalObservation:
-    country: str
-    measure: str
+class GdpGrowthHistoryObservation:
     period: str
-    transformation: str
-    unit: str
+    quarter_over_quarter: Decimal | None = None
+    year_over_year: Decimal | None = None
+    year_to_date: Decimal | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class GdpHistory:
+    annualized: bool | None = None
+    as_of: str | None = None
+    country: str
+    currency: str
+    next_cursor: str | None = None
+    not_seasonally_adjusted: bool | None = None
+    observations: list[GdpHistoryObservation]
+    source: SeriesSource | None = None
+    start: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class GdpHistoryObservation:
+    period: str
     value: Decimal
 
 
@@ -1033,10 +961,28 @@ class Inflation:
     period: str
     released_on: str
     source: SeriesSource | None = None
-    unit: str
     year_over_year: Decimal
     year_to_date: Decimal | None = None
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class InflationHistory:
+    as_of: str | None = None
+    country: str
+    next_cursor: str | None = None
+    observations: list[InflationHistoryObservation]
+    source: SeriesSource | None = None
+    start: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class InflationHistoryObservation:
+    month_over_month: Decimal | None = None
+    period: str
+    year_over_year: Decimal | None = None
+    year_to_date: Decimal | None = None
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
@@ -1046,7 +992,11 @@ class LabourForceParticipation:
     rate: Decimal
     released_on: str
     source: SeriesSource | None = None
-    unit: str
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class NoContent:
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
@@ -1155,7 +1105,6 @@ class PalmoilScalarPrice(_PalmoilPrice):
 class PalmoilScalarSeries(_PalmoilSeries):
     kind: ClassVar[Literal["PalmoilScalarSeries"]] = "PalmoilScalarSeries"
     area: str | None = None
-    commodity: str
     country: str
     coverage_end: str
     coverage_start: str
@@ -1206,7 +1155,6 @@ class PalmoilSchedulePrice(_PalmoilPrice):
 class PalmoilScheduleSeries(_PalmoilSeries):
     kind: ClassVar[Literal["PalmoilScheduleSeries"]] = "PalmoilScheduleSeries"
     area: str | None = None
-    commodity: str
     country: str
     coverage_end: str
     coverage_start: str
@@ -1216,7 +1164,6 @@ class PalmoilScheduleSeries(_PalmoilSeries):
     period_type: str
     price_type: str
     producer_arrangement: str | None = None
-    producer_type: str
     product: str
     series_id: str
     unit: str
@@ -1231,7 +1178,7 @@ class PalmoilSeriesDiscovery:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class PhysicalLatest:
-    attribution: str | None = None
+    attribution: str
     currency: str
     period_end: str
     period_start: str
@@ -1255,7 +1202,7 @@ class PhysicalObservation:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class PhysicalObservations:
-    attribution: str | None = None
+    attribution: str
     currency: str
     next_cursor: str | None = None
     observations: list[PhysicalObservation]
@@ -1268,19 +1215,18 @@ class PhysicalObservations:
 @dataclass(frozen=True, slots=True, kw_only=True)
 class PhysicalSeries:
     area: str | None = None
-    attribution: str | None = None
+    attribution: str
     basis: str | None = None
     category: str
     commodity: str
+    country: str
     coverage_end: str
     coverage_start: str
     currency: str
     description: str
     frequency: str
-    market: str
     price_type: str
     product: str
-    publisher: str
     series_id: str
     unit: str
     unit_quantity: Decimal
@@ -1297,25 +1243,20 @@ class PhysicalSeriesPage:
 @dataclass(frozen=True, slots=True, kw_only=True)
 class PolicyPath:
     as_of: str | None = None
-    authority: str
     meetings: list[PolicyPathMeeting]
-    method: str
-    unit: str
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class PolicyPathDay:
     date: str
-    meetings: list[PolicyPathMeeting]
+    meetings: list[PolicyPathOdds]
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class PolicyPathHistory:
-    authority: str
     days: list[PolicyPathDay]
-    method: str
-    unit: str
+    meeting_dates: list[PolicyPathMeetingDate]
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
@@ -1331,23 +1272,38 @@ class PolicyPathMeeting:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
+class PolicyPathMeetingDate:
+    event_id: str
+    resolves_at: str | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class PolicyPathOdds:
+    cumulative_change_bps: Decimal
+    event_id: str
+    expected_change_bps: Decimal
+    p_cut: str
+    p_hike: str
+    p_hold: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
 class PredictionBar:
     close: str
-    end: str
     high: str | None = None
     low: str | None = None
     open: str | None = None
-    start: str
+    timestamp: str
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class PredictionEventSummary:
-    as_of: str | None = None
     closes_at: str | None = None
     event_id: str
     question: str
     release_id: str | None = None
     resolves_at: str | None = None
+    result: PredictionResultSummary | None = None
     shape: str
     status: str
     topic_id: str
@@ -1363,28 +1319,42 @@ class PredictionEventsPage:
 @dataclass(frozen=True, slots=True, kw_only=True)
 class PredictionHistory:
     backfill_venue: str | None = None
-    captured_from: str | None = None
-    end: str
-    event_id: str
-    interval: str
+    end: str | None = None
     next_cursor: str | None = None
     series: list[PredictionSeries]
-    shape: str
-    start: str
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class PredictionQuality:
-    freshness: str
-    monotone_repairs: int
-    rows_merged: int
+class PredictionResult:
+    amended_at: str | None = None
+    final: bool
+    settled_at: str | None = None
+    venues: list[PredictionResultVenue]
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class PredictionResolution:
-    description: str
-    resolves_with: str | None = None
+class PredictionResultMarket:
+    market_id: str
+    outcome: str
+    value: Decimal | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class PredictionResultSummary:
+    amended_at: str | None = None
+    final: bool
+    settled_at: str | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class PredictionResultVenue:
+    amended_at: str | None = None
+    final: bool | None = None
+    markets: list[PredictionResultMarket]
+    settled_at: str | None = None
+    unavailable: bool | None = None
+    venue: str
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
@@ -1411,9 +1381,8 @@ class PredictionTopic:
 @dataclass(frozen=True, slots=True, kw_only=True)
 class PredictionTopicDetail:
     calendar: TopicCalendar | None = None
-    events: list[PredictionEventSummary]
+    events: list[PredictionTopicEvent]
     group: str
-    next_event_id: str | None = None
     resolution_kind: str
     shape: str
     title: str
@@ -1424,6 +1393,17 @@ class PredictionTopicDetail:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
+class PredictionTopicEvent:
+    closes_at: str | None = None
+    event_id: str
+    question: str
+    release_id: str | None = None
+    resolves_at: str | None = None
+    result: PredictionResultSummary | None = None
+    status: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
 class PredictionTopics:
     topics: list[PredictionTopic]
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
@@ -1431,19 +1411,15 @@ class PredictionTopics:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class PredictionVenue:
-    depth_usd: Decimal | None = None
     excluded_reason: str | None = None
-    fetched_at: str | None = None
-    match: VenueMatch
+    match: VenueMatch | None = None
     open_interest_usd: Decimal | None = None
-    role: str
     rules_text: str | None = None
     rules_url: str | None = None
-    settlement: VenueSettlement
+    settlement: str | None = None
     settlement_source: str | None = None
     url: str
     venue: str
-    venue_event_id: str
     volume_24h_usd: Decimal | None = None
     weight: str | None = None
 
@@ -1451,7 +1427,7 @@ class PredictionVenue:
 @dataclass(frozen=True, slots=True, kw_only=True)
 class PredictionWebhookEvent:
     closes_at: str | None = None
-    event_id: str
+    prediction_event_id: str
     release_id: str | None = None
     resolves_at: str | None = None
     settlements: list[PredictionWebhookSettlement]
@@ -1470,8 +1446,6 @@ class PredictionWebhookSettlement:
 class Problem:
     code: str
     detail: str
-    instance: str | None = None
-    ok: bool | None = None
     request_id: str
     status: int
     title: str
@@ -1482,8 +1456,24 @@ class Problem:
 class Quote:
     market_ids: list[str]
     probability: str
-    role: str
     venue: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class RateHistory:
+    as_of: str | None = None
+    country: str
+    next_cursor: str | None = None
+    observations: list[RateHistoryObservation]
+    source: SeriesSource | None = None
+    start: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class RateHistoryObservation:
+    period: str
+    rate: Decimal
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
@@ -1507,24 +1497,22 @@ class ResourceObservation:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class ScalarBody:
-    outcomes: list[ScalarOutcome]
-    scale: int
-    summary: ScalarSummary | None = None
-
-
-@dataclass(frozen=True, slots=True, kw_only=True)
 class ScalarEvent:
+    above: list[str]
     as_of: str | None = None
-    body: ScalarBody
     closes_at: str | None = None
     event_id: str
-    quality: PredictionQuality
+    median: Decimal | None = None
+    outcomes: list[ScalarOutcome]
+    p10: Decimal | None = None
+    p90: Decimal | None = None
     question: str
     release_id: str | None = None
-    resolution: PredictionResolution
+    resolution: str
     resolves_at: str | None = None
-    shape: str
+    resolves_with: str | None = None
+    result: PredictionResult | None = None
+    stale: bool | None = None
     status: str
     topic_id: str
     unit: str | None = None
@@ -1543,47 +1531,26 @@ class ScalarOutcome:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class ScalarSummary:
-    bounds: ScalarSummaryBounds | None = None
-    median: Decimal | None = None
-    method: str
-    p10: Decimal | None = None
-    p90: Decimal | None = None
-
-
-@dataclass(frozen=True, slots=True, kw_only=True)
-class ScalarSummaryBounds:
-    median: str | None = None
-    p10: str | None = None
-    p90: str | None = None
-
-
-@dataclass(frozen=True, slots=True, kw_only=True)
 class SeriesSource:
     distributor: str
     publisher: str
-    released_on_basis: str
-
-
-@dataclass(frozen=True, slots=True, kw_only=True)
-class TimingBody:
-    not_within_window: str | None = None
-    steps: list[TimingStep]
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class TimingEvent:
     as_of: str | None = None
-    body: TimingBody
     closes_at: str | None = None
     event_id: str
-    quality: PredictionQuality
+    not_within_window: str | None = None
     question: str
     release_id: str | None = None
-    resolution: PredictionResolution
+    resolution: str
     resolves_at: str | None = None
-    shape: str
+    resolves_with: str | None = None
+    result: PredictionResult | None = None
+    stale: bool | None = None
     status: str
+    steps: list[TimingStep]
     topic_id: str
     unit: str | None = None
     venues: list[PredictionVenue]
@@ -1604,50 +1571,31 @@ class TimingStep:
 class TopicCalendar:
     country: str
     family: str
-    variant: str | None = None
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class TradeExports:
+class TradeHistory:
+    as_of: str | None = None
     country: str
-    coverage: str
     currency: str
-    flow: str
-    partner: str | None = None
-    period: str
-    product: TradeProductFilter | None = None
-    released_on: str
+    next_cursor: str | None = None
+    observations: list[TradeHistoryObservation]
     source: SeriesSource | None = None
-    value: Decimal
+    start: str | None = None
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class TradeImports:
-    country: str
-    coverage: str
-    currency: str
-    flow: str
-    partner: str | None = None
+class TradeHistoryObservation:
+    exports: Decimal | None = None
+    imports: Decimal | None = None
     period: str
-    product: TradeProductFilter | None = None
-    released_on: str
-    source: SeriesSource | None = None
-    value: Decimal
-    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
-
-
-@dataclass(frozen=True, slots=True, kw_only=True)
-class TradeProductFilter:
-    classification: str
-    code: str
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class TradeSummary:
     balance: Decimal
     country: str
-    coverage: str
     currency: str
     exports: Decimal
     imports: Decimal
@@ -1664,7 +1612,6 @@ class Unemployment:
     rate: Decimal
     released_on: str
     source: SeriesSource | None = None
-    unit: str
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
@@ -1675,33 +1622,18 @@ class VenueMatch:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class VenueSettlement:
-    status: str
-
-
-@dataclass(frozen=True, slots=True, kw_only=True)
 class WebhookConfigurationHistory:
-    activation_snapshot: str
+    config_version: int
     countries: list[str]
-    destination_id: str
     enabled: bool
     families: list[str]
     recorded_at: str
     url: str
-    version: int
-
-
-@dataclass(frozen=True, slots=True, kw_only=True)
-class WebhookDeleteResponse:
-    deleted: bool | None = None
-    destination_id: str
-    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class WebhookDeliveriesResponse:
     deliveries: list[WebhookDelivery]
-    limit: int
     next_cursor: str | None = None
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
@@ -1716,9 +1648,9 @@ class WebhookDelivery:
     is_test: bool | None = None
     last_error: str | None = None
     last_status: int | None = None
-    next_attempt_at: str
-    replays: int
-    retry_until: str
+    next_attempt_at: str | None = None
+    replays: int | None = None
+    retry_until: str | None = None
     state: str
     updated_at: str
 
@@ -1749,8 +1681,8 @@ class WebhookDestinationInput:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class WebhookDestinationList:
+    destination_limit: int
     destinations: list[WebhookDestinationResponse]
-    limit: int
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
@@ -1775,12 +1707,9 @@ class WebhookEvent:
     cursor: str | None = None
     event_id: str
     family: str | None = None
-    holiday_country: str | None = None
     holiday_generation: int | None = None
     holiday_year: int | None = None
-    is_test: bool | None = None
     prediction: PredictionWebhookEvent | None = None
-    publication_id: str | None = None
     recorded_at: str
     release_id: str | None = None
     resource_id: str | None = None
@@ -1796,16 +1725,8 @@ class WebhookHistoryResponse:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
-class WebhookReplayResponse:
-    delivery_id: str
-    replayed: bool
-    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
-
-
-@dataclass(frozen=True, slots=True, kw_only=True)
 class WebhookTestResponse:
     delivery_id: str | None = None
-    destination_id: str
     retry_after_seconds: int | None = None
     status: str
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
@@ -1905,43 +1826,38 @@ PalmoilSeries: TypeAlias = (
 )
 
 
-def decode_BinaryBody(
-    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> BinaryBody:
-    data = read_object(value)
-    return BinaryBody(
-        deadline=read_str(data["deadline"])
-        if data.get("deadline") is not None
-        else None,
-        labels=decode_BinaryLabels(data["labels"]),
-        probability=read_str(data["probability"])
-        if data.get("probability") is not None
-        else None,
-        quotes=[decode_Quote(item0) for item0 in read_list(data["quotes"])],
-    )
-
-
 def decode_BinaryEvent(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> BinaryEvent:
     data = read_object(value)
     return BinaryEvent(
         as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
-        body=decode_BinaryBody(data["body"]),
         closes_at=read_str(data["closes_at"])
         if data.get("closes_at") is not None
         else None,
         event_id=read_str(data["event_id"]),
-        quality=decode_PredictionQuality(data["quality"]),
+        labels=decode_BinaryLabels(data["labels"])
+        if data.get("labels") is not None
+        else None,
+        probability=read_str(data["probability"])
+        if data.get("probability") is not None
+        else None,
         question=read_str(data["question"]),
+        quotes=[decode_Quote(item0) for item0 in read_list(data["quotes"])],
         release_id=read_str(data["release_id"])
         if data.get("release_id") is not None
         else None,
-        resolution=decode_PredictionResolution(data["resolution"]),
+        resolution=read_str(data["resolution"]),
         resolves_at=read_str(data["resolves_at"])
         if data.get("resolves_at") is not None
         else None,
-        shape=read_str(data["shape"]),
+        resolves_with=read_str(data["resolves_with"])
+        if data.get("resolves_with") is not None
+        else None,
+        result=decode_PredictionResult(data["result"])
+        if data.get("result") is not None
+        else None,
+        stale=read_bool(data["stale"]) if data.get("stale") is not None else None,
         status=read_str(data["status"]),
         topic_id=read_str(data["topic_id"]),
         unit=read_str(data["unit"]) if data.get("unit") is not None else None,
@@ -1965,7 +1881,6 @@ def decode_CalendarCoverage(
 ) -> CalendarCoverage:
     data = read_object(value)
     return CalendarCoverage(
-        nationwide=read_bool(data["nationwide"]),
         scope=read_str(data["scope"]),
         subdivision_codes=[
             read_str(item0) for item0 in read_list(data["subdivision_codes"])
@@ -1985,7 +1900,6 @@ def decode_CalendarHoliday(
         if data.get("local_name") is not None
         else None,
         name=read_str(data["name"]),
-        nationwide=read_bool(data["nationwide"]),
         observed=read_bool(data["observed"])
         if data.get("observed") is not None
         else None,
@@ -2010,7 +1924,6 @@ def decode_CalendarHolidays(
         holidays=[
             decode_CalendarHoliday(item0) for item0 in read_list(data["holidays"])
         ],
-        year=read_int(data["year"]),
         meta=meta if meta is not None else ResponseMeta(),
     )
 
@@ -2024,7 +1937,6 @@ def decode_CalendarHolidaysOnDate(
         coverage=[
             decode_CalendarCoverage(item0) for item0 in read_list(data["coverage"])
         ],
-        date=read_str(data["date"]),
         holidays=[
             decode_CalendarHoliday(item0) for item0 in read_list(data["holidays"])
         ],
@@ -2041,7 +1953,6 @@ def decode_CalendarNextHoliday(
         coverage=[
             decode_CalendarCoverage(item0) for item0 in read_list(data["coverage"])
         ],
-        from_date=read_str(data["from_date"]),
         holiday=decode_CalendarHoliday(data["holiday"])
         if data.get("holiday") is not None
         else None,
@@ -2055,9 +1966,6 @@ def decode_CalendarSubscriptionCreated(
     data = read_object(value)
     return CalendarSubscriptionCreated(
         expires_at=read_str(data["expires_at"]),
-        refresh_note=read_str(data["refresh_note"])
-        if data.get("refresh_note") is not None
-        else None,
         subscription_id=read_str(data["subscription_id"]),
         url=read_str(data["url"]),
         meta=meta if meta is not None else ResponseMeta(),
@@ -2085,17 +1993,6 @@ def decode_CalendarSubscriptionInput(
     )
 
 
-def decode_CalendarSubscriptionRevoked(
-    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> CalendarSubscriptionRevoked:
-    data = read_object(value)
-    return CalendarSubscriptionRevoked(
-        revoked=read_bool(data["revoked"]) if data.get("revoked") is not None else None,
-        subscription_id=read_str(data["subscription_id"]),
-        meta=meta if meta is not None else ResponseMeta(),
-    )
-
-
 def decode_CommodityBar(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> CommodityBar:
@@ -2116,12 +2013,11 @@ def decode_CommodityBars(
     return CommodityBars(
         bars=[decode_CommodityBar(item0) for item0 in read_list(data["bars"])],
         currency=read_str(data["currency"]),
-        end=read_str(data["end"]),
-        interval=read_str(data["interval"]),
+        end=read_str(data["end"]) if data.get("end") is not None else None,
         next_cursor=read_cursor(data["next_cursor"])
         if data.get("next_cursor") is not None
         else None,
-        start=read_str(data["start"]),
+        start=read_str(data["start"]) if data.get("start") is not None else None,
         symbol=read_str(data["symbol"]),
         unit=read_str(data["unit"]),
         meta=meta if meta is not None else ResponseMeta(),
@@ -2159,9 +2055,8 @@ def decode_Cpi(
 ) -> Cpi:
     data = read_object(value)
     return Cpi(
-        base_period=read_str(data["base_period"]),
-        base_value=read_decimal(data["base_value"]),
         country=read_str(data["country"]),
+        index_base=read_str(data["index_base"]),
         period=read_str(data["period"]),
         released_on=read_str(data["released_on"]),
         source=decode_SeriesSource(data["source"])
@@ -2169,6 +2064,39 @@ def decode_Cpi(
         else None,
         value=read_decimal(data["value"]),
         meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_CpiHistory(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CpiHistory:
+    data = read_object(value)
+    return CpiHistory(
+        as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
+        country=read_str(data["country"]),
+        index_base=read_str(data["index_base"]),
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        observations=[
+            decode_CpiHistoryObservation(item0)
+            for item0 in read_list(data["observations"])
+        ],
+        source=decode_SeriesSource(data["source"])
+        if data.get("source") is not None
+        else None,
+        start=read_str(data["start"]) if data.get("start") is not None else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_CpiHistoryObservation(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CpiHistoryObservation:
+    data = read_object(value)
+    return CpiHistoryObservation(
+        period=read_str(data["period"]),
+        value=read_decimal(data["value"]),
     )
 
 
@@ -2180,19 +2108,12 @@ def decode_DeliveryEvent(
         country=read_str(data["country"]),
         cursor=read_str(data["cursor"]),
         event_id=read_str(data["event_id"]),
-        event_type=read_str(data["event_type"]),
         family=read_str(data["family"]),
-        holiday_country=read_str(data["holiday_country"])
-        if data.get("holiday_country") is not None
-        else None,
         holiday_generation=read_int(data["holiday_generation"])
         if data.get("holiday_generation") is not None
         else None,
         holiday_year=read_int(data["holiday_year"])
         if data.get("holiday_year") is not None
-        else None,
-        publication_id=read_str(data["publication_id"])
-        if data.get("publication_id") is not None
         else None,
         recorded_at=read_str(data["recorded_at"]),
         release_id=read_str(data["release_id"])
@@ -2204,9 +2125,6 @@ def decode_DeliveryEvent(
         resource_version=read_str(data["resource_version"])
         if data.get("resource_version") is not None
         else None,
-        schema_version=read_str(data["schema_version"])
-        if data.get("schema_version") is not None
-        else None,
         type=read_str(data["type"]),
     )
 
@@ -2216,72 +2134,96 @@ def decode_EconomicCalendar(
 ) -> EconomicCalendar:
     data = read_object(value)
     return EconomicCalendar(
-        as_of=read_str(data["as_of"]),
         next_cursor=read_cursor(data["next_cursor"])
         if data.get("next_cursor") is not None
         else None,
         releases=[
-            decode_EconomicRelease(item0) for item0 in read_list(data["releases"])
+            decode_EconomicReleaseSummary(item0)
+            for item0 in read_list(data["releases"])
         ],
-        snapshot=read_str(data["snapshot"]),
-        status=read_str(data["status"]) if data.get("status") is not None else None,
         meta=meta if meta is not None else ResponseMeta(),
     )
 
 
-def decode_EconomicRelease(
+def decode_EconomicReleaseDetail(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> EconomicRelease:
+) -> EconomicReleaseDetail:
     data = read_object(value)
-    return EconomicRelease(
-        country=read_str(data["country"]),
-        family=read_str(data["family"]),
-        indicators=[
-            decode_EconomicReleaseIndicator(item0)
-            for item0 in read_list(data["indicators"])
-        ]
-        if data.get("indicators") is not None
+    return EconomicReleaseDetail(
+        at=read_str(data["at"]) if data.get("at") is not None else None,
+        between=[read_str(item0) for item0 in read_list(data["between"])]
+        if data.get("between") is not None
         else None,
+        by=read_str(data["by"]) if data.get("by") is not None else None,
+        country=read_str(data["country"]),
+        date=read_str(data["date"]) if data.get("date") is not None else None,
+        family=read_str(data["family"]),
         name=read_str(data["name"]),
         notice=read_str(data["notice"]) if data.get("notice") is not None else None,
         observed_at=read_str(data["observed_at"])
         if data.get("observed_at") is not None
         else None,
-        officially_published_at=read_str(data["officially_published_at"])
-        if data.get("officially_published_at") is not None
-        else None,
-        reference_period=read_str(data["reference_period"])
-        if data.get("reference_period") is not None
-        else None,
+        period=read_str(data["period"]) if data.get("period") is not None else None,
         release_id=read_str(data["release_id"]),
-        revision=read_int(data["revision"])
-        if data.get("revision") is not None
-        else None,
-        schedule=decode_EconomicReleaseSchedule(data["schedule"]),
+        revision=read_int(data["revision"]),
         series_id=read_str(data["series_id"])
         if data.get("series_id") is not None
         else None,
         stage=read_str(data["stage"]) if data.get("stage") is not None else None,
         status=read_str(data["status"]),
-        title=read_str(data["title"]),
+        timezone=read_str(data["timezone"])
+        if data.get("timezone") is not None
+        else None,
         topic=read_str(data["topic"]) if data.get("topic") is not None else None,
-        variant=read_str(data["variant"]) if data.get("variant") is not None else None,
+        values=[
+            decode_EconomicReleaseValue(item0) for item0 in read_list(data["values"])
+        ],
         version=read_str(data["version"]),
         meta=meta if meta is not None else ResponseMeta(),
     )
 
 
-def decode_EconomicReleaseIndicator(
+def decode_EconomicReleaseSummary(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> EconomicReleaseIndicator:
+) -> EconomicReleaseSummary:
     data = read_object(value)
-    return EconomicReleaseIndicator(
-        actual=read_decimal(data["actual"]) if data.get("actual") is not None else None,
-        actual_as_of=read_str(data["actual_as_of"])
-        if data.get("actual_as_of") is not None
+    return EconomicReleaseSummary(
+        at=read_str(data["at"]) if data.get("at") is not None else None,
+        between=[read_str(item0) for item0 in read_list(data["between"])]
+        if data.get("between") is not None
         else None,
-        annualization=read_str(data["annualization"])
-        if data.get("annualization") is not None
+        by=read_str(data["by"]) if data.get("by") is not None else None,
+        country=read_str(data["country"]),
+        date=read_str(data["date"]) if data.get("date") is not None else None,
+        family=read_str(data["family"]),
+        name=read_str(data["name"]),
+        notice=read_str(data["notice"]) if data.get("notice") is not None else None,
+        period=read_str(data["period"]) if data.get("period") is not None else None,
+        release_id=read_str(data["release_id"]),
+        revision=read_int(data["revision"]),
+        series_id=read_str(data["series_id"])
+        if data.get("series_id") is not None
+        else None,
+        stage=read_str(data["stage"]) if data.get("stage") is not None else None,
+        status=read_str(data["status"]),
+        timezone=read_str(data["timezone"])
+        if data.get("timezone") is not None
+        else None,
+        topic=read_str(data["topic"]) if data.get("topic") is not None else None,
+        values=[
+            decode_EconomicReleaseValue(item0) for item0 in read_list(data["values"])
+        ],
+    )
+
+
+def decode_EconomicReleaseValue(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EconomicReleaseValue:
+    data = read_object(value)
+    return EconomicReleaseValue(
+        actual=read_decimal(data["actual"]) if data.get("actual") is not None else None,
+        annualized=read_bool(data["annualized"])
+        if data.get("annualized") is not None
         else None,
         currency=read_str(data["currency"])
         if data.get("currency") is not None
@@ -2290,46 +2232,23 @@ def decode_EconomicReleaseIndicator(
         if data.get("index_base") is not None
         else None,
         measure=read_str(data["measure"]),
-        period=read_str(data["period"]),
+        not_seasonally_adjusted=read_bool(data["not_seasonally_adjusted"])
+        if data.get("not_seasonally_adjusted") is not None
+        else None,
+        period=read_str(data["period"]) if data.get("period") is not None else None,
         previous=read_decimal(data["previous"])
         if data.get("previous") is not None
         else None,
-        previous_as_of=read_str(data["previous_as_of"])
-        if data.get("previous_as_of") is not None
+        previous_revised_from=read_decimal(data["previous_revised_from"])
+        if data.get("previous_revised_from") is not None
         else None,
-        previous_before_revision=read_decimal(data["previous_before_revision"])
-        if data.get("previous_before_revision") is not None
-        else None,
-        previous_period=read_str(data["previous_period"]),
         scale=read_str(data["scale"]) if data.get("scale") is not None else None,
-        seasonal_adjustment=read_str(data["seasonal_adjustment"]),
-        title=read_str(data["title"]),
-        transformation=read_str(data["transformation"]),
+        transformation=read_str(data["transformation"])
+        if data.get("transformation") is not None
+        else None,
         unit=read_str(data["unit"]),
-        value_status=read_str(data["value_status"]),
-    )
-
-
-def decode_EconomicReleaseSchedule(
-    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> EconomicReleaseSchedule:
-    data = read_object(value)
-    return EconomicReleaseSchedule(
-        at=read_str(data["at"]) if data.get("at") is not None else None,
-        date=read_str(data["date"]) if data.get("date") is not None else None,
-        local_date=read_str(data["local_date"])
-        if data.get("local_date") is not None
-        else None,
-        precision=read_str(data["precision"]),
-        time_basis=read_str(data["time_basis"])
-        if data.get("time_basis") is not None
-        else None,
-        timezone=read_str(data["timezone"])
-        if data.get("timezone") is not None
-        else None,
-        until=read_str(data["until"]) if data.get("until") is not None else None,
-        until_date=read_str(data["until_date"])
-        if data.get("until_date") is not None
+        value_status=read_str(data["value_status"])
+        if data.get("value_status") is not None
         else None,
     )
 
@@ -2339,8 +2258,27 @@ def decode_EventDetail(
 ) -> EventDetail:
     data = read_object(value)
     return EventDetail(
-        event=decode_DeliveryEvent(data["event"]),
-        status=read_str(data["status"]) if data.get("status") is not None else None,
+        country=read_str(data["country"]),
+        cursor=read_str(data["cursor"]),
+        event_id=read_str(data["event_id"]),
+        family=read_str(data["family"]),
+        holiday_generation=read_int(data["holiday_generation"])
+        if data.get("holiday_generation") is not None
+        else None,
+        holiday_year=read_int(data["holiday_year"])
+        if data.get("holiday_year") is not None
+        else None,
+        recorded_at=read_str(data["recorded_at"]),
+        release_id=read_str(data["release_id"])
+        if data.get("release_id") is not None
+        else None,
+        resource_id=read_str(data["resource_id"])
+        if data.get("resource_id") is not None
+        else None,
+        resource_version=read_str(data["resource_version"])
+        if data.get("resource_version") is not None
+        else None,
+        type=read_str(data["type"]),
         meta=meta if meta is not None else ResponseMeta(),
     )
 
@@ -2355,20 +2293,7 @@ def decode_EventsPage(
         next_cursor=read_cursor(data["next_cursor"])
         if data.get("next_cursor") is not None
         else None,
-        status=read_str(data["status"]) if data.get("status") is not None else None,
         meta=meta if meta is not None else ResponseMeta(),
-    )
-
-
-def decode_ExtremeBody(
-    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> ExtremeBody:
-    data = read_object(value)
-    return ExtremeBody(
-        down=[decode_ExtremeLevel(item0) for item0 in read_list(data["down"])],
-        observation=read_str(data["observation"]),
-        up=[decode_ExtremeLevel(item0) for item0 in read_list(data["up"])],
-        window=decode_ExtremeWindow(data["window"]),
     )
 
 
@@ -2378,25 +2303,33 @@ def decode_ExtremeEvent(
     data = read_object(value)
     return ExtremeEvent(
         as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
-        body=decode_ExtremeBody(data["body"]),
         closes_at=read_str(data["closes_at"])
         if data.get("closes_at") is not None
         else None,
+        down=[decode_ExtremeLevel(item0) for item0 in read_list(data["down"])],
         event_id=read_str(data["event_id"]),
-        quality=decode_PredictionQuality(data["quality"]),
+        observation=read_str(data["observation"]),
         question=read_str(data["question"]),
         release_id=read_str(data["release_id"])
         if data.get("release_id") is not None
         else None,
-        resolution=decode_PredictionResolution(data["resolution"]),
+        resolution=read_str(data["resolution"]),
         resolves_at=read_str(data["resolves_at"])
         if data.get("resolves_at") is not None
         else None,
-        shape=read_str(data["shape"]),
+        resolves_with=read_str(data["resolves_with"])
+        if data.get("resolves_with") is not None
+        else None,
+        result=decode_PredictionResult(data["result"])
+        if data.get("result") is not None
+        else None,
+        stale=read_bool(data["stale"]) if data.get("stale") is not None else None,
         status=read_str(data["status"]),
         topic_id=read_str(data["topic_id"]),
         unit=read_str(data["unit"]) if data.get("unit") is not None else None,
+        up=[decode_ExtremeLevel(item0) for item0 in read_list(data["up"])],
         venues=[decode_PredictionVenue(item0) for item0 in read_list(data["venues"])],
+        window=decode_ExtremeWindow(data["window"]),
         meta=meta if meta is not None else ResponseMeta(),
     )
 
@@ -2446,12 +2379,11 @@ def decode_FxBars(
         bars=[decode_FxBar(item0) for item0 in read_list(data["bars"])],
         base=read_str(data["base"]),
         currency=read_str(data["currency"]),
-        end=read_str(data["end"]),
-        interval=read_str(data["interval"]),
+        end=read_str(data["end"]) if data.get("end") is not None else None,
         next_cursor=read_cursor(data["next_cursor"])
         if data.get("next_cursor") is not None
         else None,
-        start=read_str(data["start"]),
+        start=read_str(data["start"]) if data.get("start") is not None else None,
         meta=meta if meta is not None else ResponseMeta(),
     )
 
@@ -2461,7 +2393,6 @@ def decode_FxConversion(
 ) -> FxConversion:
     data = read_object(value)
     return FxConversion(
-        amount=read_decimal(data["amount"]),
         converted=read_decimal(data["converted"]),
         from_=read_str(data["from"]),
         market_session=read_str(data["market_session"]),
@@ -2499,8 +2430,9 @@ def decode_FxHistory(
     data = read_object(value)
     return FxHistory(
         base=read_str(data["base"]),
-        end_date=read_str(data["end_date"]),
-        has_more=read_bool(data["has_more"]),
+        end_date=read_str(data["end_date"])
+        if data.get("end_date") is not None
+        else None,
         next_cursor=read_cursor(data["next_cursor"])
         if data.get("next_cursor") is not None
         else None,
@@ -2508,7 +2440,9 @@ def decode_FxHistory(
             decode_FxHistoricalObservation(item0)
             for item0 in read_list(data["observations"])
         ],
-        start_date=read_str(data["start_date"]),
+        start_date=read_str(data["start_date"])
+        if data.get("start_date") is not None
+        else None,
         meta=meta if meta is not None else ResponseMeta(),
     )
 
@@ -2542,13 +2476,16 @@ def decode_Gdp(
 ) -> Gdp:
     data = read_object(value)
     return Gdp(
-        annualization=read_str(data["annualization"]),
+        annualized=read_bool(data["annualized"])
+        if data.get("annualized") is not None
+        else None,
         country=read_str(data["country"]),
         currency=read_str(data["currency"]),
+        not_seasonally_adjusted=read_bool(data["not_seasonally_adjusted"])
+        if data.get("not_seasonally_adjusted") is not None
+        else None,
         period=read_str(data["period"]),
-        price_basis=read_str(data["price_basis"]),
         released_on=read_str(data["released_on"]),
-        seasonal_adjustment=read_str(data["seasonal_adjustment"]),
         source=decode_SeriesSource(data["source"])
         if data.get("source") is not None
         else None,
@@ -2562,27 +2499,29 @@ def decode_GdpGrowth(
 ) -> GdpGrowth:
     data = read_object(value)
     return GdpGrowth(
-        annualization=read_str(data["annualization"]),
+        annualized=read_bool(data["annualized"])
+        if data.get("annualized") is not None
+        else None,
         country=read_str(data["country"]),
+        not_seasonally_adjusted=read_bool(data["not_seasonally_adjusted"])
+        if data.get("not_seasonally_adjusted") is not None
+        else None,
         period=read_str(data["period"]),
-        price_basis=read_str(data["price_basis"]),
         quarter_over_quarter=read_decimal(data["quarter_over_quarter"]),
-        quarter_over_quarter_seasonal_adjustment=read_str(
-            data["quarter_over_quarter_seasonal_adjustment"]
+        quarter_over_quarter_not_seasonally_adjusted=read_bool(
+            data["quarter_over_quarter_not_seasonally_adjusted"]
         )
-        if data.get("quarter_over_quarter_seasonal_adjustment") is not None
+        if data.get("quarter_over_quarter_not_seasonally_adjusted") is not None
         else None,
         released_on=read_str(data["released_on"]),
-        seasonal_adjustment=read_str(data["seasonal_adjustment"]),
         source=decode_SeriesSource(data["source"])
         if data.get("source") is not None
         else None,
-        unit=read_str(data["unit"]),
         year_over_year=read_decimal(data["year_over_year"]),
-        year_over_year_seasonal_adjustment=read_str(
-            data["year_over_year_seasonal_adjustment"]
+        year_over_year_not_seasonally_adjusted=read_bool(
+            data["year_over_year_not_seasonally_adjusted"]
         )
-        if data.get("year_over_year_seasonal_adjustment") is not None
+        if data.get("year_over_year_not_seasonally_adjusted") is not None
         else None,
         year_to_date=read_decimal(data["year_to_date"])
         if data.get("year_to_date") is not None
@@ -2591,36 +2530,97 @@ def decode_GdpGrowth(
     )
 
 
-def decode_HistoricalEconomicsResponse(
+def decode_GdpGrowthHistory(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> HistoricalEconomicsResponse:
+) -> GdpGrowthHistory:
     data = read_object(value)
-    return HistoricalEconomicsResponse(
+    return GdpGrowthHistory(
+        annualized=read_bool(data["annualized"])
+        if data.get("annualized") is not None
+        else None,
         as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
+        country=read_str(data["country"]),
         next_cursor=read_cursor(data["next_cursor"])
         if data.get("next_cursor") is not None
         else None,
+        not_seasonally_adjusted=read_bool(data["not_seasonally_adjusted"])
+        if data.get("not_seasonally_adjusted") is not None
+        else None,
         observations=[
-            decode_HistoricalObservation(item0)
+            decode_GdpGrowthHistoryObservation(item0)
             for item0 in read_list(data["observations"])
         ],
+        quarter_over_quarter_not_seasonally_adjusted=read_bool(
+            data["quarter_over_quarter_not_seasonally_adjusted"]
+        )
+        if data.get("quarter_over_quarter_not_seasonally_adjusted") is not None
+        else None,
         source=decode_SeriesSource(data["source"])
         if data.get("source") is not None
+        else None,
+        start=read_str(data["start"]) if data.get("start") is not None else None,
+        year_over_year_not_seasonally_adjusted=read_bool(
+            data["year_over_year_not_seasonally_adjusted"]
+        )
+        if data.get("year_over_year_not_seasonally_adjusted") is not None
         else None,
         meta=meta if meta is not None else ResponseMeta(),
     )
 
 
-def decode_HistoricalObservation(
+def decode_GdpGrowthHistoryObservation(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> HistoricalObservation:
+) -> GdpGrowthHistoryObservation:
     data = read_object(value)
-    return HistoricalObservation(
-        country=read_str(data["country"]),
-        measure=read_str(data["measure"]),
+    return GdpGrowthHistoryObservation(
         period=read_str(data["period"]),
-        transformation=read_str(data["transformation"]),
-        unit=read_str(data["unit"]),
+        quarter_over_quarter=read_decimal(data["quarter_over_quarter"])
+        if data.get("quarter_over_quarter") is not None
+        else None,
+        year_over_year=read_decimal(data["year_over_year"])
+        if data.get("year_over_year") is not None
+        else None,
+        year_to_date=read_decimal(data["year_to_date"])
+        if data.get("year_to_date") is not None
+        else None,
+    )
+
+
+def decode_GdpHistory(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> GdpHistory:
+    data = read_object(value)
+    return GdpHistory(
+        annualized=read_bool(data["annualized"])
+        if data.get("annualized") is not None
+        else None,
+        as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
+        country=read_str(data["country"]),
+        currency=read_str(data["currency"]),
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        not_seasonally_adjusted=read_bool(data["not_seasonally_adjusted"])
+        if data.get("not_seasonally_adjusted") is not None
+        else None,
+        observations=[
+            decode_GdpHistoryObservation(item0)
+            for item0 in read_list(data["observations"])
+        ],
+        source=decode_SeriesSource(data["source"])
+        if data.get("source") is not None
+        else None,
+        start=read_str(data["start"]) if data.get("start") is not None else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_GdpHistoryObservation(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> GdpHistoryObservation:
+    data = read_object(value)
+    return GdpHistoryObservation(
+        period=read_str(data["period"]),
         value=read_decimal(data["value"]),
     )
 
@@ -2637,12 +2637,51 @@ def decode_Inflation(
         source=decode_SeriesSource(data["source"])
         if data.get("source") is not None
         else None,
-        unit=read_str(data["unit"]),
         year_over_year=read_decimal(data["year_over_year"]),
         year_to_date=read_decimal(data["year_to_date"])
         if data.get("year_to_date") is not None
         else None,
         meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_InflationHistory(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> InflationHistory:
+    data = read_object(value)
+    return InflationHistory(
+        as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
+        country=read_str(data["country"]),
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        observations=[
+            decode_InflationHistoryObservation(item0)
+            for item0 in read_list(data["observations"])
+        ],
+        source=decode_SeriesSource(data["source"])
+        if data.get("source") is not None
+        else None,
+        start=read_str(data["start"]) if data.get("start") is not None else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_InflationHistoryObservation(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> InflationHistoryObservation:
+    data = read_object(value)
+    return InflationHistoryObservation(
+        month_over_month=read_decimal(data["month_over_month"])
+        if data.get("month_over_month") is not None
+        else None,
+        period=read_str(data["period"]),
+        year_over_year=read_decimal(data["year_over_year"])
+        if data.get("year_over_year") is not None
+        else None,
+        year_to_date=read_decimal(data["year_to_date"])
+        if data.get("year_to_date") is not None
+        else None,
     )
 
 
@@ -2658,7 +2697,15 @@ def decode_LabourForceParticipation(
         source=decode_SeriesSource(data["source"])
         if data.get("source") is not None
         else None,
-        unit=read_str(data["unit"]),
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_NoContent(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> NoContent:
+    read_object(value)
+    return NoContent(
         meta=meta if meta is not None else ResponseMeta(),
     )
 
@@ -2812,7 +2859,6 @@ def decode_PalmoilScalarSeries(
     data = read_object(value)
     return PalmoilScalarSeries(
         area=read_str(data["area"]) if data.get("area") is not None else None,
-        commodity=read_str(data["commodity"]),
         country=read_str(data["country"]),
         coverage_end=read_str(data["coverage_end"]),
         coverage_start=read_str(data["coverage_start"]),
@@ -2886,7 +2932,6 @@ def decode_PalmoilScheduleSeries(
     data = read_object(value)
     return PalmoilScheduleSeries(
         area=read_str(data["area"]) if data.get("area") is not None else None,
-        commodity=read_str(data["commodity"]),
         country=read_str(data["country"]),
         coverage_end=read_str(data["coverage_end"]),
         coverage_start=read_str(data["coverage_start"]),
@@ -2898,7 +2943,6 @@ def decode_PalmoilScheduleSeries(
         producer_arrangement=read_str(data["producer_arrangement"])
         if data.get("producer_arrangement") is not None
         else None,
-        producer_type=read_str(data["producer_type"]),
         product=read_str(data["product"]),
         series_id=read_str(data["series_id"]),
         unit=read_str(data["unit"]),
@@ -2923,9 +2967,7 @@ def decode_PhysicalLatest(
 ) -> PhysicalLatest:
     data = read_object(value)
     return PhysicalLatest(
-        attribution=read_str(data["attribution"])
-        if data.get("attribution") is not None
-        else None,
+        attribution=read_str(data["attribution"]),
         currency=read_str(data["currency"]),
         period_end=read_str(data["period_end"]),
         period_start=read_str(data["period_start"]),
@@ -2961,9 +3003,7 @@ def decode_PhysicalObservations(
 ) -> PhysicalObservations:
     data = read_object(value)
     return PhysicalObservations(
-        attribution=read_str(data["attribution"])
-        if data.get("attribution") is not None
-        else None,
+        attribution=read_str(data["attribution"]),
         currency=read_str(data["currency"]),
         next_cursor=read_cursor(data["next_cursor"])
         if data.get("next_cursor") is not None
@@ -2985,21 +3025,18 @@ def decode_PhysicalSeries(
     data = read_object(value)
     return PhysicalSeries(
         area=read_str(data["area"]) if data.get("area") is not None else None,
-        attribution=read_str(data["attribution"])
-        if data.get("attribution") is not None
-        else None,
+        attribution=read_str(data["attribution"]),
         basis=read_str(data["basis"]) if data.get("basis") is not None else None,
         category=read_str(data["category"]),
         commodity=read_str(data["commodity"]),
+        country=read_str(data["country"]),
         coverage_end=read_str(data["coverage_end"]),
         coverage_start=read_str(data["coverage_start"]),
         currency=read_str(data["currency"]),
         description=read_str(data["description"]),
         frequency=read_str(data["frequency"]),
-        market=read_str(data["market"]),
         price_type=read_str(data["price_type"]),
         product=read_str(data["product"]),
-        publisher=read_str(data["publisher"]),
         series_id=read_str(data["series_id"]),
         unit=read_str(data["unit"]),
         unit_quantity=read_decimal(data["unit_quantity"]),
@@ -3026,12 +3063,9 @@ def decode_PolicyPath(
     data = read_object(value)
     return PolicyPath(
         as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
-        authority=read_str(data["authority"]),
         meetings=[
             decode_PolicyPathMeeting(item0) for item0 in read_list(data["meetings"])
         ],
-        method=read_str(data["method"]),
-        unit=read_str(data["unit"]),
         meta=meta if meta is not None else ResponseMeta(),
     )
 
@@ -3043,7 +3077,7 @@ def decode_PolicyPathDay(
     return PolicyPathDay(
         date=read_str(data["date"]),
         meetings=[
-            decode_PolicyPathMeeting(item0) for item0 in read_list(data["meetings"])
+            decode_PolicyPathOdds(item0) for item0 in read_list(data["meetings"])
         ],
     )
 
@@ -3053,10 +3087,11 @@ def decode_PolicyPathHistory(
 ) -> PolicyPathHistory:
     data = read_object(value)
     return PolicyPathHistory(
-        authority=read_str(data["authority"]),
         days=[decode_PolicyPathDay(item0) for item0 in read_list(data["days"])],
-        method=read_str(data["method"]),
-        unit=read_str(data["unit"]),
+        meeting_dates=[
+            decode_PolicyPathMeetingDate(item0)
+            for item0 in read_list(data["meeting_dates"])
+        ],
         meta=meta if meta is not None else ResponseMeta(),
     )
 
@@ -3078,17 +3113,42 @@ def decode_PolicyPathMeeting(
     )
 
 
+def decode_PolicyPathMeetingDate(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> PolicyPathMeetingDate:
+    data = read_object(value)
+    return PolicyPathMeetingDate(
+        event_id=read_str(data["event_id"]),
+        resolves_at=read_str(data["resolves_at"])
+        if data.get("resolves_at") is not None
+        else None,
+    )
+
+
+def decode_PolicyPathOdds(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> PolicyPathOdds:
+    data = read_object(value)
+    return PolicyPathOdds(
+        cumulative_change_bps=read_decimal(data["cumulative_change_bps"]),
+        event_id=read_str(data["event_id"]),
+        expected_change_bps=read_decimal(data["expected_change_bps"]),
+        p_cut=read_str(data["p_cut"]),
+        p_hike=read_str(data["p_hike"]),
+        p_hold=read_str(data["p_hold"]),
+    )
+
+
 def decode_PredictionBar(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> PredictionBar:
     data = read_object(value)
     return PredictionBar(
         close=read_str(data["close"]),
-        end=read_str(data["end"]),
         high=read_str(data["high"]) if data.get("high") is not None else None,
         low=read_str(data["low"]) if data.get("low") is not None else None,
         open=read_str(data["open"]) if data.get("open") is not None else None,
-        start=read_str(data["start"]),
+        timestamp=read_str(data["timestamp"]),
     )
 
 
@@ -3097,7 +3157,6 @@ def decode_PredictionEventSummary(
 ) -> PredictionEventSummary:
     data = read_object(value)
     return PredictionEventSummary(
-        as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
         closes_at=read_str(data["closes_at"])
         if data.get("closes_at") is not None
         else None,
@@ -3108,6 +3167,9 @@ def decode_PredictionEventSummary(
         else None,
         resolves_at=read_str(data["resolves_at"])
         if data.get("resolves_at") is not None
+        else None,
+        result=decode_PredictionResultSummary(data["result"])
+        if data.get("result") is not None
         else None,
         shape=read_str(data["shape"]),
         status=read_str(data["status"]),
@@ -3138,42 +3200,78 @@ def decode_PredictionHistory(
         backfill_venue=read_str(data["backfill_venue"])
         if data.get("backfill_venue") is not None
         else None,
-        captured_from=read_str(data["captured_from"])
-        if data.get("captured_from") is not None
-        else None,
-        end=read_str(data["end"]),
-        event_id=read_str(data["event_id"]),
-        interval=read_str(data["interval"]),
+        end=read_str(data["end"]) if data.get("end") is not None else None,
         next_cursor=read_cursor(data["next_cursor"])
         if data.get("next_cursor") is not None
         else None,
         series=[decode_PredictionSeries(item0) for item0 in read_list(data["series"])],
-        shape=read_str(data["shape"]),
-        start=read_str(data["start"]),
         meta=meta if meta is not None else ResponseMeta(),
     )
 
 
-def decode_PredictionQuality(
+def decode_PredictionResult(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> PredictionQuality:
+) -> PredictionResult:
     data = read_object(value)
-    return PredictionQuality(
-        freshness=read_str(data["freshness"]),
-        monotone_repairs=read_int(data["monotone_repairs"]),
-        rows_merged=read_int(data["rows_merged"]),
+    return PredictionResult(
+        amended_at=read_str(data["amended_at"])
+        if data.get("amended_at") is not None
+        else None,
+        final=read_bool(data["final"]),
+        settled_at=read_str(data["settled_at"])
+        if data.get("settled_at") is not None
+        else None,
+        venues=[
+            decode_PredictionResultVenue(item0) for item0 in read_list(data["venues"])
+        ],
     )
 
 
-def decode_PredictionResolution(
+def decode_PredictionResultMarket(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> PredictionResolution:
+) -> PredictionResultMarket:
     data = read_object(value)
-    return PredictionResolution(
-        description=read_str(data["description"]),
-        resolves_with=read_str(data["resolves_with"])
-        if data.get("resolves_with") is not None
+    return PredictionResultMarket(
+        market_id=read_str(data["market_id"]),
+        outcome=read_str(data["outcome"]),
+        value=read_decimal(data["value"]) if data.get("value") is not None else None,
+    )
+
+
+def decode_PredictionResultSummary(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> PredictionResultSummary:
+    data = read_object(value)
+    return PredictionResultSummary(
+        amended_at=read_str(data["amended_at"])
+        if data.get("amended_at") is not None
         else None,
+        final=read_bool(data["final"]),
+        settled_at=read_str(data["settled_at"])
+        if data.get("settled_at") is not None
+        else None,
+    )
+
+
+def decode_PredictionResultVenue(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> PredictionResultVenue:
+    data = read_object(value)
+    return PredictionResultVenue(
+        amended_at=read_str(data["amended_at"])
+        if data.get("amended_at") is not None
+        else None,
+        final=read_bool(data["final"]) if data.get("final") is not None else None,
+        markets=[
+            decode_PredictionResultMarket(item0) for item0 in read_list(data["markets"])
+        ],
+        settled_at=read_str(data["settled_at"])
+        if data.get("settled_at") is not None
+        else None,
+        unavailable=read_bool(data["unavailable"])
+        if data.get("unavailable") is not None
+        else None,
+        venue=read_str(data["venue"]),
     )
 
 
@@ -3221,12 +3319,9 @@ def decode_PredictionTopicDetail(
         if data.get("calendar") is not None
         else None,
         events=[
-            decode_PredictionEventSummary(item0) for item0 in read_list(data["events"])
+            decode_PredictionTopicEvent(item0) for item0 in read_list(data["events"])
         ],
         group=read_str(data["group"]),
-        next_event_id=read_str(data["next_event_id"])
-        if data.get("next_event_id") is not None
-        else None,
         resolution_kind=read_str(data["resolution_kind"]),
         shape=read_str(data["shape"]),
         title=read_str(data["title"]),
@@ -3234,6 +3329,29 @@ def decode_PredictionTopicDetail(
         unit=read_str(data["unit"]) if data.get("unit") is not None else None,
         venues=[read_str(item0) for item0 in read_list(data["venues"])],
         meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_PredictionTopicEvent(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> PredictionTopicEvent:
+    data = read_object(value)
+    return PredictionTopicEvent(
+        closes_at=read_str(data["closes_at"])
+        if data.get("closes_at") is not None
+        else None,
+        event_id=read_str(data["event_id"]),
+        question=read_str(data["question"]),
+        release_id=read_str(data["release_id"])
+        if data.get("release_id") is not None
+        else None,
+        resolves_at=read_str(data["resolves_at"])
+        if data.get("resolves_at") is not None
+        else None,
+        result=decode_PredictionResultSummary(data["result"])
+        if data.get("result") is not None
+        else None,
+        status=read_str(data["status"]),
     )
 
 
@@ -3252,33 +3370,29 @@ def decode_PredictionVenue(
 ) -> PredictionVenue:
     data = read_object(value)
     return PredictionVenue(
-        depth_usd=read_decimal(data["depth_usd"])
-        if data.get("depth_usd") is not None
-        else None,
         excluded_reason=read_str(data["excluded_reason"])
         if data.get("excluded_reason") is not None
         else None,
-        fetched_at=read_str(data["fetched_at"])
-        if data.get("fetched_at") is not None
+        match=decode_VenueMatch(data["match"])
+        if data.get("match") is not None
         else None,
-        match=decode_VenueMatch(data["match"]),
         open_interest_usd=read_decimal(data["open_interest_usd"])
         if data.get("open_interest_usd") is not None
         else None,
-        role=read_str(data["role"]),
         rules_text=read_str(data["rules_text"])
         if data.get("rules_text") is not None
         else None,
         rules_url=read_str(data["rules_url"])
         if data.get("rules_url") is not None
         else None,
-        settlement=decode_VenueSettlement(data["settlement"]),
+        settlement=read_str(data["settlement"])
+        if data.get("settlement") is not None
+        else None,
         settlement_source=read_str(data["settlement_source"])
         if data.get("settlement_source") is not None
         else None,
         url=read_str(data["url"]),
         venue=read_str(data["venue"]),
-        venue_event_id=read_str(data["venue_event_id"]),
         volume_24h_usd=read_decimal(data["volume_24h_usd"])
         if data.get("volume_24h_usd") is not None
         else None,
@@ -3294,7 +3408,7 @@ def decode_PredictionWebhookEvent(
         closes_at=read_str(data["closes_at"])
         if data.get("closes_at") is not None
         else None,
-        event_id=read_str(data["event_id"]),
+        prediction_event_id=read_str(data["prediction_event_id"]),
         release_id=read_str(data["release_id"])
         if data.get("release_id") is not None
         else None,
@@ -3328,10 +3442,6 @@ def decode_Problem(
     return Problem(
         code=read_str(data["code"]),
         detail=read_str(data["detail"]),
-        instance=read_str(data["instance"])
-        if data.get("instance") is not None
-        else None,
-        ok=read_bool(data["ok"]) if data.get("ok") is not None else None,
         request_id=read_str(data["request_id"]),
         status=read_int(data["status"]),
         title=read_str(data["title"]),
@@ -3346,8 +3456,39 @@ def decode_Quote(
     return Quote(
         market_ids=[read_str(item0) for item0 in read_list(data["market_ids"])],
         probability=read_str(data["probability"]),
-        role=read_str(data["role"]),
         venue=read_str(data["venue"]),
+    )
+
+
+def decode_RateHistory(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> RateHistory:
+    data = read_object(value)
+    return RateHistory(
+        as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
+        country=read_str(data["country"]),
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        observations=[
+            decode_RateHistoryObservation(item0)
+            for item0 in read_list(data["observations"])
+        ],
+        source=decode_SeriesSource(data["source"])
+        if data.get("source") is not None
+        else None,
+        start=read_str(data["start"]) if data.get("start") is not None else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_RateHistoryObservation(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> RateHistoryObservation:
+    data = read_object(value)
+    return RateHistoryObservation(
+        period=read_str(data["period"]),
+        rate=read_decimal(data["rate"]),
     )
 
 
@@ -3390,40 +3531,36 @@ def decode_ResourceObservation(
     )
 
 
-def decode_ScalarBody(
-    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> ScalarBody:
-    data = read_object(value)
-    return ScalarBody(
-        outcomes=[decode_ScalarOutcome(item0) for item0 in read_list(data["outcomes"])],
-        scale=read_int(data["scale"]),
-        summary=decode_ScalarSummary(data["summary"])
-        if data.get("summary") is not None
-        else None,
-    )
-
-
 def decode_ScalarEvent(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> ScalarEvent:
     data = read_object(value)
     return ScalarEvent(
+        above=[read_str(item0) for item0 in read_list(data["above"])],
         as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
-        body=decode_ScalarBody(data["body"]),
         closes_at=read_str(data["closes_at"])
         if data.get("closes_at") is not None
         else None,
         event_id=read_str(data["event_id"]),
-        quality=decode_PredictionQuality(data["quality"]),
+        median=read_decimal(data["median"]) if data.get("median") is not None else None,
+        outcomes=[decode_ScalarOutcome(item0) for item0 in read_list(data["outcomes"])],
+        p10=read_decimal(data["p10"]) if data.get("p10") is not None else None,
+        p90=read_decimal(data["p90"]) if data.get("p90") is not None else None,
         question=read_str(data["question"]),
         release_id=read_str(data["release_id"])
         if data.get("release_id") is not None
         else None,
-        resolution=decode_PredictionResolution(data["resolution"]),
+        resolution=read_str(data["resolution"]),
         resolves_at=read_str(data["resolves_at"])
         if data.get("resolves_at") is not None
         else None,
-        shape=read_str(data["shape"]),
+        resolves_with=read_str(data["resolves_with"])
+        if data.get("resolves_with") is not None
+        else None,
+        result=decode_PredictionResult(data["result"])
+        if data.get("result") is not None
+        else None,
+        stale=read_bool(data["stale"]) if data.get("stale") is not None else None,
         status=read_str(data["status"]),
         topic_id=read_str(data["topic_id"]),
         unit=read_str(data["unit"]) if data.get("unit") is not None else None,
@@ -3448,32 +3585,6 @@ def decode_ScalarOutcome(
     )
 
 
-def decode_ScalarSummary(
-    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> ScalarSummary:
-    data = read_object(value)
-    return ScalarSummary(
-        bounds=decode_ScalarSummaryBounds(data["bounds"])
-        if data.get("bounds") is not None
-        else None,
-        median=read_decimal(data["median"]) if data.get("median") is not None else None,
-        method=read_str(data["method"]),
-        p10=read_decimal(data["p10"]) if data.get("p10") is not None else None,
-        p90=read_decimal(data["p90"]) if data.get("p90") is not None else None,
-    )
-
-
-def decode_ScalarSummaryBounds(
-    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> ScalarSummaryBounds:
-    data = read_object(value)
-    return ScalarSummaryBounds(
-        median=read_str(data["median"]) if data.get("median") is not None else None,
-        p10=read_str(data["p10"]) if data.get("p10") is not None else None,
-        p90=read_str(data["p90"]) if data.get("p90") is not None else None,
-    )
-
-
 def decode_SeriesSource(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> SeriesSource:
@@ -3481,19 +3592,6 @@ def decode_SeriesSource(
     return SeriesSource(
         distributor=read_str(data["distributor"]),
         publisher=read_str(data["publisher"]),
-        released_on_basis=read_str(data["released_on_basis"]),
-    )
-
-
-def decode_TimingBody(
-    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> TimingBody:
-    data = read_object(value)
-    return TimingBody(
-        not_within_window=read_str(data["not_within_window"])
-        if data.get("not_within_window") is not None
-        else None,
-        steps=[decode_TimingStep(item0) for item0 in read_list(data["steps"])],
     )
 
 
@@ -3503,22 +3601,30 @@ def decode_TimingEvent(
     data = read_object(value)
     return TimingEvent(
         as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
-        body=decode_TimingBody(data["body"]),
         closes_at=read_str(data["closes_at"])
         if data.get("closes_at") is not None
         else None,
         event_id=read_str(data["event_id"]),
-        quality=decode_PredictionQuality(data["quality"]),
+        not_within_window=read_str(data["not_within_window"])
+        if data.get("not_within_window") is not None
+        else None,
         question=read_str(data["question"]),
         release_id=read_str(data["release_id"])
         if data.get("release_id") is not None
         else None,
-        resolution=decode_PredictionResolution(data["resolution"]),
+        resolution=read_str(data["resolution"]),
         resolves_at=read_str(data["resolves_at"])
         if data.get("resolves_at") is not None
         else None,
-        shape=read_str(data["shape"]),
+        resolves_with=read_str(data["resolves_with"])
+        if data.get("resolves_with") is not None
+        else None,
+        result=decode_PredictionResult(data["result"])
+        if data.get("result") is not None
+        else None,
+        stale=read_bool(data["stale"]) if data.get("stale") is not None else None,
         status=read_str(data["status"]),
+        steps=[decode_TimingStep(item0) for item0 in read_list(data["steps"])],
         topic_id=read_str(data["topic_id"]),
         unit=read_str(data["unit"]) if data.get("unit") is not None else None,
         venues=[decode_PredictionVenue(item0) for item0 in read_list(data["venues"])],
@@ -3549,63 +3655,44 @@ def decode_TopicCalendar(
     return TopicCalendar(
         country=read_str(data["country"]),
         family=read_str(data["family"]),
-        variant=read_str(data["variant"]) if data.get("variant") is not None else None,
     )
 
 
-def decode_TradeExports(
+def decode_TradeHistory(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> TradeExports:
+) -> TradeHistory:
     data = read_object(value)
-    return TradeExports(
+    return TradeHistory(
+        as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
         country=read_str(data["country"]),
-        coverage=read_str(data["coverage"]),
         currency=read_str(data["currency"]),
-        flow=read_str(data["flow"]),
-        partner=read_str(data["partner"]) if data.get("partner") is not None else None,
-        period=read_str(data["period"]),
-        product=decode_TradeProductFilter(data["product"])
-        if data.get("product") is not None
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
         else None,
-        released_on=read_str(data["released_on"]),
+        observations=[
+            decode_TradeHistoryObservation(item0)
+            for item0 in read_list(data["observations"])
+        ],
         source=decode_SeriesSource(data["source"])
         if data.get("source") is not None
         else None,
-        value=read_decimal(data["value"]),
+        start=read_str(data["start"]) if data.get("start") is not None else None,
         meta=meta if meta is not None else ResponseMeta(),
     )
 
 
-def decode_TradeImports(
+def decode_TradeHistoryObservation(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> TradeImports:
+) -> TradeHistoryObservation:
     data = read_object(value)
-    return TradeImports(
-        country=read_str(data["country"]),
-        coverage=read_str(data["coverage"]),
-        currency=read_str(data["currency"]),
-        flow=read_str(data["flow"]),
-        partner=read_str(data["partner"]) if data.get("partner") is not None else None,
+    return TradeHistoryObservation(
+        exports=read_decimal(data["exports"])
+        if data.get("exports") is not None
+        else None,
+        imports=read_decimal(data["imports"])
+        if data.get("imports") is not None
+        else None,
         period=read_str(data["period"]),
-        product=decode_TradeProductFilter(data["product"])
-        if data.get("product") is not None
-        else None,
-        released_on=read_str(data["released_on"]),
-        source=decode_SeriesSource(data["source"])
-        if data.get("source") is not None
-        else None,
-        value=read_decimal(data["value"]),
-        meta=meta if meta is not None else ResponseMeta(),
-    )
-
-
-def decode_TradeProductFilter(
-    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> TradeProductFilter:
-    data = read_object(value)
-    return TradeProductFilter(
-        classification=read_str(data["classification"]),
-        code=read_str(data["code"]),
     )
 
 
@@ -3616,7 +3703,6 @@ def decode_TradeSummary(
     return TradeSummary(
         balance=read_decimal(data["balance"]),
         country=read_str(data["country"]),
-        coverage=read_str(data["coverage"]),
         currency=read_str(data["currency"]),
         exports=read_decimal(data["exports"]),
         imports=read_decimal(data["imports"]),
@@ -3641,7 +3727,6 @@ def decode_Unemployment(
         source=decode_SeriesSource(data["source"])
         if data.get("source") is not None
         else None,
-        unit=read_str(data["unit"]),
         meta=meta if meta is not None else ResponseMeta(),
     )
 
@@ -3656,39 +3741,17 @@ def decode_VenueMatch(
     )
 
 
-def decode_VenueSettlement(
-    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> VenueSettlement:
-    data = read_object(value)
-    return VenueSettlement(
-        status=read_str(data["status"]),
-    )
-
-
 def decode_WebhookConfigurationHistory(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> WebhookConfigurationHistory:
     data = read_object(value)
     return WebhookConfigurationHistory(
-        activation_snapshot=read_str(data["activation_snapshot"]),
+        config_version=read_int(data["config_version"]),
         countries=[read_str(item0) for item0 in read_list(data["countries"])],
-        destination_id=read_str(data["destination_id"]),
         enabled=read_bool(data["enabled"]),
         families=[read_str(item0) for item0 in read_list(data["families"])],
         recorded_at=read_str(data["recorded_at"]),
         url=read_str(data["url"]),
-        version=read_int(data["version"]),
-    )
-
-
-def decode_WebhookDeleteResponse(
-    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> WebhookDeleteResponse:
-    data = read_object(value)
-    return WebhookDeleteResponse(
-        deleted=read_bool(data["deleted"]) if data.get("deleted") is not None else None,
-        destination_id=read_str(data["destination_id"]),
-        meta=meta if meta is not None else ResponseMeta(),
     )
 
 
@@ -3700,7 +3763,6 @@ def decode_WebhookDeliveriesResponse(
         deliveries=[
             decode_WebhookDelivery(item0) for item0 in read_list(data["deliveries"])
         ],
-        limit=read_int(data["limit"]),
         next_cursor=read_cursor(data["next_cursor"])
         if data.get("next_cursor") is not None
         else None,
@@ -3727,9 +3789,13 @@ def decode_WebhookDelivery(
         last_status=read_int(data["last_status"])
         if data.get("last_status") is not None
         else None,
-        next_attempt_at=read_str(data["next_attempt_at"]),
-        replays=read_int(data["replays"]),
-        retry_until=read_str(data["retry_until"]),
+        next_attempt_at=read_str(data["next_attempt_at"])
+        if data.get("next_attempt_at") is not None
+        else None,
+        replays=read_int(data["replays"]) if data.get("replays") is not None else None,
+        retry_until=read_str(data["retry_until"])
+        if data.get("retry_until") is not None
+        else None,
         state=read_str(data["state"]),
         updated_at=read_str(data["updated_at"]),
     )
@@ -3774,11 +3840,11 @@ def decode_WebhookDestinationList(
 ) -> WebhookDestinationList:
     data = read_object(value)
     return WebhookDestinationList(
+        destination_limit=read_int(data["destination_limit"]),
         destinations=[
             decode_WebhookDestinationResponse(item0)
             for item0 in read_list(data["destinations"])
         ],
-        limit=read_int(data["limit"]),
         meta=meta if meta is not None else ResponseMeta(),
     )
 
@@ -3813,21 +3879,14 @@ def decode_WebhookEvent(
         cursor=read_str(data["cursor"]) if data.get("cursor") is not None else None,
         event_id=read_str(data["event_id"]),
         family=read_str(data["family"]) if data.get("family") is not None else None,
-        holiday_country=read_str(data["holiday_country"])
-        if data.get("holiday_country") is not None
-        else None,
         holiday_generation=read_int(data["holiday_generation"])
         if data.get("holiday_generation") is not None
         else None,
         holiday_year=read_int(data["holiday_year"])
         if data.get("holiday_year") is not None
         else None,
-        is_test=read_bool(data["is_test"]) if data.get("is_test") is not None else None,
         prediction=decode_PredictionWebhookEvent(data["prediction"])
         if data.get("prediction") is not None
-        else None,
-        publication_id=read_str(data["publication_id"])
-        if data.get("publication_id") is not None
         else None,
         recorded_at=read_str(data["recorded_at"]),
         release_id=read_str(data["release_id"])
@@ -3857,17 +3916,6 @@ def decode_WebhookHistoryResponse(
     )
 
 
-def decode_WebhookReplayResponse(
-    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
-) -> WebhookReplayResponse:
-    data = read_object(value)
-    return WebhookReplayResponse(
-        delivery_id=read_str(data["delivery_id"]),
-        replayed=read_bool(data["replayed"]),
-        meta=meta if meta is not None else ResponseMeta(),
-    )
-
-
 def decode_WebhookTestResponse(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> WebhookTestResponse:
@@ -3876,7 +3924,6 @@ def decode_WebhookTestResponse(
         delivery_id=read_str(data["delivery_id"])
         if data.get("delivery_id") is not None
         else None,
-        destination_id=read_str(data["destination_id"]),
         retry_after_seconds=read_int(data["retry_after_seconds"])
         if data.get("retry_after_seconds") is not None
         else None,

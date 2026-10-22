@@ -130,3 +130,12 @@ event = verify(raw_body, request.headers, webhook_secret)
 
 Do not parse and re-serialize the body before verification. A verification failure raises
 `errors.WebhookVerificationError` with a `reason`. Neither framework is a package dependency.
+
+## Links
+
+- https://narwhalapi.com/
+- https://narwhalapi.com/docs
+- https://narwhalapi.com/pricing
+- https://narwhalapi.com/compare/economic-data-apis
+- https://narwhalapi.com/commodities/gold
+- https://narwhalapi.com/economics/united-states

@@ -1,5 +1,5 @@
-# Generated from spec/live/openapi.json sha256 a8f87a3ac708cc35c7a08fa69c5bf4c3edeea4259ff31a8cc7a3f6ded6b553a8. Do not edit.
-# Generated from spec/next/openapi.json sha256 a8f87a3ac708cc35c7a08fa69c5bf4c3edeea4259ff31a8cc7a3f6ded6b553a8. Do not edit.
+# Generated from spec/live/openapi.json sha256 ba06d620d3f1f03774f3f30363a59e00f14ab7cde053c552d2164ad83a9ea678. Do not edit.
+# Generated from spec/next/openapi.json sha256 ba06d620d3f1f03774f3f30363a59e00f14ab7cde053c552d2164ad83a9ea678. Do not edit.
 from __future__ import annotations
 
 import builtins
@@ -19,7 +19,7 @@ from .._transport import (
 )
 from . import models
 
-LIVE_SPEC_SHA = "a8f87a3ac708cc35c7a08fa69c5bf4c3edeea4259ff31a8cc7a3f6ded6b553a8"
+LIVE_SPEC_SHA = "ba06d620d3f1f03774f3f30363a59e00f14ab7cde053c552d2164ad83a9ea678"
 
 
 class CalendarSubscriptions:
@@ -72,7 +72,7 @@ class CalendarSubscriptions:
             models.decode_CalendarSubscriptionCreated,
         )
 
-    def revoke(self, subscription_id: str) -> models.CalendarSubscriptionRevoked:
+    def revoke(self, subscription_id: str) -> models.NoContent:
         """Revoke Calendar Subscription
 
         Stability: stable.
@@ -81,7 +81,7 @@ class CalendarSubscriptions:
             subscription_id: Required path parameter.
 
         Returns:
-            CalendarSubscriptionRevoked: Decoded response with header metadata.
+            NoContent: Decoded response with header metadata.
         """
         _query: Query = []
         return self._transport.request(
@@ -92,7 +92,7 @@ class CalendarSubscriptions:
             ),
             _query,
             None,
-            models.decode_CalendarSubscriptionRevoked,
+            models.decode_NoContent,
         )
 
     def feed_url(self, token: str) -> str:
@@ -740,7 +740,6 @@ class Commodities:
         currency: str | None = None,
         cursor: str | None = None,
         limit: int | None = None,
-        market: str | None = None,
         price_type: str | None = None,
     ) -> models.PhysicalSeriesPage:
         """List Physical Series
@@ -754,7 +753,6 @@ class Commodities:
             currency: Optional query parameter.
             cursor: Optional query parameter.
             limit: Optional query parameter.
-            market: Optional query parameter.
             price_type: Optional query parameter.
 
         Returns:
@@ -782,9 +780,6 @@ class Commodities:
             encode_query("limit", limit, "single", required=False, decimal=False)
         )
         _query.extend(
-            encode_query("market", market, "single", required=False, decimal=False)
-        )
-        _query.extend(
             encode_query(
                 "price_type", price_type, "single", required=False, decimal=False
             )
@@ -806,7 +801,6 @@ class Commodities:
         currency: str | None = None,
         cursor: str | None = None,
         limit: int | None = None,
-        market: str | None = None,
         price_type: str | None = None,
     ) -> Iterator[models.PhysicalSeries]:
         """List Physical Series
@@ -820,7 +814,6 @@ class Commodities:
             currency: Optional query parameter.
             cursor: Optional query parameter.
             limit: Optional query parameter.
-            market: Optional query parameter.
             price_type: Optional query parameter.
 
         Returns:
@@ -837,7 +830,6 @@ class Commodities:
                 currency=currency,
                 cursor=next_cursor,
                 limit=limit,
-                market=market,
                 price_type=price_type,
             )
             return [item for item in result.series], result.next_cursor
@@ -889,7 +881,7 @@ class Economics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
+    ) -> models.CpiHistory:
         """Get Economics History
 
         Stability: stable.
@@ -902,7 +894,7 @@ class Economics:
             start: Optional query parameter.
 
         Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
+            CpiHistory: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -922,7 +914,7 @@ class Economics:
             ),
             _query,
             None,
-            models.decode_HistoricalEconomicsResponse,
+            models.decode_CpiHistory,
         )
 
     def cpi_history_iter(
@@ -933,7 +925,7 @@ class Economics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> Iterator[models.HistoricalObservation]:
+    ) -> Iterator[models.CpiHistoryObservation]:
         """Get Economics History
 
         Stability: stable.
@@ -946,12 +938,12 @@ class Economics:
             start: Optional query parameter.
 
         Returns:
-            Iterator[HistoricalObservation]: Items yielded lazily across pages.
+            Iterator[CpiHistoryObservation]: Items yielded lazily across pages.
         """
 
         def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
+        ) -> tuple[builtins.list[models.CpiHistoryObservation], str | None]:
             result = self.cpi_history(
                 country=country, cursor=next_cursor, end=end, limit=limit, start=start
             )
@@ -1031,7 +1023,7 @@ class Economics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
+    ) -> models.GdpGrowthHistory:
         """Get Economics History
 
         Stability: stable.
@@ -1044,7 +1036,7 @@ class Economics:
             start: Optional query parameter.
 
         Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
+            GdpGrowthHistory: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -1064,7 +1056,7 @@ class Economics:
             ),
             _query,
             None,
-            models.decode_HistoricalEconomicsResponse,
+            models.decode_GdpGrowthHistory,
         )
 
     def gdp_growth_history_iter(
@@ -1075,7 +1067,7 @@ class Economics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> Iterator[models.HistoricalObservation]:
+    ) -> Iterator[models.GdpGrowthHistoryObservation]:
         """Get Economics History
 
         Stability: stable.
@@ -1088,12 +1080,12 @@ class Economics:
             start: Optional query parameter.
 
         Returns:
-            Iterator[HistoricalObservation]: Items yielded lazily across pages.
+            Iterator[GdpGrowthHistoryObservation]: Items yielded lazily across pages.
         """
 
         def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
+        ) -> tuple[builtins.list[models.GdpGrowthHistoryObservation], str | None]:
             result = self.gdp_growth_history(
                 country=country, cursor=next_cursor, end=end, limit=limit, start=start
             )
@@ -1109,7 +1101,7 @@ class Economics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
+    ) -> models.GdpHistory:
         """Get Economics History
 
         Stability: stable.
@@ -1122,7 +1114,7 @@ class Economics:
             start: Optional query parameter.
 
         Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
+            GdpHistory: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -1142,7 +1134,7 @@ class Economics:
             ),
             _query,
             None,
-            models.decode_HistoricalEconomicsResponse,
+            models.decode_GdpHistory,
         )
 
     def gdp_history_iter(
@@ -1153,7 +1145,7 @@ class Economics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> Iterator[models.HistoricalObservation]:
+    ) -> Iterator[models.GdpHistoryObservation]:
         """Get Economics History
 
         Stability: stable.
@@ -1166,12 +1158,12 @@ class Economics:
             start: Optional query parameter.
 
         Returns:
-            Iterator[HistoricalObservation]: Items yielded lazily across pages.
+            Iterator[GdpHistoryObservation]: Items yielded lazily across pages.
         """
 
         def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
+        ) -> tuple[builtins.list[models.GdpHistoryObservation], str | None]:
             result = self.gdp_history(
                 country=country, cursor=next_cursor, end=end, limit=limit, start=start
             )
@@ -1219,7 +1211,7 @@ class Economics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
+    ) -> models.InflationHistory:
         """Get Economics History
 
         Stability: stable.
@@ -1232,7 +1224,7 @@ class Economics:
             start: Optional query parameter.
 
         Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
+            InflationHistory: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -1252,7 +1244,7 @@ class Economics:
             ),
             _query,
             None,
-            models.decode_HistoricalEconomicsResponse,
+            models.decode_InflationHistory,
         )
 
     def inflation_history_iter(
@@ -1263,7 +1255,7 @@ class Economics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> Iterator[models.HistoricalObservation]:
+    ) -> Iterator[models.InflationHistoryObservation]:
         """Get Economics History
 
         Stability: stable.
@@ -1276,12 +1268,12 @@ class Economics:
             start: Optional query parameter.
 
         Returns:
-            Iterator[HistoricalObservation]: Items yielded lazily across pages.
+            Iterator[InflationHistoryObservation]: Items yielded lazily across pages.
         """
 
         def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
+        ) -> tuple[builtins.list[models.InflationHistoryObservation], str | None]:
             result = self.inflation_history(
                 country=country, cursor=next_cursor, end=end, limit=limit, start=start
             )
@@ -1332,7 +1324,7 @@ class Economics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
+    ) -> models.RateHistory:
         """Get Economics History
 
         Stability: stable.
@@ -1345,7 +1337,7 @@ class Economics:
             start: Optional query parameter.
 
         Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
+            RateHistory: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -1366,7 +1358,7 @@ class Economics:
             ),
             _query,
             None,
-            models.decode_HistoricalEconomicsResponse,
+            models.decode_RateHistory,
         )
 
     def labour_force_participation_history_iter(
@@ -1377,7 +1369,7 @@ class Economics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> Iterator[models.HistoricalObservation]:
+    ) -> Iterator[models.RateHistoryObservation]:
         """Get Economics History
 
         Stability: stable.
@@ -1390,12 +1382,12 @@ class Economics:
             start: Optional query parameter.
 
         Returns:
-            Iterator[HistoricalObservation]: Items yielded lazily across pages.
+            Iterator[RateHistoryObservation]: Items yielded lazily across pages.
         """
 
         def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
+        ) -> tuple[builtins.list[models.RateHistoryObservation], str | None]:
             result = self.labour_force_participation_history(
                 country=country, cursor=next_cursor, end=end, limit=limit, start=start
             )
@@ -1405,7 +1397,7 @@ class Economics:
 
     def get_release(
         self, release_id: str, *, version_id: str | None = None
-    ) -> models.EconomicRelease:
+    ) -> models.EconomicReleaseDetail:
         """Get Economic Release
 
         Stability: stable.
@@ -1415,7 +1407,7 @@ class Economics:
             version_id: Optional query parameter.
 
         Returns:
-            EconomicRelease: Decoded response with header metadata.
+            EconomicReleaseDetail: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -1430,7 +1422,7 @@ class Economics:
             ),
             _query,
             None,
-            models.decode_EconomicRelease,
+            models.decode_EconomicReleaseDetail,
         )
 
     def trade(
@@ -1465,142 +1457,6 @@ class Economics:
             models.decode_TradeSummary,
         )
 
-    def trade_exports(
-        self,
-        country: str,
-        *,
-        classification: str | None = None,
-        partner: str | None = None,
-        period: str | None = None,
-        product: str | None = None,
-        version_id: str | None = None,
-    ) -> models.TradeExports:
-        """Get Trade Exports
-
-        Stability: stable.
-
-        Args:
-            country: Required path parameter.
-            classification: Optional query parameter.
-            partner: Optional query parameter.
-            period: Optional query parameter.
-            product: Optional query parameter.
-            version_id: Optional query parameter.
-
-        Returns:
-            TradeExports: Decoded response with header metadata.
-        """
-        _query: Query = []
-        _query.extend(
-            encode_query(
-                "classification",
-                classification,
-                "single",
-                required=False,
-                decimal=False,
-            )
-        )
-        _query.extend(
-            encode_query("partner", partner, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query("period", period, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query("product", product, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query(
-                "version_id", version_id, "single", required=False, decimal=False
-            )
-        )
-        return self._transport.request(
-            "GET",
-            encode_path("/v1/economics/{country}/trade/exports", {"country": country}),
-            _query,
-            None,
-            models.decode_TradeExports,
-        )
-
-    def trade_exports_history(
-        self,
-        country: str,
-        *,
-        cursor: str | None = None,
-        end: str | None = None,
-        limit: int | None = None,
-        start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
-        """Get Economics History
-
-        Stability: stable.
-
-        Args:
-            country: Required path parameter.
-            cursor: Optional query parameter.
-            end: Optional query parameter.
-            limit: Optional query parameter.
-            start: Optional query parameter.
-
-        Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
-        """
-        _query: Query = []
-        _query.extend(
-            encode_query("cursor", cursor, "single", required=False, decimal=False)
-        )
-        _query.extend(encode_query("end", end, "single", required=False, decimal=False))
-        _query.extend(
-            encode_query("limit", limit, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query("start", start, "single", required=False, decimal=False)
-        )
-        return self._transport.request(
-            "GET",
-            encode_path(
-                "/v1/economics/{country}/trade/exports/observations",
-                {"country": country},
-            ),
-            _query,
-            None,
-            models.decode_HistoricalEconomicsResponse,
-        )
-
-    def trade_exports_history_iter(
-        self,
-        country: str,
-        *,
-        cursor: str | None = None,
-        end: str | None = None,
-        limit: int | None = None,
-        start: str | None = None,
-    ) -> Iterator[models.HistoricalObservation]:
-        """Get Economics History
-
-        Stability: stable.
-
-        Args:
-            country: Required path parameter.
-            cursor: Optional query parameter.
-            end: Optional query parameter.
-            limit: Optional query parameter.
-            start: Optional query parameter.
-
-        Returns:
-            Iterator[HistoricalObservation]: Items yielded lazily across pages.
-        """
-
-        def page(
-            next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
-            result = self.trade_exports_history(
-                country=country, cursor=next_cursor, end=end, limit=limit, start=start
-            )
-            return [item for item in result.observations], result.next_cursor
-
-        return iterate(page, cursor)
-
     def trade_history(
         self,
         country: str,
@@ -1609,7 +1465,7 @@ class Economics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
+    ) -> models.TradeHistory:
         """Get Economics History
 
         Stability: stable.
@@ -1622,7 +1478,7 @@ class Economics:
             start: Optional query parameter.
 
         Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
+            TradeHistory: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -1642,7 +1498,7 @@ class Economics:
             ),
             _query,
             None,
-            models.decode_HistoricalEconomicsResponse,
+            models.decode_TradeHistory,
         )
 
     def trade_history_iter(
@@ -1653,7 +1509,7 @@ class Economics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> Iterator[models.HistoricalObservation]:
+    ) -> Iterator[models.TradeHistoryObservation]:
         """Get Economics History
 
         Stability: stable.
@@ -1666,149 +1522,13 @@ class Economics:
             start: Optional query parameter.
 
         Returns:
-            Iterator[HistoricalObservation]: Items yielded lazily across pages.
+            Iterator[TradeHistoryObservation]: Items yielded lazily across pages.
         """
 
         def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
+        ) -> tuple[builtins.list[models.TradeHistoryObservation], str | None]:
             result = self.trade_history(
-                country=country, cursor=next_cursor, end=end, limit=limit, start=start
-            )
-            return [item for item in result.observations], result.next_cursor
-
-        return iterate(page, cursor)
-
-    def trade_imports(
-        self,
-        country: str,
-        *,
-        classification: str | None = None,
-        partner: str | None = None,
-        period: str | None = None,
-        product: str | None = None,
-        version_id: str | None = None,
-    ) -> models.TradeImports:
-        """Get Trade Imports
-
-        Stability: stable.
-
-        Args:
-            country: Required path parameter.
-            classification: Optional query parameter.
-            partner: Optional query parameter.
-            period: Optional query parameter.
-            product: Optional query parameter.
-            version_id: Optional query parameter.
-
-        Returns:
-            TradeImports: Decoded response with header metadata.
-        """
-        _query: Query = []
-        _query.extend(
-            encode_query(
-                "classification",
-                classification,
-                "single",
-                required=False,
-                decimal=False,
-            )
-        )
-        _query.extend(
-            encode_query("partner", partner, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query("period", period, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query("product", product, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query(
-                "version_id", version_id, "single", required=False, decimal=False
-            )
-        )
-        return self._transport.request(
-            "GET",
-            encode_path("/v1/economics/{country}/trade/imports", {"country": country}),
-            _query,
-            None,
-            models.decode_TradeImports,
-        )
-
-    def trade_imports_history(
-        self,
-        country: str,
-        *,
-        cursor: str | None = None,
-        end: str | None = None,
-        limit: int | None = None,
-        start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
-        """Get Economics History
-
-        Stability: stable.
-
-        Args:
-            country: Required path parameter.
-            cursor: Optional query parameter.
-            end: Optional query parameter.
-            limit: Optional query parameter.
-            start: Optional query parameter.
-
-        Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
-        """
-        _query: Query = []
-        _query.extend(
-            encode_query("cursor", cursor, "single", required=False, decimal=False)
-        )
-        _query.extend(encode_query("end", end, "single", required=False, decimal=False))
-        _query.extend(
-            encode_query("limit", limit, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query("start", start, "single", required=False, decimal=False)
-        )
-        return self._transport.request(
-            "GET",
-            encode_path(
-                "/v1/economics/{country}/trade/imports/observations",
-                {"country": country},
-            ),
-            _query,
-            None,
-            models.decode_HistoricalEconomicsResponse,
-        )
-
-    def trade_imports_history_iter(
-        self,
-        country: str,
-        *,
-        cursor: str | None = None,
-        end: str | None = None,
-        limit: int | None = None,
-        start: str | None = None,
-    ) -> Iterator[models.HistoricalObservation]:
-        """Get Economics History
-
-        Stability: stable.
-
-        Args:
-            country: Required path parameter.
-            cursor: Optional query parameter.
-            end: Optional query parameter.
-            limit: Optional query parameter.
-            start: Optional query parameter.
-
-        Returns:
-            Iterator[HistoricalObservation]: Items yielded lazily across pages.
-        """
-
-        def page(
-            next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
-            result = self.trade_imports_history(
                 country=country, cursor=next_cursor, end=end, limit=limit, start=start
             )
             return [item for item in result.observations], result.next_cursor
@@ -1855,7 +1575,7 @@ class Economics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
+    ) -> models.RateHistory:
         """Get Economics History
 
         Stability: stable.
@@ -1868,7 +1588,7 @@ class Economics:
             start: Optional query parameter.
 
         Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
+            RateHistory: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -1889,7 +1609,7 @@ class Economics:
             ),
             _query,
             None,
-            models.decode_HistoricalEconomicsResponse,
+            models.decode_RateHistory,
         )
 
     def unemployment_history_iter(
@@ -1900,7 +1620,7 @@ class Economics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> Iterator[models.HistoricalObservation]:
+    ) -> Iterator[models.RateHistoryObservation]:
         """Get Economics History
 
         Stability: stable.
@@ -1913,12 +1633,12 @@ class Economics:
             start: Optional query parameter.
 
         Returns:
-            Iterator[HistoricalObservation]: Items yielded lazily across pages.
+            Iterator[RateHistoryObservation]: Items yielded lazily across pages.
         """
 
         def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
+        ) -> tuple[builtins.list[models.RateHistoryObservation], str | None]:
             result = self.unemployment_history(
                 country=country, cursor=next_cursor, end=end, limit=limit, start=start
             )
@@ -2104,7 +1824,6 @@ class Economics:
                 "start_date", start_date, "single", required=False, decimal=False
             )
         )
-        _query.append(("view", "full"))
         return self._transport.request(
             "GET",
             encode_path("/v1/economics/calendar", {}),
@@ -2121,7 +1840,7 @@ class Economics:
         end_date: str | None = None,
         limit: int | None = None,
         start_date: str | None = None,
-    ) -> Iterator[models.EconomicRelease]:
+    ) -> Iterator[models.EconomicReleaseSummary]:
         """List Economic Releases
 
         Stability: stable.
@@ -2134,12 +1853,12 @@ class Economics:
             start_date: Optional query parameter.
 
         Returns:
-            Iterator[EconomicRelease]: Items yielded lazily across pages.
+            Iterator[EconomicReleaseSummary]: Items yielded lazily across pages.
         """
 
         def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.EconomicRelease], str | None]:
+        ) -> tuple[builtins.list[models.EconomicReleaseSummary], str | None]:
             result = self.list_releases(
                 countries=countries,
                 cursor=next_cursor,
@@ -3269,7 +2988,7 @@ class Webhooks:
             models.decode_WebhookDestinationCreated,
         )
 
-    def delete_destination(self, destination_id: str) -> models.WebhookDeleteResponse:
+    def delete_destination(self, destination_id: str) -> models.NoContent:
         """Delete Destination
 
         Stability: stable.
@@ -3278,7 +2997,7 @@ class Webhooks:
             destination_id: Required path parameter.
 
         Returns:
-            WebhookDeleteResponse: Decoded response with header metadata.
+            NoContent: Decoded response with header metadata.
         """
         _query: Query = []
         return self._transport.request(
@@ -3289,7 +3008,7 @@ class Webhooks:
             ),
             _query,
             None,
-            models.decode_WebhookDeleteResponse,
+            models.decode_NoContent,
         )
 
     def delivery_history(
@@ -3401,7 +3120,7 @@ class Webhooks:
 
     def replay_delivery(
         self, delivery_id: str, destination_id: str
-    ) -> models.WebhookReplayResponse:
+    ) -> models.NoContent:
         """Replay Delivery
 
         Stability: stable.
@@ -3411,7 +3130,7 @@ class Webhooks:
             destination_id: Required path parameter.
 
         Returns:
-            WebhookReplayResponse: Decoded response with header metadata.
+            NoContent: Decoded response with header metadata.
         """
         _query: Query = []
         return self._transport.request(
@@ -3422,7 +3141,7 @@ class Webhooks:
             ),
             _query,
             None,
-            models.decode_WebhookReplayResponse,
+            models.decode_NoContent,
         )
 
     def rotate_secret(self, destination_id: str) -> models.WebhookDestinationCreated:
@@ -3582,7 +3301,7 @@ class AsyncCalendarSubscriptions:
             models.decode_CalendarSubscriptionCreated,
         )
 
-    async def revoke(self, subscription_id: str) -> models.CalendarSubscriptionRevoked:
+    async def revoke(self, subscription_id: str) -> models.NoContent:
         """Revoke Calendar Subscription
 
         Stability: stable.
@@ -3591,7 +3310,7 @@ class AsyncCalendarSubscriptions:
             subscription_id: Required path parameter.
 
         Returns:
-            CalendarSubscriptionRevoked: Decoded response with header metadata.
+            NoContent: Decoded response with header metadata.
         """
         _query: Query = []
         return await self._transport.request(
@@ -3602,7 +3321,7 @@ class AsyncCalendarSubscriptions:
             ),
             _query,
             None,
-            models.decode_CalendarSubscriptionRevoked,
+            models.decode_NoContent,
         )
 
     def feed_url(self, token: str) -> str:
@@ -4250,7 +3969,6 @@ class AsyncCommodities:
         currency: str | None = None,
         cursor: str | None = None,
         limit: int | None = None,
-        market: str | None = None,
         price_type: str | None = None,
     ) -> models.PhysicalSeriesPage:
         """List Physical Series
@@ -4264,7 +3982,6 @@ class AsyncCommodities:
             currency: Optional query parameter.
             cursor: Optional query parameter.
             limit: Optional query parameter.
-            market: Optional query parameter.
             price_type: Optional query parameter.
 
         Returns:
@@ -4292,9 +4009,6 @@ class AsyncCommodities:
             encode_query("limit", limit, "single", required=False, decimal=False)
         )
         _query.extend(
-            encode_query("market", market, "single", required=False, decimal=False)
-        )
-        _query.extend(
             encode_query(
                 "price_type", price_type, "single", required=False, decimal=False
             )
@@ -4316,7 +4030,6 @@ class AsyncCommodities:
         currency: str | None = None,
         cursor: str | None = None,
         limit: int | None = None,
-        market: str | None = None,
         price_type: str | None = None,
     ) -> AsyncIterator[models.PhysicalSeries]:
         """List Physical Series
@@ -4330,7 +4043,6 @@ class AsyncCommodities:
             currency: Optional query parameter.
             cursor: Optional query parameter.
             limit: Optional query parameter.
-            market: Optional query parameter.
             price_type: Optional query parameter.
 
         Returns:
@@ -4347,7 +4059,6 @@ class AsyncCommodities:
                 currency=currency,
                 cursor=next_cursor,
                 limit=limit,
-                market=market,
                 price_type=price_type,
             )
             return [item for item in result.series], result.next_cursor
@@ -4399,7 +4110,7 @@ class AsyncEconomics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
+    ) -> models.CpiHistory:
         """Get Economics History
 
         Stability: stable.
@@ -4412,7 +4123,7 @@ class AsyncEconomics:
             start: Optional query parameter.
 
         Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
+            CpiHistory: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -4432,7 +4143,7 @@ class AsyncEconomics:
             ),
             _query,
             None,
-            models.decode_HistoricalEconomicsResponse,
+            models.decode_CpiHistory,
         )
 
     def cpi_history_iter(
@@ -4443,7 +4154,7 @@ class AsyncEconomics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> AsyncIterator[models.HistoricalObservation]:
+    ) -> AsyncIterator[models.CpiHistoryObservation]:
         """Get Economics History
 
         Stability: stable.
@@ -4456,12 +4167,12 @@ class AsyncEconomics:
             start: Optional query parameter.
 
         Returns:
-            AsyncIterator[HistoricalObservation]: Items yielded lazily across pages.
+            AsyncIterator[CpiHistoryObservation]: Items yielded lazily across pages.
         """
 
         async def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
+        ) -> tuple[builtins.list[models.CpiHistoryObservation], str | None]:
             result = await self.cpi_history(
                 country=country, cursor=next_cursor, end=end, limit=limit, start=start
             )
@@ -4541,7 +4252,7 @@ class AsyncEconomics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
+    ) -> models.GdpGrowthHistory:
         """Get Economics History
 
         Stability: stable.
@@ -4554,7 +4265,7 @@ class AsyncEconomics:
             start: Optional query parameter.
 
         Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
+            GdpGrowthHistory: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -4574,7 +4285,7 @@ class AsyncEconomics:
             ),
             _query,
             None,
-            models.decode_HistoricalEconomicsResponse,
+            models.decode_GdpGrowthHistory,
         )
 
     def gdp_growth_history_iter(
@@ -4585,7 +4296,7 @@ class AsyncEconomics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> AsyncIterator[models.HistoricalObservation]:
+    ) -> AsyncIterator[models.GdpGrowthHistoryObservation]:
         """Get Economics History
 
         Stability: stable.
@@ -4598,12 +4309,12 @@ class AsyncEconomics:
             start: Optional query parameter.
 
         Returns:
-            AsyncIterator[HistoricalObservation]: Items yielded lazily across pages.
+            AsyncIterator[GdpGrowthHistoryObservation]: Items yielded lazily across pages.
         """
 
         async def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
+        ) -> tuple[builtins.list[models.GdpGrowthHistoryObservation], str | None]:
             result = await self.gdp_growth_history(
                 country=country, cursor=next_cursor, end=end, limit=limit, start=start
             )
@@ -4619,7 +4330,7 @@ class AsyncEconomics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
+    ) -> models.GdpHistory:
         """Get Economics History
 
         Stability: stable.
@@ -4632,7 +4343,7 @@ class AsyncEconomics:
             start: Optional query parameter.
 
         Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
+            GdpHistory: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -4652,7 +4363,7 @@ class AsyncEconomics:
             ),
             _query,
             None,
-            models.decode_HistoricalEconomicsResponse,
+            models.decode_GdpHistory,
         )
 
     def gdp_history_iter(
@@ -4663,7 +4374,7 @@ class AsyncEconomics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> AsyncIterator[models.HistoricalObservation]:
+    ) -> AsyncIterator[models.GdpHistoryObservation]:
         """Get Economics History
 
         Stability: stable.
@@ -4676,12 +4387,12 @@ class AsyncEconomics:
             start: Optional query parameter.
 
         Returns:
-            AsyncIterator[HistoricalObservation]: Items yielded lazily across pages.
+            AsyncIterator[GdpHistoryObservation]: Items yielded lazily across pages.
         """
 
         async def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
+        ) -> tuple[builtins.list[models.GdpHistoryObservation], str | None]:
             result = await self.gdp_history(
                 country=country, cursor=next_cursor, end=end, limit=limit, start=start
             )
@@ -4729,7 +4440,7 @@ class AsyncEconomics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
+    ) -> models.InflationHistory:
         """Get Economics History
 
         Stability: stable.
@@ -4742,7 +4453,7 @@ class AsyncEconomics:
             start: Optional query parameter.
 
         Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
+            InflationHistory: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -4762,7 +4473,7 @@ class AsyncEconomics:
             ),
             _query,
             None,
-            models.decode_HistoricalEconomicsResponse,
+            models.decode_InflationHistory,
         )
 
     def inflation_history_iter(
@@ -4773,7 +4484,7 @@ class AsyncEconomics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> AsyncIterator[models.HistoricalObservation]:
+    ) -> AsyncIterator[models.InflationHistoryObservation]:
         """Get Economics History
 
         Stability: stable.
@@ -4786,12 +4497,12 @@ class AsyncEconomics:
             start: Optional query parameter.
 
         Returns:
-            AsyncIterator[HistoricalObservation]: Items yielded lazily across pages.
+            AsyncIterator[InflationHistoryObservation]: Items yielded lazily across pages.
         """
 
         async def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
+        ) -> tuple[builtins.list[models.InflationHistoryObservation], str | None]:
             result = await self.inflation_history(
                 country=country, cursor=next_cursor, end=end, limit=limit, start=start
             )
@@ -4842,7 +4553,7 @@ class AsyncEconomics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
+    ) -> models.RateHistory:
         """Get Economics History
 
         Stability: stable.
@@ -4855,7 +4566,7 @@ class AsyncEconomics:
             start: Optional query parameter.
 
         Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
+            RateHistory: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -4876,7 +4587,7 @@ class AsyncEconomics:
             ),
             _query,
             None,
-            models.decode_HistoricalEconomicsResponse,
+            models.decode_RateHistory,
         )
 
     def labour_force_participation_history_iter(
@@ -4887,7 +4598,7 @@ class AsyncEconomics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> AsyncIterator[models.HistoricalObservation]:
+    ) -> AsyncIterator[models.RateHistoryObservation]:
         """Get Economics History
 
         Stability: stable.
@@ -4900,12 +4611,12 @@ class AsyncEconomics:
             start: Optional query parameter.
 
         Returns:
-            AsyncIterator[HistoricalObservation]: Items yielded lazily across pages.
+            AsyncIterator[RateHistoryObservation]: Items yielded lazily across pages.
         """
 
         async def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
+        ) -> tuple[builtins.list[models.RateHistoryObservation], str | None]:
             result = await self.labour_force_participation_history(
                 country=country, cursor=next_cursor, end=end, limit=limit, start=start
             )
@@ -4915,7 +4626,7 @@ class AsyncEconomics:
 
     async def get_release(
         self, release_id: str, *, version_id: str | None = None
-    ) -> models.EconomicRelease:
+    ) -> models.EconomicReleaseDetail:
         """Get Economic Release
 
         Stability: stable.
@@ -4925,7 +4636,7 @@ class AsyncEconomics:
             version_id: Optional query parameter.
 
         Returns:
-            EconomicRelease: Decoded response with header metadata.
+            EconomicReleaseDetail: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -4940,7 +4651,7 @@ class AsyncEconomics:
             ),
             _query,
             None,
-            models.decode_EconomicRelease,
+            models.decode_EconomicReleaseDetail,
         )
 
     async def trade(
@@ -4975,142 +4686,6 @@ class AsyncEconomics:
             models.decode_TradeSummary,
         )
 
-    async def trade_exports(
-        self,
-        country: str,
-        *,
-        classification: str | None = None,
-        partner: str | None = None,
-        period: str | None = None,
-        product: str | None = None,
-        version_id: str | None = None,
-    ) -> models.TradeExports:
-        """Get Trade Exports
-
-        Stability: stable.
-
-        Args:
-            country: Required path parameter.
-            classification: Optional query parameter.
-            partner: Optional query parameter.
-            period: Optional query parameter.
-            product: Optional query parameter.
-            version_id: Optional query parameter.
-
-        Returns:
-            TradeExports: Decoded response with header metadata.
-        """
-        _query: Query = []
-        _query.extend(
-            encode_query(
-                "classification",
-                classification,
-                "single",
-                required=False,
-                decimal=False,
-            )
-        )
-        _query.extend(
-            encode_query("partner", partner, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query("period", period, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query("product", product, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query(
-                "version_id", version_id, "single", required=False, decimal=False
-            )
-        )
-        return await self._transport.request(
-            "GET",
-            encode_path("/v1/economics/{country}/trade/exports", {"country": country}),
-            _query,
-            None,
-            models.decode_TradeExports,
-        )
-
-    async def trade_exports_history(
-        self,
-        country: str,
-        *,
-        cursor: str | None = None,
-        end: str | None = None,
-        limit: int | None = None,
-        start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
-        """Get Economics History
-
-        Stability: stable.
-
-        Args:
-            country: Required path parameter.
-            cursor: Optional query parameter.
-            end: Optional query parameter.
-            limit: Optional query parameter.
-            start: Optional query parameter.
-
-        Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
-        """
-        _query: Query = []
-        _query.extend(
-            encode_query("cursor", cursor, "single", required=False, decimal=False)
-        )
-        _query.extend(encode_query("end", end, "single", required=False, decimal=False))
-        _query.extend(
-            encode_query("limit", limit, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query("start", start, "single", required=False, decimal=False)
-        )
-        return await self._transport.request(
-            "GET",
-            encode_path(
-                "/v1/economics/{country}/trade/exports/observations",
-                {"country": country},
-            ),
-            _query,
-            None,
-            models.decode_HistoricalEconomicsResponse,
-        )
-
-    def trade_exports_history_iter(
-        self,
-        country: str,
-        *,
-        cursor: str | None = None,
-        end: str | None = None,
-        limit: int | None = None,
-        start: str | None = None,
-    ) -> AsyncIterator[models.HistoricalObservation]:
-        """Get Economics History
-
-        Stability: stable.
-
-        Args:
-            country: Required path parameter.
-            cursor: Optional query parameter.
-            end: Optional query parameter.
-            limit: Optional query parameter.
-            start: Optional query parameter.
-
-        Returns:
-            AsyncIterator[HistoricalObservation]: Items yielded lazily across pages.
-        """
-
-        async def page(
-            next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
-            result = await self.trade_exports_history(
-                country=country, cursor=next_cursor, end=end, limit=limit, start=start
-            )
-            return [item for item in result.observations], result.next_cursor
-
-        return iterate_async(page, cursor)
-
     async def trade_history(
         self,
         country: str,
@@ -5119,7 +4694,7 @@ class AsyncEconomics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
+    ) -> models.TradeHistory:
         """Get Economics History
 
         Stability: stable.
@@ -5132,7 +4707,7 @@ class AsyncEconomics:
             start: Optional query parameter.
 
         Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
+            TradeHistory: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -5152,7 +4727,7 @@ class AsyncEconomics:
             ),
             _query,
             None,
-            models.decode_HistoricalEconomicsResponse,
+            models.decode_TradeHistory,
         )
 
     def trade_history_iter(
@@ -5163,7 +4738,7 @@ class AsyncEconomics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> AsyncIterator[models.HistoricalObservation]:
+    ) -> AsyncIterator[models.TradeHistoryObservation]:
         """Get Economics History
 
         Stability: stable.
@@ -5176,149 +4751,13 @@ class AsyncEconomics:
             start: Optional query parameter.
 
         Returns:
-            AsyncIterator[HistoricalObservation]: Items yielded lazily across pages.
+            AsyncIterator[TradeHistoryObservation]: Items yielded lazily across pages.
         """
 
         async def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
+        ) -> tuple[builtins.list[models.TradeHistoryObservation], str | None]:
             result = await self.trade_history(
-                country=country, cursor=next_cursor, end=end, limit=limit, start=start
-            )
-            return [item for item in result.observations], result.next_cursor
-
-        return iterate_async(page, cursor)
-
-    async def trade_imports(
-        self,
-        country: str,
-        *,
-        classification: str | None = None,
-        partner: str | None = None,
-        period: str | None = None,
-        product: str | None = None,
-        version_id: str | None = None,
-    ) -> models.TradeImports:
-        """Get Trade Imports
-
-        Stability: stable.
-
-        Args:
-            country: Required path parameter.
-            classification: Optional query parameter.
-            partner: Optional query parameter.
-            period: Optional query parameter.
-            product: Optional query parameter.
-            version_id: Optional query parameter.
-
-        Returns:
-            TradeImports: Decoded response with header metadata.
-        """
-        _query: Query = []
-        _query.extend(
-            encode_query(
-                "classification",
-                classification,
-                "single",
-                required=False,
-                decimal=False,
-            )
-        )
-        _query.extend(
-            encode_query("partner", partner, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query("period", period, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query("product", product, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query(
-                "version_id", version_id, "single", required=False, decimal=False
-            )
-        )
-        return await self._transport.request(
-            "GET",
-            encode_path("/v1/economics/{country}/trade/imports", {"country": country}),
-            _query,
-            None,
-            models.decode_TradeImports,
-        )
-
-    async def trade_imports_history(
-        self,
-        country: str,
-        *,
-        cursor: str | None = None,
-        end: str | None = None,
-        limit: int | None = None,
-        start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
-        """Get Economics History
-
-        Stability: stable.
-
-        Args:
-            country: Required path parameter.
-            cursor: Optional query parameter.
-            end: Optional query parameter.
-            limit: Optional query parameter.
-            start: Optional query parameter.
-
-        Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
-        """
-        _query: Query = []
-        _query.extend(
-            encode_query("cursor", cursor, "single", required=False, decimal=False)
-        )
-        _query.extend(encode_query("end", end, "single", required=False, decimal=False))
-        _query.extend(
-            encode_query("limit", limit, "single", required=False, decimal=False)
-        )
-        _query.extend(
-            encode_query("start", start, "single", required=False, decimal=False)
-        )
-        return await self._transport.request(
-            "GET",
-            encode_path(
-                "/v1/economics/{country}/trade/imports/observations",
-                {"country": country},
-            ),
-            _query,
-            None,
-            models.decode_HistoricalEconomicsResponse,
-        )
-
-    def trade_imports_history_iter(
-        self,
-        country: str,
-        *,
-        cursor: str | None = None,
-        end: str | None = None,
-        limit: int | None = None,
-        start: str | None = None,
-    ) -> AsyncIterator[models.HistoricalObservation]:
-        """Get Economics History
-
-        Stability: stable.
-
-        Args:
-            country: Required path parameter.
-            cursor: Optional query parameter.
-            end: Optional query parameter.
-            limit: Optional query parameter.
-            start: Optional query parameter.
-
-        Returns:
-            AsyncIterator[HistoricalObservation]: Items yielded lazily across pages.
-        """
-
-        async def page(
-            next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
-            result = await self.trade_imports_history(
                 country=country, cursor=next_cursor, end=end, limit=limit, start=start
             )
             return [item for item in result.observations], result.next_cursor
@@ -5365,7 +4804,7 @@ class AsyncEconomics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> models.HistoricalEconomicsResponse:
+    ) -> models.RateHistory:
         """Get Economics History
 
         Stability: stable.
@@ -5378,7 +4817,7 @@ class AsyncEconomics:
             start: Optional query parameter.
 
         Returns:
-            HistoricalEconomicsResponse: Decoded response with header metadata.
+            RateHistory: Decoded response with header metadata.
         """
         _query: Query = []
         _query.extend(
@@ -5399,7 +4838,7 @@ class AsyncEconomics:
             ),
             _query,
             None,
-            models.decode_HistoricalEconomicsResponse,
+            models.decode_RateHistory,
         )
 
     def unemployment_history_iter(
@@ -5410,7 +4849,7 @@ class AsyncEconomics:
         end: str | None = None,
         limit: int | None = None,
         start: str | None = None,
-    ) -> AsyncIterator[models.HistoricalObservation]:
+    ) -> AsyncIterator[models.RateHistoryObservation]:
         """Get Economics History
 
         Stability: stable.
@@ -5423,12 +4862,12 @@ class AsyncEconomics:
             start: Optional query parameter.
 
         Returns:
-            AsyncIterator[HistoricalObservation]: Items yielded lazily across pages.
+            AsyncIterator[RateHistoryObservation]: Items yielded lazily across pages.
         """
 
         async def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.HistoricalObservation], str | None]:
+        ) -> tuple[builtins.list[models.RateHistoryObservation], str | None]:
             result = await self.unemployment_history(
                 country=country, cursor=next_cursor, end=end, limit=limit, start=start
             )
@@ -5614,7 +5053,6 @@ class AsyncEconomics:
                 "start_date", start_date, "single", required=False, decimal=False
             )
         )
-        _query.append(("view", "full"))
         return await self._transport.request(
             "GET",
             encode_path("/v1/economics/calendar", {}),
@@ -5631,7 +5069,7 @@ class AsyncEconomics:
         end_date: str | None = None,
         limit: int | None = None,
         start_date: str | None = None,
-    ) -> AsyncIterator[models.EconomicRelease]:
+    ) -> AsyncIterator[models.EconomicReleaseSummary]:
         """List Economic Releases
 
         Stability: stable.
@@ -5644,12 +5082,12 @@ class AsyncEconomics:
             start_date: Optional query parameter.
 
         Returns:
-            AsyncIterator[EconomicRelease]: Items yielded lazily across pages.
+            AsyncIterator[EconomicReleaseSummary]: Items yielded lazily across pages.
         """
 
         async def page(
             next_cursor: str | None,
-        ) -> tuple[builtins.list[models.EconomicRelease], str | None]:
+        ) -> tuple[builtins.list[models.EconomicReleaseSummary], str | None]:
             result = await self.list_releases(
                 countries=countries,
                 cursor=next_cursor,
@@ -6789,9 +6227,7 @@ class AsyncWebhooks:
             models.decode_WebhookDestinationCreated,
         )
 
-    async def delete_destination(
-        self, destination_id: str
-    ) -> models.WebhookDeleteResponse:
+    async def delete_destination(self, destination_id: str) -> models.NoContent:
         """Delete Destination
 
         Stability: stable.
@@ -6800,7 +6236,7 @@ class AsyncWebhooks:
             destination_id: Required path parameter.
 
         Returns:
-            WebhookDeleteResponse: Decoded response with header metadata.
+            NoContent: Decoded response with header metadata.
         """
         _query: Query = []
         return await self._transport.request(
@@ -6811,7 +6247,7 @@ class AsyncWebhooks:
             ),
             _query,
             None,
-            models.decode_WebhookDeleteResponse,
+            models.decode_NoContent,
         )
 
     async def delivery_history(
@@ -6925,7 +6361,7 @@ class AsyncWebhooks:
 
     async def replay_delivery(
         self, delivery_id: str, destination_id: str
-    ) -> models.WebhookReplayResponse:
+    ) -> models.NoContent:
         """Replay Delivery
 
         Stability: stable.
@@ -6935,7 +6371,7 @@ class AsyncWebhooks:
             destination_id: Required path parameter.
 
         Returns:
-            WebhookReplayResponse: Decoded response with header metadata.
+            NoContent: Decoded response with header metadata.
         """
         _query: Query = []
         return await self._transport.request(
@@ -6946,7 +6382,7 @@ class AsyncWebhooks:
             ),
             _query,
             None,
-            models.decode_WebhookReplayResponse,
+            models.decode_NoContent,
         )
 
     async def rotate_secret(
