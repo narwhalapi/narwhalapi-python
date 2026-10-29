@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "narwhalapi"
-version = "0.4.0"
+version = "0.5.0"
 description = "Typed clients for the Narwhal API"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -33,6 +33,7 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://narwhalapi.com"
+Repository = "https://github.com/narwhalapi/narwhalapi-python"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/narwhalapi"]

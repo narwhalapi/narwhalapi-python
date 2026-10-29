@@ -1,7 +1,7 @@
 # Narwhal API for Python
 
-Typed synchronous and asynchronous clients for economics, foreign exchange, calendars,
-physical palm oil, physical commodity reference prices, spot gold and silver, prediction markets, FX and commodity bar history, and webhook delivery. Python 3.10 or newer. Install with `pip install narwhalapi`.
+Typed synchronous and asynchronous clients for economics (including the equity risk premium), foreign exchange, calendars,
+stocks, funds, crypto, company calendars, company filings and financials, physical palm oil, physical commodity reference prices, spot gold and silver, prediction markets, FX and commodity bar history, and webhook delivery. Python 3.10 or newer. Install with `pip install narwhalapi`.
 
 Set `NARWHAL_API_KEY` in the environment. Keep keys on the server. The default base URL is
 `https://api.narwhalapi.com`; override it with `NARWHAL_BASE_URL` or `base_url=`.
@@ -49,7 +49,8 @@ Context managers close connections; explicit `close()` and `await aclose()` also
 
 ## Operations and types
 
-Namespaces are `economics`, `fx`, `calendars`, `commodities`, `events`, `webhooks`, and
+Namespaces are `economics`, `fx`, `calendars`, `commodities`, `equities`, `funds`, `crypto`,
+`company_calendars`, `filings`, `predictions`, `events`, `webhooks`, and
 `calendar_subscriptions`. Operations not yet in the live API appear under `nw.unstable`;
 there are none today.
 Models and known string constants are available through `narwhalapi.models`,

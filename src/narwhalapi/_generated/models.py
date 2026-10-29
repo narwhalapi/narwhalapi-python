@@ -1,5 +1,5 @@
-# Generated from spec/live/openapi.json sha256 ba06d620d3f1f03774f3f30363a59e00f14ab7cde053c552d2164ad83a9ea678. Do not edit.
-# Generated from spec/next/openapi.json sha256 ba06d620d3f1f03774f3f30363a59e00f14ab7cde053c552d2164ad83a9ea678. Do not edit.
+# Generated from spec/live/openapi.json sha256 5071bd97e9507eb56b344d00a24ba056ce1340fe1184faa4d755fe7e407e1cf6. Do not edit.
+# Generated from spec/next/openapi.json sha256 5071bd97e9507eb56b344d00a24ba056ce1340fe1184faa4d755fe7e407e1cf6. Do not edit.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -16,6 +16,16 @@ from .._decode import (
     read_str,
 )
 from .._meta import ResponseMeta
+
+
+@dataclass(frozen=True, slots=True)
+class _FundPrice:
+    pass
+
+
+@dataclass(frozen=True, slots=True)
+class _FundPriceItem:
+    pass
 
 
 @dataclass(frozen=True, slots=True)
@@ -38,6 +48,16 @@ class _PalmoilSeries:
     pass
 
 
+@dataclass(frozen=True, slots=True)
+class _PolicyRate:
+    pass
+
+
+@dataclass(frozen=True, slots=True)
+class _PolicyRateObservation:
+    pass
+
+
 class BarInterval:
     """Known values; response fields also accept future strings."""
 
@@ -49,12 +69,168 @@ class BarInterval:
     V5M: Literal["5m"] = "5m"
 
 
+class CatalogueLatestFrequency:
+    """Known values; response fields also accept future strings."""
+
+    ANNUAL: Literal["annual"] = "annual"
+    DAILY: Literal["daily"] = "daily"
+    MONTHLY: Literal["monthly"] = "monthly"
+    QUARTERLY: Literal["quarterly"] = "quarterly"
+
+
+class CatalogueLatestSeasonalAdjustment:
+    """Known values; response fields also accept future strings."""
+
+    NOT_APPLICABLE: Literal["not_applicable"] = "not_applicable"
+    NOT_SEASONALLY_ADJUSTED: Literal["not_seasonally_adjusted"] = (
+        "not_seasonally_adjusted"
+    )
+    NOT_STATED: Literal["not_stated"] = "not_stated"
+    SEASONALLY_ADJUSTED: Literal["seasonally_adjusted"] = "seasonally_adjusted"
+
+
+class CentralBankBalanceSheetScale:
+    """Known values; response fields also accept future strings."""
+
+    MILLIONS: Literal["millions"] = "millions"
+    UNITS: Literal["units"] = "units"
+
+
 class CommodityUnit:
     """Known values; response fields also accept future strings."""
 
     BARREL: Literal["barrel"] = "barrel"
     POUND: Literal["pound"] = "pound"
     TROY_OUNCE: Literal["troy_ounce"] = "troy_ounce"
+
+
+class CompanyRelationKind:
+    """Known values; response fields also accept future strings."""
+
+    CROSS_LISTED: Literal["cross_listed"] = "cross_listed"
+    PREDECESSOR: Literal["predecessor"] = "predecessor"
+    SUCCESSOR: Literal["successor"] = "successor"
+
+
+class CompanySearchMatch:
+    """Known values; response fields also accept future strings."""
+
+    CODE: Literal["code"] = "code"
+    FORMER_CODE: Literal["former_code"] = "former_code"
+    FORMER_NAME: Literal["former_name"] = "former_name"
+    ID: Literal["id"] = "id"
+    NAME: Literal["name"] = "name"
+
+
+class CompanyStandard:
+    """Known values; response fields also accept future strings."""
+
+    IFRS: Literal["ifrs"] = "ifrs"
+    J_GAAP: Literal["j_gaap"] = "j_gaap"
+    JMIS: Literal["jmis"] = "jmis"
+    K_GAAP: Literal["k_gaap"] = "k_gaap"
+    US_GAAP: Literal["us_gaap"] = "us_gaap"
+
+
+class CostEquityRiskPremiumBasis:
+    """Known values; response fields also accept future strings."""
+
+    MODELLED: Literal["modelled"] = "modelled"
+    OBSERVED: Literal["observed"] = "observed"
+    TABLE: Literal["table"] = "table"
+
+
+class CostEquityRiskPremiumSource:
+    """Known values; response fields also accept future strings."""
+
+    CALLER: Literal["caller"] = "caller"
+    NARWHAL: Literal["narwhal"] = "narwhal"
+
+
+class CostOfCapitalBeta:
+    """Known values; response fields also accept future strings."""
+
+    ADJUSTED: Literal["adjusted"] = "adjusted"
+    RAW: Literal["raw"] = "raw"
+
+
+class CostOfCapitalFrequency:
+    """Known values; response fields also accept future strings."""
+
+    MONTHLY: Literal["monthly"] = "monthly"
+    WEEKLY: Literal["weekly"] = "weekly"
+
+
+class CostOfCapitalPeriod:
+    """Known values; response fields also accept future strings."""
+
+    ANNUAL: Literal["annual"] = "annual"
+    TTM: Literal["ttm"] = "ttm"
+
+
+class CostOfCapitalWindow:
+    """Known values; response fields also accept future strings."""
+
+    V2Y: Literal["2y"] = "2y"
+    V5Y: Literal["5y"] = "5y"
+
+
+class CostOfDebtBasis:
+    """Known values; response fields also accept future strings."""
+
+    OURS: Literal["ours"] = "ours"
+    TABLE: Literal["table"] = "table"
+
+
+class CostRiskFreeBasis:
+    """Known values; response fields also accept future strings."""
+
+    CALLER: Literal["caller"] = "caller"
+    OURS: Literal["ours"] = "ours"
+
+
+class CostRiskFreeSource:
+    """Known values; response fields also accept future strings."""
+
+    CALLER: Literal["caller"] = "caller"
+    YIELD_CURVE: Literal["yield_curve"] = "yield_curve"
+
+
+class CostTaxRateBasis:
+    """Known values; response fields also accept future strings."""
+
+    CALLER: Literal["caller"] = "caller"
+    TABLE: Literal["table"] = "table"
+
+
+class CostTaxRateSource:
+    """Known values; response fields also accept future strings."""
+
+    CALLER: Literal["caller"] = "caller"
+    COUNTRY_TABLE: Literal["country_table"] = "country_table"
+
+
+class CryptoBarInterval:
+    """Known values; response fields also accept future strings."""
+
+    V1D: Literal["1d"] = "1d"
+    V1M: Literal["1m"] = "1m"
+
+
+class CryptoPriceErrorCode:
+    """Known values; response fields also accept future strings."""
+
+    NOT_COVERED: Literal["not_covered"] = "not_covered"
+    NOT_FOUND: Literal["not_found"] = "not_found"
+    UPSTREAM_BUSY: Literal["upstream_busy"] = "upstream_busy"
+
+
+class CryptoQuote:
+    """Known values; response fields also accept future strings."""
+
+    EUR: Literal["EUR"] = "EUR"
+    GBP: Literal["GBP"] = "GBP"
+    USD: Literal["USD"] = "USD"
 
 
 class DeliveryFamily:
@@ -97,12 +273,124 @@ class EconomicReleaseValueValueStatus:
     UNAVAILABLE: Literal["unavailable"] = "unavailable"
 
 
+class EquityEarningTime:
+    """Known values; response fields also accept future strings."""
+
+    AFTER_CLOSE: Literal["after_close"] = "after_close"
+    BEFORE_OPEN: Literal["before_open"] = "before_open"
+    DURING: Literal["during"] = "during"
+
+
+class EquityMarketSession:
+    """Known values; response fields also accept future strings."""
+
+    CLOSED: Literal["closed"] = "closed"
+    OPEN: Literal["open"] = "open"
+    POST: Literal["post"] = "post"
+    PRE: Literal["pre"] = "pre"
+
+
+class EquityType:
+    """Known values; response fields also accept future strings."""
+
+    CLOSED_END_FUND: Literal["closed_end_fund"] = "closed_end_fund"
+    COMMON_STOCK: Literal["common_stock"] = "common_stock"
+    DEPOSITARY_RECEIPT: Literal["depositary_receipt"] = "depositary_receipt"
+    OTHER: Literal["other"] = "other"
+    PREFERRED_STOCK: Literal["preferred_stock"] = "preferred_stock"
+    REIT: Literal["reit"] = "reit"
+    RIGHT: Literal["right"] = "right"
+    UNIT: Literal["unit"] = "unit"
+    WARRANT: Literal["warrant"] = "warrant"
+
+
 class ExtremeObservation:
     """Known values; response fields also accept future strings."""
 
     ANY_RELEASE: Literal["any_release"] = "any_release"
     ANY_TRADE: Literal["any_trade"] = "any_trade"
     CLOSE: Literal["close"] = "close"
+
+
+class FilingEventType:
+    """Known values; response fields also accept future strings."""
+
+    ANNUAL: Literal["annual"] = "annual"
+    EVENT: Literal["event"] = "event"
+    OWNERSHIP: Literal["ownership"] = "ownership"
+    QUARTERLY: Literal["quarterly"] = "quarterly"
+    SEMIANNUAL: Literal["semiannual"] = "semiannual"
+
+
+class FilingType:
+    """Known values; response fields also accept future strings."""
+
+    ANNUAL: Literal["annual"] = "annual"
+    EVENT: Literal["event"] = "event"
+    INSIDER: Literal["insider"] = "insider"
+    OTHER: Literal["other"] = "other"
+    OWNERSHIP: Literal["ownership"] = "ownership"
+    QUARTERLY: Literal["quarterly"] = "quarterly"
+    SEMIANNUAL: Literal["semiannual"] = "semiannual"
+
+
+class FinancialStatement:
+    """Known values; response fields also accept future strings."""
+
+    BALANCE: Literal["balance"] = "balance"
+    CASH_FLOW: Literal["cash_flow"] = "cash_flow"
+    INCOME: Literal["income"] = "income"
+    OTHER: Literal["other"] = "other"
+    PER_SHARE: Literal["per_share"] = "per_share"
+    SHARES: Literal["shares"] = "shares"
+
+
+class FinancialsBasis:
+    """Known values; response fields also accept future strings."""
+
+    CONSOLIDATED: Literal["consolidated"] = "consolidated"
+    STANDALONE: Literal["standalone"] = "standalone"
+
+
+class FinancialsPeriod:
+    """Known values; response fields also accept future strings."""
+
+    ANNUAL: Literal["annual"] = "annual"
+    QUARTERLY: Literal["quarterly"] = "quarterly"
+    SEMIANNUAL: Literal["semiannual"] = "semiannual"
+
+
+class FinancialsVersion:
+    """Known values; response fields also accept future strings."""
+
+    FIRST_REPORTED: Literal["first_reported"] = "first_reported"
+    LATEST: Literal["latest"] = "latest"
+
+
+class FiscalPeriod:
+    """Known values; response fields also accept future strings."""
+
+    FY: Literal["FY"] = "FY"
+    H1: Literal["H1"] = "H1"
+    H2: Literal["H2"] = "H2"
+    Q1: Literal["Q1"] = "Q1"
+    Q2: Literal["Q2"] = "Q2"
+    Q3: Literal["Q3"] = "Q3"
+    Q4: Literal["Q4"] = "Q4"
+
+
+class FundDistributionKind:
+    """Known values; response fields also accept future strings."""
+
+    CAPITAL_GAIN: Literal["capital_gain"] = "capital_gain"
+    INCOME: Literal["income"] = "income"
+
+
+class FundType:
+    """Known values; response fields also accept future strings."""
+
+    ETF: Literal["etf"] = "etf"
+    MUTUAL_FUND: Literal["mutual_fund"] = "mutual_fund"
 
 
 class HolidayScope:
@@ -129,12 +417,27 @@ class IndicatorUnit:
     THOUSANDS: Literal["thousands"] = "thousands"
 
 
+class Language:
+    """Known values; response fields also accept future strings."""
+
+    EN: Literal["en"] = "en"
+    ORIGINAL: Literal["original"] = "original"
+
+
 class MarketSession:
     """Known values; response fields also accept future strings."""
 
     INTERBANK_CLOSED: Literal["interbank_closed"] = "interbank_closed"
     OPEN: Literal["open"] = "open"
     WEEKEND: Literal["weekend"] = "weekend"
+
+
+class MoversDirection:
+    """Known values; response fields also accept future strings."""
+
+    ACTIVE: Literal["active"] = "active"
+    GAINERS: Literal["gainers"] = "gainers"
+    LOSERS: Literal["losers"] = "losers"
 
 
 class PalmoilFrequency:
@@ -238,6 +541,13 @@ class PhysicalPriceType:
     WHOLESALE_AVERAGE: Literal["wholesale_average"] = "wholesale_average"
 
 
+class PointPolicyRateQualifier:
+    """Known values; response fields also accept future strings."""
+
+    AROUND: Literal["around"] = "around"
+    EXACT: Literal["exact"] = "exact"
+
+
 class PredictionEventStatus:
     """Known values; response fields also accept future strings."""
 
@@ -279,6 +589,42 @@ class ProducerArrangement:
 
     PURCHASE_AGREEMENT: Literal["purchase_agreement"] = "purchase_agreement"
     SUPPORTED_SCHEME: Literal["supported_scheme"] = "supported_scheme"
+
+
+class Registry:
+    """Known values; response fields also accept future strings."""
+
+    AUT: Literal["aut"] = "aut"
+    BEL: Literal["bel"] = "bel"
+    CYP: Literal["cyp"] = "cyp"
+    CZE: Literal["cze"] = "cze"
+    DNK: Literal["dnk"] = "dnk"
+    ESP: Literal["esp"] = "esp"
+    EST: Literal["est"] = "est"
+    FIN: Literal["fin"] = "fin"
+    FRA: Literal["fra"] = "fra"
+    GBR: Literal["gbr"] = "gbr"
+    GRC: Literal["grc"] = "grc"
+    HRV: Literal["hrv"] = "hrv"
+    HUN: Literal["hun"] = "hun"
+    ISL: Literal["isl"] = "isl"
+    ITA: Literal["ita"] = "ita"
+    JPN: Literal["jpn"] = "jpn"
+    KOR: Literal["kor"] = "kor"
+    LTU: Literal["ltu"] = "ltu"
+    LUX: Literal["lux"] = "lux"
+    LVA: Literal["lva"] = "lva"
+    MLT: Literal["mlt"] = "mlt"
+    NLD: Literal["nld"] = "nld"
+    NOR: Literal["nor"] = "nor"
+    POL: Literal["pol"] = "pol"
+    PRT: Literal["prt"] = "prt"
+    ROU: Literal["rou"] = "rou"
+    SVK: Literal["svk"] = "svk"
+    SVN: Literal["svn"] = "svn"
+    SWE: Literal["swe"] = "swe"
+    TWN: Literal["twn"] = "twn"
+    USA: Literal["usa"] = "usa"
 
 
 class ReleaseStage:
@@ -380,6 +726,15 @@ class ScalarEventAbove:
     P90: Literal["p90"] = "p90"
 
 
+class SecurityType:
+    """Known values; response fields also accept future strings."""
+
+    ADR: Literal["adr"] = "adr"
+    COMMON: Literal["common"] = "common"
+    OTHER: Literal["other"] = "other"
+    PREFERRED: Literal["preferred"] = "preferred"
+
+
 class SettlementStatus:
     """Known values; response fields also accept future strings."""
 
@@ -458,6 +813,7 @@ class WebhookEventType:
 
     DATASET_PUBLISHED: Literal["dataset.published"] = "dataset.published"
     DATASET_REVISED: Literal["dataset.revised"] = "dataset.revised"
+    FILING_PUBLISHED: Literal["filing.published"] = "filing.published"
     HOLIDAY_CALENDAR_REVISED: Literal["holiday.calendar.revised"] = (
         "holiday.calendar.revised"
     )
@@ -480,6 +836,7 @@ class WebhookFamily:
     """Known values; response fields also accept future strings."""
 
     ACTIVITY: Literal["activity"] = "activity"
+    FILINGS: Literal["filings"] = "filings"
     GDP: Literal["gdp"] = "gdp"
     HOLIDAYS: Literal["holidays"] = "holidays"
     HOUSING: Literal["housing"] = "housing"
@@ -510,6 +867,28 @@ class YieldCurveType:
     NOMINAL_ZERO_COUPON: Literal["nominal_zero_coupon"] = "nominal_zero_coupon"
     SPOT_SVENSSON: Literal["spot_svensson"] = "spot_svensson"
     ZERO_COUPON: Literal["zero_coupon"] = "zero_coupon"
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class AsReportedConcept:
+    concept: str
+    label: str | None = None
+    taxonomy: str
+    unit: str
+    values: list[AsReportedValue]
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class AsReportedPage:
+    concepts: list[AsReportedConcept]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class AsReportedValue:
+    end: str
+    start: str | None = None
+    value: Decimal
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
@@ -600,6 +979,120 @@ class CalendarSubscriptionInput:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
+class CatalogueBulkLatest:
+    missing: list[str]
+    observations: list[CatalogueLatest]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CatalogueEntry:
+    country: str | None = None
+    first_period: str | None = None
+    frequency: str | None = None
+    id: str | None = None
+    id_template: str | None = None
+    last_period: str | None = None
+    source: str
+    title: str
+    unit_label: str | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CatalogueHistory:
+    attribution: str
+    base_period: str | None = None
+    country: str | None = None
+    currency: str | None = None
+    fetched_at: str
+    frequency: str
+    id: str
+    licence_url: str
+    next_cursor: str | None = None
+    observations: list[ResourceObservation]
+    scale: str | None = None
+    seasonal_adjustment: str
+    stale: bool | None = None
+    title: str
+    unit: str
+    unit_label: str
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CatalogueLatest:
+    attribution: str
+    base_period: str | None = None
+    country: str | None = None
+    currency: str | None = None
+    fetched_at: str
+    first_reported_at: str | None = None
+    frequency: str
+    id: str
+    licence_url: str
+    period: str
+    released_on: str | None = None
+    scale: str | None = None
+    seasonal_adjustment: str
+    stale: bool | None = None
+    status: str | None = None
+    title: str
+    unit: str
+    unit_label: str
+    value: Decimal
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CatalogueSearchPage:
+    next_cursor: str | None = None
+    results: list[CatalogueEntry]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CatalogueSeries:
+    attribution: str
+    base_period: str | None = None
+    country: str | None = None
+    currency: str | None = None
+    fetched_at: str
+    first_period: str
+    frequency: str
+    id: str
+    last_period: str
+    licence_url: str
+    scale: str | None = None
+    seasonal_adjustment: str
+    stale: bool | None = None
+    title: str
+    unit: str
+    unit_label: str
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CentralBankBalanceSheet:
+    country: str
+    currency: str
+    period: str
+    released_on: str
+    scale: str
+    value: Decimal
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CentralBankReserves:
+    country: str
+    currency: str
+    period: str
+    released_on: str
+    scale: str
+    value: Decimal
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
 class CommodityBar:
     close: Decimal
     high: Decimal | None = None
@@ -639,6 +1132,175 @@ class CommoditySpot:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
+class CompanyFilingsPage:
+    filed_from: str | None = None
+    filings: list[ListedFiling]
+    id: str
+    next_cursor: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CompanyIndustry:
+    industry: str | None = None
+    isic: str | None = None
+    sector: str | None = None
+    source_code: str | None = None
+    source_scheme: str | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CompanyNameSpan:
+    from_: str | None = None
+    name: str
+    to: str | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CompanyRelation:
+    id: str
+    kind: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CompanySearchHit:
+    code: str | None = None
+    country: str | None = None
+    delisted: bool | None = None
+    former_code: bool | None = None
+    former_name: str | None = None
+    id: str
+    matched: str | None = None
+    mic: str | None = None
+    name: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CompanySearchPage:
+    companies: list[CompanySearchHit]
+    coverage: list[RegistryCoverage] | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CompanySecurity:
+    adr_ratio: Decimal | None = None
+    class_: str
+    figi: str | None = None
+    isin: str | None = None
+    listings: list[SecurityListing]
+    primary: bool | None = None
+    title: str | None = None
+    type: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CompanyWithListings:
+    country: str | None = None
+    delisted: bool | None = None
+    fiscal_year_end: str | None = None
+    id: str
+    industry: CompanyIndustry | None = None
+    jp_corporate_number: str | None = None
+    lei: str | None = None
+    listings: list[str] | None = None
+    name: str
+    names: list[CompanyNameSpan]
+    related: list[CompanyRelation]
+    securities: list[CompanySecurity]
+    standard: str | None = None
+    standard_variant: str | None = None
+    status_date: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CostBenchmark:
+    default: bool | None = None
+    id: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CostBeta:
+    adjusted: Decimal
+    benchmark: CostBenchmark
+    end: str
+    frequency: str
+    observations: int
+    r_squared: Decimal
+    raw: Decimal
+    start: str
+    std_error: Decimal
+    used: str
+    window: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CostEquityRiskPremium:
+    as_of: str | None = None
+    basis: str | None = None
+    country: str | None = None
+    rate: Decimal
+    source: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CostOfDebt:
+    after_tax: Decimal | None = None
+    average_debt: Decimal
+    basis: str
+    closing_debt: Decimal
+    default_spread: Decimal | None = None
+    interest_coverage: Decimal | None = None
+    interest_expense: Decimal
+    opening_debt: Decimal | None = None
+    period: str
+    period_end: str
+    pre_tax: Decimal
+    table: str | None = None
+    table_update: str | None = None
+    table_url: str | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CostRiskFree:
+    as_of: str | None = None
+    basis: str
+    country: str | None = None
+    curve_type: str | None = None
+    maturity: str | None = None
+    rate: Decimal
+    source: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CostTaxRate:
+    basis: str
+    country: str | None = None
+    rate: Decimal
+    source: str
+    table: str | None = None
+    table_update: str | None = None
+    table_url: str | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CostWarning:
+    code: str
+    message: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CostWeights:
+    debt: Decimal
+    equity: Decimal
+    market_cap: Decimal
+    market_cap_as_of: str
+    total_debt: Decimal
+    total_debt_as_of: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
 class Cpi:
     country: str
     index_base: str
@@ -663,8 +1325,69 @@ class CpiHistory:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class CpiHistoryObservation:
+    first_reported_at: str | None = None
     period: str
     value: Decimal
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CryptoBar:
+    close: Decimal
+    high: Decimal
+    low: Decimal
+    open: Decimal
+    timestamp: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CryptoBars:
+    bars: list[CryptoBar]
+    end: str | None = None
+    next_cursor: str | None = None
+    pair: str
+    start: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CryptoPair:
+    base: str
+    name: str
+    pair: str
+    quote: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CryptoPairs:
+    pairs: list[CryptoPair]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CryptoPrice:
+    base: str
+    change_24h: Decimal | None = None
+    change_24h_percent: Decimal | None = None
+    delayed: bool | None = None
+    pair: str
+    price: Decimal
+    quote: str
+    stale: bool
+    timestamp: str
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CryptoPriceError:
+    code: str
+    id: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class CryptoPrices:
+    errors: list[CryptoPriceError]
+    prices: list[CryptoPrice]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
@@ -680,6 +1403,23 @@ class DeliveryEvent:
     resource_id: str | None = None
     resource_version: str | None = None
     type: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class DividendsCalendar:
+    entries: list[DividendsCalendarEntry]
+    next_cursor: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class DividendsCalendarEntry:
+    amount: Decimal
+    currency: str
+    ex_date: str
+    id: str
+    name: str
+    symbol: str
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
@@ -752,6 +1492,268 @@ class EconomicReleaseValue:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
+class EquityBar:
+    close: Decimal
+    date: str | None = None
+    high: Decimal
+    low: Decimal
+    open: Decimal
+    timestamp: str
+    volume: Decimal | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityBars:
+    adjusted: bool
+    bars: list[EquityBar]
+    currency: str
+    end: str | None = None
+    id: str
+    next_cursor: str | None = None
+    start: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityCostOfCapital:
+    beta: CostBeta
+    company_id: str
+    cost_of_debt: CostOfDebt | None = None
+    cost_of_equity: Decimal
+    currency: str
+    equity_risk_premium: CostEquityRiskPremium
+    id: str
+    methodology_url: str
+    risk_free: CostRiskFree
+    tax_rate: CostTaxRate | None = None
+    wacc: Decimal | None = None
+    warnings: list[CostWarning]
+    weights: CostWeights
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityDividend:
+    amount: Decimal
+    currency: str
+    ex_date: str
+    pay_date: str | None = None
+    record_date: str | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityDividends:
+    dividends: list[EquityDividend]
+    id: str
+    next_cursor: str | None = None
+    start: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityEarning:
+    date: str
+    eps_actual: Decimal | None = None
+    eps_estimate: Decimal | None = None
+    filing_id: str | None = None
+    surprise: Decimal | None = None
+    surprise_percent: Decimal | None = None
+    time: str | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityEarnings:
+    earnings: list[EquityEarning]
+    id: str
+    next_cursor: str | None = None
+    start: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityMover:
+    change_percent: Decimal
+    id: str
+    name: str
+    price: Decimal
+    symbol: str
+    volume: Decimal
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityMovers:
+    direction: str
+    market: str
+    movers: list[EquityMover]
+    timestamp: str
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityPrice:
+    change: Decimal | None = None
+    change_percent: Decimal | None = None
+    currency: str
+    delayed: bool | None = None
+    id: str
+    market_session: str
+    previous_close: Decimal | None = None
+    price: Decimal
+    stale: bool
+    symbol: str
+    timestamp: str
+    volume: Decimal | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityPriceError:
+    code: str
+    id: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityPrices:
+    errors: list[EquityPriceError]
+    prices: list[EquityPrice]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityProfile:
+    company_id: str | None = None
+    country: str | None = None
+    currency: str
+    id: str
+    industry: str | None = None
+    logo_url: str | None = None
+    mic: str
+    name: str
+    sector: str | None = None
+    symbol: str
+    type: str
+    website: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityRiskPremium:
+    as_of: str
+    basis: EquityRiskPremiumBasis
+    country: str
+    country_default_spread: Decimal
+    country_risk_premium: Decimal
+    mature_erp: Decimal
+    methodology_url: str | None = None
+    total_erp: Decimal
+    unit: str
+    volatility_ratio: Decimal | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityRiskPremiumBasis:
+    country_default_spread: str
+    country_risk_premium: str
+    mature_erp: str
+    total_erp: str
+    volatility_ratio: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityRiskPremiumHistoryResponse:
+    country: str
+    next_cursor: str | None = None
+    observations: list[EquityRiskPremium]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityRiskPremiumList:
+    countries: list[EquityRiskPremium]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquitySearchResult:
+    company_id: str | None = None
+    country: str | None = None
+    currency: str
+    id: str
+    mic: str
+    name: str
+    symbol: str
+    type: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquitySearchResults:
+    next_cursor: str | None = None
+    results: list[EquitySearchResult]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquitySplit:
+    date: str
+    ratio: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquitySplits:
+    id: str
+    splits: list[EquitySplit]
+    start: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityValuation:
+    company_id: str
+    currency: str
+    dividend_per_share_ttm: Decimal | None = None
+    dividend_yield: Decimal | None = None
+    dividends_period_end: str | None = None
+    eps_period_end: str | None = None
+    eps_ttm: Decimal | None = None
+    equity_as_of: str | None = None
+    id: str
+    market_cap: Decimal | None = None
+    pb_ratio: Decimal | None = None
+    pe_ratio: Decimal | None = None
+    ps_ratio: Decimal | None = None
+    revenue_period_end: str | None = None
+    revenue_ttm: Decimal | None = None
+    shares_as_of: str | None = None
+    shares_outstanding: Decimal | None = None
+    timestamp: str
+    total_equity: Decimal | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityValuationHistory:
+    company_id: str
+    currency: str
+    id: str
+    points: list[EquityValuationPoint]
+    start: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class EquityValuationPoint:
+    date: str
+    dividend_yield: Decimal | None = None
+    market_cap: Decimal | None = None
+    pb_ratio: Decimal | None = None
+    pe_ratio: Decimal | None = None
+    price: Decimal | None = None
+    price_date: str | None = None
+    ps_ratio: Decimal | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
 class EventDetail:
     country: str
     cursor: str
@@ -813,11 +1815,163 @@ class ExtremeWindow:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
+class Filing:
+    amends: str | None = None
+    company_id: str
+    filed_at: str
+    filer_id: str | None = None
+    form: str
+    fp: str | None = None
+    fy: int | None = None
+    id: str
+    period_end: str | None = None
+    title: str | None = None
+    type: str
+    url: str | None = None
+    withdrawn: bool | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class FilingWebhookEvent:
+    company_id: str
+    filed_at: str
+    filing_id: str
+    form: str
+    fp: str | None = None
+    fy: int | None = None
+    period_end: str | None = None
+    subject_id: str | None = None
+    type: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class FinancialRow:
+    currency: str | None = None
+    derived: list[str] | None = None
+    end: str
+    fh: int | None = None
+    fq: int | None = None
+    fy: int
+    items: dict[str, Decimal] = field(default_factory=dict)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class Financials:
+    annual: list[FinancialRow] | None = None
+    as_of: str | None = None
+    basis: str | None = None
+    currency: str | None = None
+    from_fy: int | None = None
+    id: str
+    quarterly: list[FinancialRow] | None = None
+    semiannual: list[FinancialRow] | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class FundDistribution:
+    amount: Decimal
+    currency: str
+    ex_date: str
+    kind: str | None = None
+    pay_date: str | None = None
+    record_date: str | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class FundDistributions:
+    distributions: list[FundDistribution]
+    id: str
+    next_cursor: str | None = None
+    start: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class FundEtfPrice(_FundPriceItem):
+    kind: ClassVar[Literal["FundEtfPrice"]] = "FundEtfPrice"
+    change: Decimal | None = None
+    change_percent: Decimal | None = None
+    currency: str
+    delayed: bool | None = None
+    id: str
+    market_session: str
+    previous_close: Decimal | None = None
+    price: Decimal
+    stale: bool
+    symbol: str
+    timestamp: str
+    type: str
+    volume: Decimal | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class FundNavPrice(_FundPriceItem):
+    kind: ClassVar[Literal["FundNavPrice"]] = "FundNavPrice"
+    change: Decimal | None = None
+    change_percent: Decimal | None = None
+    currency: str
+    date: str
+    id: str
+    nav: Decimal
+    previous_nav: Decimal | None = None
+    stale: bool
+    symbol: str
+    type: str
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class FundPriceError:
+    code: str
+    id: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class FundPrices:
+    errors: list[FundPriceError]
+    prices: list[FundPriceItem]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class FundProfile:
+    country: str | None = None
+    currency: str
+    id: str
+    mic: str | None = None
+    name: str
+    symbol: str
+    type: str
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class FundSearchResult:
+    country: str | None = None
+    currency: str
+    id: str
+    mic: str | None = None
+    name: str
+    symbol: str
+    type: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class FundSearchResults:
+    next_cursor: str | None = None
+    results: list[FundSearchResult]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
 class FxBar:
-    close: str
-    high: str
-    low: str
-    open: str
+    close: Decimal
+    high: Decimal
+    low: Decimal
+    open: Decimal
     timestamp: str
 
 
@@ -928,6 +2082,7 @@ class GdpGrowthHistory:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class GdpGrowthHistoryObservation:
+    first_reported_at: str | None = None
     period: str
     quarter_over_quarter: Decimal | None = None
     year_over_year: Decimal | None = None
@@ -950,8 +2105,34 @@ class GdpHistory:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class GdpHistoryObservation:
+    first_reported_at: str | None = None
     period: str
     value: Decimal
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class Holder:
+    event_date: str | None = None
+    filed: str
+    filing_id: str
+    holder: str
+    percent: Decimal | None = None
+    security: HolderSecurity | None = None
+    shares: Decimal | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class HolderSecurity:
+    class_: str | None = None
+    isin: str | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class HoldersPage:
+    filed_from: str | None = None
+    holders: list[Holder]
+    id: str
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
@@ -979,6 +2160,7 @@ class InflationHistory:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class InflationHistoryObservation:
+    first_reported_at: str | None = None
     month_over_month: Decimal | None = None
     period: str
     year_over_year: Decimal | None = None
@@ -993,6 +2175,32 @@ class LabourForceParticipation:
     released_on: str
     source: SeriesSource | None = None
     meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class LatestFiling:
+    company_id: str
+    filed: str
+    form: str
+    id: str
+    title: str | None = None
+    type: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class LatestFilingsPage:
+    filings: list[LatestFiling]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class ListedFiling:
+    filed: str
+    form: str
+    id: str
+    period_end: str | None = None
+    title: str | None = None
+    type: str
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
@@ -1241,6 +2449,23 @@ class PhysicalSeriesPage:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
+class PointPolicyRate(_PolicyRateObservation):
+    kind: ClassVar[Literal["PointPolicyRate"]] = "PointPolicyRate"
+    announced_on: str | None = None
+    authority: str
+    country: str
+    currency: str
+    effective_on: str | None = None
+    instrument: str
+    observed_on: str | None = None
+    qualifier: str
+    rate: Decimal
+    rate_type: str
+    unit: str
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
 class PolicyPath:
     as_of: str | None = None
     meetings: list[PolicyPathMeeting]
@@ -1285,6 +2510,14 @@ class PolicyPathOdds:
     p_cut: str
     p_hike: str
     p_hold: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class PolicyRateHistoryResponse:
+    country: str
+    next_cursor: str | None = None
+    observations: list[PolicyRateObservation]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
@@ -1460,6 +2693,23 @@ class Quote:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
+class RangePolicyRate(_PolicyRateObservation):
+    kind: ClassVar[Literal["RangePolicyRate"]] = "RangePolicyRate"
+    announced_on: str | None = None
+    authority: str
+    country: str
+    currency: str
+    effective_on: str | None = None
+    instrument: str
+    lower_bound: Decimal
+    observed_on: str | None = None
+    rate_type: str
+    unit: str
+    upper_bound: Decimal
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
 class RateHistory:
     as_of: str | None = None
     country: str
@@ -1472,12 +2722,20 @@ class RateHistory:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class RateHistoryObservation:
+    first_reported_at: str | None = None
     period: str
     rate: Decimal
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
+class RegistryCoverage:
+    companies: int
+    registry: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
 class ResourceHistory:
+    as_of: str | None = None
     country: str
     currency: str | None = None
     next_cursor: str | None = None
@@ -1490,6 +2748,7 @@ class ResourceHistory:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class ResourceObservation:
+    first_reported_at: str | None = None
     period: str
     released_on: str | None = None
     status: str | None = None
@@ -1531,9 +2790,33 @@ class ScalarOutcome:
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
+class SecurityListing:
+    code: str
+    from_: str | None = None
+    mic: str
+    to: str | None = None
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
 class SeriesSource:
     distributor: str
     publisher: str
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class SplitsCalendar:
+    entries: list[SplitsCalendarEntry]
+    next_cursor: str | None = None
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class SplitsCalendarEntry:
+    date: str
+    id: str
+    name: str
+    ratio: str
+    symbol: str
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
@@ -1588,6 +2871,7 @@ class TradeHistory:
 @dataclass(frozen=True, slots=True, kw_only=True)
 class TradeHistoryObservation:
     exports: Decimal | None = None
+    first_reported_at: str | None = None
     imports: Decimal | None = None
     period: str
 
@@ -1657,6 +2941,7 @@ class WebhookDelivery:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class WebhookDestinationCreated:
+    companies: list[str] | None = None
     config_version: int
     countries: list[str]
     created_at: str
@@ -1673,6 +2958,7 @@ class WebhookDestinationCreated:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class WebhookDestinationInput:
+    companies: list[str] | None = None
     countries: list[str]
     enabled: bool | None = None
     families: list[str]
@@ -1688,6 +2974,7 @@ class WebhookDestinationList:
 
 @dataclass(frozen=True, slots=True, kw_only=True)
 class WebhookDestinationResponse:
+    companies: list[str] | None = None
     config_version: int
     countries: list[str]
     created_at: str
@@ -1707,6 +2994,7 @@ class WebhookEvent:
     cursor: str | None = None
     event_id: str
     family: str | None = None
+    filing: FilingWebhookEvent | None = None
     holiday_generation: int | None = None
     holiday_year: int | None = None
     prediction: PredictionWebhookEvent | None = None
@@ -1760,6 +3048,28 @@ class YieldCurveHistoryResponse:
 class YieldPoint:
     maturity: str
     yield_percent: Decimal
+
+
+@dataclass(frozen=True, slots=True)
+class FundPriceUnknown(_FundPrice):
+    kind: ClassVar[Literal["unknown"]] = "unknown"
+    raw: dict[str, object]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+    _raw_body: bytes = field(default=b"", repr=False, compare=False)
+
+
+FundPrice: TypeAlias = FundEtfPrice | FundNavPrice | FundPriceUnknown
+
+
+@dataclass(frozen=True, slots=True)
+class FundPriceItemUnknown(_FundPriceItem):
+    kind: ClassVar[Literal["unknown"]] = "unknown"
+    raw: dict[str, object]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+    _raw_body: bytes = field(default=b"", repr=False, compare=False)
+
+
+FundPriceItem: TypeAlias = FundEtfPrice | FundNavPrice | FundPriceItemUnknown
 
 
 @dataclass(frozen=True, slots=True)
@@ -1824,6 +3134,66 @@ class PalmoilSeriesUnknown(_PalmoilSeries):
 PalmoilSeries: TypeAlias = (
     PalmoilScheduleSeries | PalmoilScalarSeries | PalmoilSeriesUnknown
 )
+
+
+@dataclass(frozen=True, slots=True)
+class PolicyRateUnknown(_PolicyRate):
+    kind: ClassVar[Literal["unknown"]] = "unknown"
+    raw: dict[str, object]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+    _raw_body: bytes = field(default=b"", repr=False, compare=False)
+
+
+PolicyRate: TypeAlias = PointPolicyRate | RangePolicyRate | PolicyRateUnknown
+
+
+@dataclass(frozen=True, slots=True)
+class PolicyRateObservationUnknown(_PolicyRateObservation):
+    kind: ClassVar[Literal["unknown"]] = "unknown"
+    raw: dict[str, object]
+    meta: ResponseMeta = field(default_factory=ResponseMeta, compare=False)
+    _raw_body: bytes = field(default=b"", repr=False, compare=False)
+
+
+PolicyRateObservation: TypeAlias = (
+    PointPolicyRate | RangePolicyRate | PolicyRateObservationUnknown
+)
+
+
+def decode_AsReportedConcept(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> AsReportedConcept:
+    data = read_object(value)
+    return AsReportedConcept(
+        concept=read_str(data["concept"]),
+        label=read_str(data["label"]) if data.get("label") is not None else None,
+        taxonomy=read_str(data["taxonomy"]),
+        unit=read_str(data["unit"]),
+        values=[decode_AsReportedValue(item0) for item0 in read_list(data["values"])],
+    )
+
+
+def decode_AsReportedPage(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> AsReportedPage:
+    data = read_object(value)
+    return AsReportedPage(
+        concepts=[
+            decode_AsReportedConcept(item0) for item0 in read_list(data["concepts"])
+        ],
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_AsReportedValue(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> AsReportedValue:
+    data = read_object(value)
+    return AsReportedValue(
+        end=read_str(data["end"]),
+        start=read_str(data["start"]) if data.get("start") is not None else None,
+        value=read_decimal(data["value"]),
+    )
 
 
 def decode_BinaryEvent(
@@ -1993,6 +3363,187 @@ def decode_CalendarSubscriptionInput(
     )
 
 
+def decode_CatalogueBulkLatest(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CatalogueBulkLatest:
+    data = read_object(value)
+    return CatalogueBulkLatest(
+        missing=[read_str(item0) for item0 in read_list(data["missing"])],
+        observations=[
+            decode_CatalogueLatest(item0) for item0 in read_list(data["observations"])
+        ],
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_CatalogueEntry(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CatalogueEntry:
+    data = read_object(value)
+    return CatalogueEntry(
+        country=read_str(data["country"]) if data.get("country") is not None else None,
+        first_period=read_str(data["first_period"])
+        if data.get("first_period") is not None
+        else None,
+        frequency=read_str(data["frequency"])
+        if data.get("frequency") is not None
+        else None,
+        id=read_str(data["id"]) if data.get("id") is not None else None,
+        id_template=read_str(data["id_template"])
+        if data.get("id_template") is not None
+        else None,
+        last_period=read_str(data["last_period"])
+        if data.get("last_period") is not None
+        else None,
+        source=read_str(data["source"]),
+        title=read_str(data["title"]),
+        unit_label=read_str(data["unit_label"])
+        if data.get("unit_label") is not None
+        else None,
+    )
+
+
+def decode_CatalogueHistory(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CatalogueHistory:
+    data = read_object(value)
+    return CatalogueHistory(
+        attribution=read_str(data["attribution"]),
+        base_period=read_str(data["base_period"])
+        if data.get("base_period") is not None
+        else None,
+        country=read_str(data["country"]) if data.get("country") is not None else None,
+        currency=read_str(data["currency"])
+        if data.get("currency") is not None
+        else None,
+        fetched_at=read_str(data["fetched_at"]),
+        frequency=read_str(data["frequency"]),
+        id=read_str(data["id"]),
+        licence_url=read_str(data["licence_url"]),
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        observations=[
+            decode_ResourceObservation(item0)
+            for item0 in read_list(data["observations"])
+        ],
+        scale=read_str(data["scale"]) if data.get("scale") is not None else None,
+        seasonal_adjustment=read_str(data["seasonal_adjustment"]),
+        stale=read_bool(data["stale"]) if data.get("stale") is not None else None,
+        title=read_str(data["title"]),
+        unit=read_str(data["unit"]),
+        unit_label=read_str(data["unit_label"]),
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_CatalogueLatest(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CatalogueLatest:
+    data = read_object(value)
+    return CatalogueLatest(
+        attribution=read_str(data["attribution"]),
+        base_period=read_str(data["base_period"])
+        if data.get("base_period") is not None
+        else None,
+        country=read_str(data["country"]) if data.get("country") is not None else None,
+        currency=read_str(data["currency"])
+        if data.get("currency") is not None
+        else None,
+        fetched_at=read_str(data["fetched_at"]),
+        first_reported_at=read_str(data["first_reported_at"])
+        if data.get("first_reported_at") is not None
+        else None,
+        frequency=read_str(data["frequency"]),
+        id=read_str(data["id"]),
+        licence_url=read_str(data["licence_url"]),
+        period=read_str(data["period"]),
+        released_on=read_str(data["released_on"])
+        if data.get("released_on") is not None
+        else None,
+        scale=read_str(data["scale"]) if data.get("scale") is not None else None,
+        seasonal_adjustment=read_str(data["seasonal_adjustment"]),
+        stale=read_bool(data["stale"]) if data.get("stale") is not None else None,
+        status=read_str(data["status"]) if data.get("status") is not None else None,
+        title=read_str(data["title"]),
+        unit=read_str(data["unit"]),
+        unit_label=read_str(data["unit_label"]),
+        value=read_decimal(data["value"]),
+    )
+
+
+def decode_CatalogueSearchPage(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CatalogueSearchPage:
+    data = read_object(value)
+    return CatalogueSearchPage(
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        results=[decode_CatalogueEntry(item0) for item0 in read_list(data["results"])],
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_CatalogueSeries(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CatalogueSeries:
+    data = read_object(value)
+    return CatalogueSeries(
+        attribution=read_str(data["attribution"]),
+        base_period=read_str(data["base_period"])
+        if data.get("base_period") is not None
+        else None,
+        country=read_str(data["country"]) if data.get("country") is not None else None,
+        currency=read_str(data["currency"])
+        if data.get("currency") is not None
+        else None,
+        fetched_at=read_str(data["fetched_at"]),
+        first_period=read_str(data["first_period"]),
+        frequency=read_str(data["frequency"]),
+        id=read_str(data["id"]),
+        last_period=read_str(data["last_period"]),
+        licence_url=read_str(data["licence_url"]),
+        scale=read_str(data["scale"]) if data.get("scale") is not None else None,
+        seasonal_adjustment=read_str(data["seasonal_adjustment"]),
+        stale=read_bool(data["stale"]) if data.get("stale") is not None else None,
+        title=read_str(data["title"]),
+        unit=read_str(data["unit"]),
+        unit_label=read_str(data["unit_label"]),
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_CentralBankBalanceSheet(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CentralBankBalanceSheet:
+    data = read_object(value)
+    return CentralBankBalanceSheet(
+        country=read_str(data["country"]),
+        currency=read_str(data["currency"]),
+        period=read_str(data["period"]),
+        released_on=read_str(data["released_on"]),
+        scale=read_str(data["scale"]),
+        value=read_decimal(data["value"]),
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_CentralBankReserves(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CentralBankReserves:
+    data = read_object(value)
+    return CentralBankReserves(
+        country=read_str(data["country"]),
+        currency=read_str(data["currency"]),
+        period=read_str(data["period"]),
+        released_on=read_str(data["released_on"]),
+        scale=read_str(data["scale"]),
+        value=read_decimal(data["value"]),
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
 def decode_CommodityBar(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> CommodityBar:
@@ -2050,6 +3601,303 @@ def decode_CommoditySpot(
     )
 
 
+def decode_CompanyFilingsPage(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CompanyFilingsPage:
+    data = read_object(value)
+    return CompanyFilingsPage(
+        filed_from=read_str(data["filed_from"])
+        if data.get("filed_from") is not None
+        else None,
+        filings=[decode_ListedFiling(item0) for item0 in read_list(data["filings"])],
+        id=read_str(data["id"]),
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_CompanyIndustry(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CompanyIndustry:
+    data = read_object(value)
+    return CompanyIndustry(
+        industry=read_str(data["industry"])
+        if data.get("industry") is not None
+        else None,
+        isic=read_str(data["isic"]) if data.get("isic") is not None else None,
+        sector=read_str(data["sector"]) if data.get("sector") is not None else None,
+        source_code=read_str(data["source_code"])
+        if data.get("source_code") is not None
+        else None,
+        source_scheme=read_str(data["source_scheme"])
+        if data.get("source_scheme") is not None
+        else None,
+    )
+
+
+def decode_CompanyNameSpan(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CompanyNameSpan:
+    data = read_object(value)
+    return CompanyNameSpan(
+        from_=read_str(data["from"]) if data.get("from") is not None else None,
+        name=read_str(data["name"]),
+        to=read_str(data["to"]) if data.get("to") is not None else None,
+    )
+
+
+def decode_CompanyRelation(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CompanyRelation:
+    data = read_object(value)
+    return CompanyRelation(
+        id=read_str(data["id"]),
+        kind=read_str(data["kind"]),
+    )
+
+
+def decode_CompanySearchHit(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CompanySearchHit:
+    data = read_object(value)
+    return CompanySearchHit(
+        code=read_str(data["code"]) if data.get("code") is not None else None,
+        country=read_str(data["country"]) if data.get("country") is not None else None,
+        delisted=read_bool(data["delisted"])
+        if data.get("delisted") is not None
+        else None,
+        former_code=read_bool(data["former_code"])
+        if data.get("former_code") is not None
+        else None,
+        former_name=read_str(data["former_name"])
+        if data.get("former_name") is not None
+        else None,
+        id=read_str(data["id"]),
+        matched=read_str(data["matched"]) if data.get("matched") is not None else None,
+        mic=read_str(data["mic"]) if data.get("mic") is not None else None,
+        name=read_str(data["name"]),
+    )
+
+
+def decode_CompanySearchPage(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CompanySearchPage:
+    data = read_object(value)
+    return CompanySearchPage(
+        companies=[
+            decode_CompanySearchHit(item0) for item0 in read_list(data["companies"])
+        ],
+        coverage=[
+            decode_RegistryCoverage(item0) for item0 in read_list(data["coverage"])
+        ]
+        if data.get("coverage") is not None
+        else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_CompanySecurity(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CompanySecurity:
+    data = read_object(value)
+    return CompanySecurity(
+        adr_ratio=read_decimal(data["adr_ratio"])
+        if data.get("adr_ratio") is not None
+        else None,
+        class_=read_str(data["class"]),
+        figi=read_str(data["figi"]) if data.get("figi") is not None else None,
+        isin=read_str(data["isin"]) if data.get("isin") is not None else None,
+        listings=[
+            decode_SecurityListing(item0) for item0 in read_list(data["listings"])
+        ],
+        primary=read_bool(data["primary"]) if data.get("primary") is not None else None,
+        title=read_str(data["title"]) if data.get("title") is not None else None,
+        type=read_str(data["type"]),
+    )
+
+
+def decode_CompanyWithListings(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CompanyWithListings:
+    data = read_object(value)
+    return CompanyWithListings(
+        country=read_str(data["country"]) if data.get("country") is not None else None,
+        delisted=read_bool(data["delisted"])
+        if data.get("delisted") is not None
+        else None,
+        fiscal_year_end=read_str(data["fiscal_year_end"])
+        if data.get("fiscal_year_end") is not None
+        else None,
+        id=read_str(data["id"]),
+        industry=decode_CompanyIndustry(data["industry"])
+        if data.get("industry") is not None
+        else None,
+        jp_corporate_number=read_str(data["jp_corporate_number"])
+        if data.get("jp_corporate_number") is not None
+        else None,
+        lei=read_str(data["lei"]) if data.get("lei") is not None else None,
+        listings=[read_str(item0) for item0 in read_list(data["listings"])]
+        if data.get("listings") is not None
+        else None,
+        name=read_str(data["name"]),
+        names=[decode_CompanyNameSpan(item0) for item0 in read_list(data["names"])],
+        related=[decode_CompanyRelation(item0) for item0 in read_list(data["related"])],
+        securities=[
+            decode_CompanySecurity(item0) for item0 in read_list(data["securities"])
+        ],
+        standard=read_str(data["standard"])
+        if data.get("standard") is not None
+        else None,
+        standard_variant=read_str(data["standard_variant"])
+        if data.get("standard_variant") is not None
+        else None,
+        status_date=read_str(data["status_date"])
+        if data.get("status_date") is not None
+        else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_CostBenchmark(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CostBenchmark:
+    data = read_object(value)
+    return CostBenchmark(
+        default=read_bool(data["default"]) if data.get("default") is not None else None,
+        id=read_str(data["id"]),
+    )
+
+
+def decode_CostBeta(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CostBeta:
+    data = read_object(value)
+    return CostBeta(
+        adjusted=read_decimal(data["adjusted"]),
+        benchmark=decode_CostBenchmark(data["benchmark"]),
+        end=read_str(data["end"]),
+        frequency=read_str(data["frequency"]),
+        observations=read_int(data["observations"]),
+        r_squared=read_decimal(data["r_squared"]),
+        raw=read_decimal(data["raw"]),
+        start=read_str(data["start"]),
+        std_error=read_decimal(data["std_error"]),
+        used=read_str(data["used"]),
+        window=read_str(data["window"]),
+    )
+
+
+def decode_CostEquityRiskPremium(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CostEquityRiskPremium:
+    data = read_object(value)
+    return CostEquityRiskPremium(
+        as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
+        basis=read_str(data["basis"]) if data.get("basis") is not None else None,
+        country=read_str(data["country"]) if data.get("country") is not None else None,
+        rate=read_decimal(data["rate"]),
+        source=read_str(data["source"]),
+    )
+
+
+def decode_CostOfDebt(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CostOfDebt:
+    data = read_object(value)
+    return CostOfDebt(
+        after_tax=read_decimal(data["after_tax"])
+        if data.get("after_tax") is not None
+        else None,
+        average_debt=read_decimal(data["average_debt"]),
+        basis=read_str(data["basis"]),
+        closing_debt=read_decimal(data["closing_debt"]),
+        default_spread=read_decimal(data["default_spread"])
+        if data.get("default_spread") is not None
+        else None,
+        interest_coverage=read_decimal(data["interest_coverage"])
+        if data.get("interest_coverage") is not None
+        else None,
+        interest_expense=read_decimal(data["interest_expense"]),
+        opening_debt=read_decimal(data["opening_debt"])
+        if data.get("opening_debt") is not None
+        else None,
+        period=read_str(data["period"]),
+        period_end=read_str(data["period_end"]),
+        pre_tax=read_decimal(data["pre_tax"]),
+        table=read_str(data["table"]) if data.get("table") is not None else None,
+        table_update=read_str(data["table_update"])
+        if data.get("table_update") is not None
+        else None,
+        table_url=read_str(data["table_url"])
+        if data.get("table_url") is not None
+        else None,
+    )
+
+
+def decode_CostRiskFree(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CostRiskFree:
+    data = read_object(value)
+    return CostRiskFree(
+        as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
+        basis=read_str(data["basis"]),
+        country=read_str(data["country"]) if data.get("country") is not None else None,
+        curve_type=read_str(data["curve_type"])
+        if data.get("curve_type") is not None
+        else None,
+        maturity=read_str(data["maturity"])
+        if data.get("maturity") is not None
+        else None,
+        rate=read_decimal(data["rate"]),
+        source=read_str(data["source"]),
+    )
+
+
+def decode_CostTaxRate(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CostTaxRate:
+    data = read_object(value)
+    return CostTaxRate(
+        basis=read_str(data["basis"]),
+        country=read_str(data["country"]) if data.get("country") is not None else None,
+        rate=read_decimal(data["rate"]),
+        source=read_str(data["source"]),
+        table=read_str(data["table"]) if data.get("table") is not None else None,
+        table_update=read_str(data["table_update"])
+        if data.get("table_update") is not None
+        else None,
+        table_url=read_str(data["table_url"])
+        if data.get("table_url") is not None
+        else None,
+    )
+
+
+def decode_CostWarning(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CostWarning:
+    data = read_object(value)
+    return CostWarning(
+        code=read_str(data["code"]),
+        message=read_str(data["message"]),
+    )
+
+
+def decode_CostWeights(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CostWeights:
+    data = read_object(value)
+    return CostWeights(
+        debt=read_decimal(data["debt"]),
+        equity=read_decimal(data["equity"]),
+        market_cap=read_decimal(data["market_cap"]),
+        market_cap_as_of=read_str(data["market_cap_as_of"]),
+        total_debt=read_decimal(data["total_debt"]),
+        total_debt_as_of=read_str(data["total_debt_as_of"]),
+    )
+
+
 def decode_Cpi(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> Cpi:
@@ -2095,8 +3943,105 @@ def decode_CpiHistoryObservation(
 ) -> CpiHistoryObservation:
     data = read_object(value)
     return CpiHistoryObservation(
+        first_reported_at=read_str(data["first_reported_at"])
+        if data.get("first_reported_at") is not None
+        else None,
         period=read_str(data["period"]),
         value=read_decimal(data["value"]),
+    )
+
+
+def decode_CryptoBar(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CryptoBar:
+    data = read_object(value)
+    return CryptoBar(
+        close=read_decimal(data["close"]),
+        high=read_decimal(data["high"]),
+        low=read_decimal(data["low"]),
+        open=read_decimal(data["open"]),
+        timestamp=read_str(data["timestamp"]),
+    )
+
+
+def decode_CryptoBars(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CryptoBars:
+    data = read_object(value)
+    return CryptoBars(
+        bars=[decode_CryptoBar(item0) for item0 in read_list(data["bars"])],
+        end=read_str(data["end"]) if data.get("end") is not None else None,
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        pair=read_str(data["pair"]),
+        start=read_str(data["start"]) if data.get("start") is not None else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_CryptoPair(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CryptoPair:
+    data = read_object(value)
+    return CryptoPair(
+        base=read_str(data["base"]),
+        name=read_str(data["name"]),
+        pair=read_str(data["pair"]),
+        quote=read_str(data["quote"]),
+    )
+
+
+def decode_CryptoPairs(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CryptoPairs:
+    data = read_object(value)
+    return CryptoPairs(
+        pairs=[decode_CryptoPair(item0) for item0 in read_list(data["pairs"])],
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_CryptoPrice(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CryptoPrice:
+    data = read_object(value)
+    return CryptoPrice(
+        base=read_str(data["base"]),
+        change_24h=read_decimal(data["change_24h"])
+        if data.get("change_24h") is not None
+        else None,
+        change_24h_percent=read_decimal(data["change_24h_percent"])
+        if data.get("change_24h_percent") is not None
+        else None,
+        delayed=read_bool(data["delayed"]) if data.get("delayed") is not None else None,
+        pair=read_str(data["pair"]),
+        price=read_decimal(data["price"]),
+        quote=read_str(data["quote"]),
+        stale=read_bool(data["stale"]),
+        timestamp=read_str(data["timestamp"]),
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_CryptoPriceError(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CryptoPriceError:
+    data = read_object(value)
+    return CryptoPriceError(
+        code=read_str(data["code"]),
+        id=read_str(data["id"]),
+    )
+
+
+def decode_CryptoPrices(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> CryptoPrices:
+    data = read_object(value)
+    return CryptoPrices(
+        errors=[decode_CryptoPriceError(item0) for item0 in read_list(data["errors"])],
+        prices=[decode_CryptoPrice(item0) for item0 in read_list(data["prices"])],
+        meta=meta if meta is not None else ResponseMeta(),
     )
 
 
@@ -2126,6 +4071,35 @@ def decode_DeliveryEvent(
         if data.get("resource_version") is not None
         else None,
         type=read_str(data["type"]),
+    )
+
+
+def decode_DividendsCalendar(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> DividendsCalendar:
+    data = read_object(value)
+    return DividendsCalendar(
+        entries=[
+            decode_DividendsCalendarEntry(item0) for item0 in read_list(data["entries"])
+        ],
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_DividendsCalendarEntry(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> DividendsCalendarEntry:
+    data = read_object(value)
+    return DividendsCalendarEntry(
+        amount=read_decimal(data["amount"]),
+        currency=read_str(data["currency"]),
+        ex_date=read_str(data["ex_date"]),
+        id=read_str(data["id"]),
+        name=read_str(data["name"]),
+        symbol=read_str(data["symbol"]),
     )
 
 
@@ -2253,6 +4227,460 @@ def decode_EconomicReleaseValue(
     )
 
 
+def decode_EquityBar(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityBar:
+    data = read_object(value)
+    return EquityBar(
+        close=read_decimal(data["close"]),
+        date=read_str(data["date"]) if data.get("date") is not None else None,
+        high=read_decimal(data["high"]),
+        low=read_decimal(data["low"]),
+        open=read_decimal(data["open"]),
+        timestamp=read_str(data["timestamp"]),
+        volume=read_decimal(data["volume"]) if data.get("volume") is not None else None,
+    )
+
+
+def decode_EquityBars(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityBars:
+    data = read_object(value)
+    return EquityBars(
+        adjusted=read_bool(data["adjusted"]),
+        bars=[decode_EquityBar(item0) for item0 in read_list(data["bars"])],
+        currency=read_str(data["currency"]),
+        end=read_str(data["end"]) if data.get("end") is not None else None,
+        id=read_str(data["id"]),
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        start=read_str(data["start"]) if data.get("start") is not None else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquityCostOfCapital(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityCostOfCapital:
+    data = read_object(value)
+    return EquityCostOfCapital(
+        beta=decode_CostBeta(data["beta"]),
+        company_id=read_str(data["company_id"]),
+        cost_of_debt=decode_CostOfDebt(data["cost_of_debt"])
+        if data.get("cost_of_debt") is not None
+        else None,
+        cost_of_equity=read_decimal(data["cost_of_equity"]),
+        currency=read_str(data["currency"]),
+        equity_risk_premium=decode_CostEquityRiskPremium(data["equity_risk_premium"]),
+        id=read_str(data["id"]),
+        methodology_url=read_str(data["methodology_url"]),
+        risk_free=decode_CostRiskFree(data["risk_free"]),
+        tax_rate=decode_CostTaxRate(data["tax_rate"])
+        if data.get("tax_rate") is not None
+        else None,
+        wacc=read_decimal(data["wacc"]) if data.get("wacc") is not None else None,
+        warnings=[decode_CostWarning(item0) for item0 in read_list(data["warnings"])],
+        weights=decode_CostWeights(data["weights"]),
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquityDividend(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityDividend:
+    data = read_object(value)
+    return EquityDividend(
+        amount=read_decimal(data["amount"]),
+        currency=read_str(data["currency"]),
+        ex_date=read_str(data["ex_date"]),
+        pay_date=read_str(data["pay_date"])
+        if data.get("pay_date") is not None
+        else None,
+        record_date=read_str(data["record_date"])
+        if data.get("record_date") is not None
+        else None,
+    )
+
+
+def decode_EquityDividends(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityDividends:
+    data = read_object(value)
+    return EquityDividends(
+        dividends=[
+            decode_EquityDividend(item0) for item0 in read_list(data["dividends"])
+        ],
+        id=read_str(data["id"]),
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        start=read_str(data["start"]) if data.get("start") is not None else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquityEarning(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityEarning:
+    data = read_object(value)
+    return EquityEarning(
+        date=read_str(data["date"]),
+        eps_actual=read_decimal(data["eps_actual"])
+        if data.get("eps_actual") is not None
+        else None,
+        eps_estimate=read_decimal(data["eps_estimate"])
+        if data.get("eps_estimate") is not None
+        else None,
+        filing_id=read_str(data["filing_id"])
+        if data.get("filing_id") is not None
+        else None,
+        surprise=read_decimal(data["surprise"])
+        if data.get("surprise") is not None
+        else None,
+        surprise_percent=read_decimal(data["surprise_percent"])
+        if data.get("surprise_percent") is not None
+        else None,
+        time=read_str(data["time"]) if data.get("time") is not None else None,
+    )
+
+
+def decode_EquityEarnings(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityEarnings:
+    data = read_object(value)
+    return EquityEarnings(
+        earnings=[decode_EquityEarning(item0) for item0 in read_list(data["earnings"])],
+        id=read_str(data["id"]),
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        start=read_str(data["start"]) if data.get("start") is not None else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquityMover(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityMover:
+    data = read_object(value)
+    return EquityMover(
+        change_percent=read_decimal(data["change_percent"]),
+        id=read_str(data["id"]),
+        name=read_str(data["name"]),
+        price=read_decimal(data["price"]),
+        symbol=read_str(data["symbol"]),
+        volume=read_decimal(data["volume"]),
+    )
+
+
+def decode_EquityMovers(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityMovers:
+    data = read_object(value)
+    return EquityMovers(
+        direction=read_str(data["direction"]),
+        market=read_str(data["market"]),
+        movers=[decode_EquityMover(item0) for item0 in read_list(data["movers"])],
+        timestamp=read_str(data["timestamp"]),
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquityPrice(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityPrice:
+    data = read_object(value)
+    return EquityPrice(
+        change=read_decimal(data["change"]) if data.get("change") is not None else None,
+        change_percent=read_decimal(data["change_percent"])
+        if data.get("change_percent") is not None
+        else None,
+        currency=read_str(data["currency"]),
+        delayed=read_bool(data["delayed"]) if data.get("delayed") is not None else None,
+        id=read_str(data["id"]),
+        market_session=read_str(data["market_session"]),
+        previous_close=read_decimal(data["previous_close"])
+        if data.get("previous_close") is not None
+        else None,
+        price=read_decimal(data["price"]),
+        stale=read_bool(data["stale"]),
+        symbol=read_str(data["symbol"]),
+        timestamp=read_str(data["timestamp"]),
+        volume=read_decimal(data["volume"]) if data.get("volume") is not None else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquityPriceError(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityPriceError:
+    data = read_object(value)
+    return EquityPriceError(
+        code=read_str(data["code"]),
+        id=read_str(data["id"]),
+    )
+
+
+def decode_EquityPrices(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityPrices:
+    data = read_object(value)
+    return EquityPrices(
+        errors=[decode_EquityPriceError(item0) for item0 in read_list(data["errors"])],
+        prices=[decode_EquityPrice(item0) for item0 in read_list(data["prices"])],
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquityProfile(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityProfile:
+    data = read_object(value)
+    return EquityProfile(
+        company_id=read_str(data["company_id"])
+        if data.get("company_id") is not None
+        else None,
+        country=read_str(data["country"]) if data.get("country") is not None else None,
+        currency=read_str(data["currency"]),
+        id=read_str(data["id"]),
+        industry=read_str(data["industry"])
+        if data.get("industry") is not None
+        else None,
+        logo_url=read_str(data["logo_url"])
+        if data.get("logo_url") is not None
+        else None,
+        mic=read_str(data["mic"]),
+        name=read_str(data["name"]),
+        sector=read_str(data["sector"]) if data.get("sector") is not None else None,
+        symbol=read_str(data["symbol"]),
+        type=read_str(data["type"]),
+        website=read_str(data["website"]) if data.get("website") is not None else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquityRiskPremium(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityRiskPremium:
+    data = read_object(value)
+    return EquityRiskPremium(
+        as_of=read_str(data["as_of"]),
+        basis=decode_EquityRiskPremiumBasis(data["basis"]),
+        country=read_str(data["country"]),
+        country_default_spread=read_decimal(data["country_default_spread"]),
+        country_risk_premium=read_decimal(data["country_risk_premium"]),
+        mature_erp=read_decimal(data["mature_erp"]),
+        methodology_url=read_str(data["methodology_url"])
+        if data.get("methodology_url") is not None
+        else None,
+        total_erp=read_decimal(data["total_erp"]),
+        unit=read_str(data["unit"]),
+        volatility_ratio=read_decimal(data["volatility_ratio"])
+        if data.get("volatility_ratio") is not None
+        else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquityRiskPremiumBasis(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityRiskPremiumBasis:
+    data = read_object(value)
+    return EquityRiskPremiumBasis(
+        country_default_spread=read_str(data["country_default_spread"]),
+        country_risk_premium=read_str(data["country_risk_premium"]),
+        mature_erp=read_str(data["mature_erp"]),
+        total_erp=read_str(data["total_erp"]),
+        volatility_ratio=read_str(data["volatility_ratio"]),
+    )
+
+
+def decode_EquityRiskPremiumHistoryResponse(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityRiskPremiumHistoryResponse:
+    data = read_object(value)
+    return EquityRiskPremiumHistoryResponse(
+        country=read_str(data["country"]),
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        observations=[
+            decode_EquityRiskPremium(item0) for item0 in read_list(data["observations"])
+        ],
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquityRiskPremiumList(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityRiskPremiumList:
+    data = read_object(value)
+    return EquityRiskPremiumList(
+        countries=[
+            decode_EquityRiskPremium(item0) for item0 in read_list(data["countries"])
+        ],
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquitySearchResult(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquitySearchResult:
+    data = read_object(value)
+    return EquitySearchResult(
+        company_id=read_str(data["company_id"])
+        if data.get("company_id") is not None
+        else None,
+        country=read_str(data["country"]) if data.get("country") is not None else None,
+        currency=read_str(data["currency"]),
+        id=read_str(data["id"]),
+        mic=read_str(data["mic"]),
+        name=read_str(data["name"]),
+        symbol=read_str(data["symbol"]),
+        type=read_str(data["type"]),
+    )
+
+
+def decode_EquitySearchResults(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquitySearchResults:
+    data = read_object(value)
+    return EquitySearchResults(
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        results=[
+            decode_EquitySearchResult(item0) for item0 in read_list(data["results"])
+        ],
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquitySplit(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquitySplit:
+    data = read_object(value)
+    return EquitySplit(
+        date=read_str(data["date"]),
+        ratio=read_str(data["ratio"]),
+    )
+
+
+def decode_EquitySplits(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquitySplits:
+    data = read_object(value)
+    return EquitySplits(
+        id=read_str(data["id"]),
+        splits=[decode_EquitySplit(item0) for item0 in read_list(data["splits"])],
+        start=read_str(data["start"]) if data.get("start") is not None else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquityValuation(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityValuation:
+    data = read_object(value)
+    return EquityValuation(
+        company_id=read_str(data["company_id"]),
+        currency=read_str(data["currency"]),
+        dividend_per_share_ttm=read_decimal(data["dividend_per_share_ttm"])
+        if data.get("dividend_per_share_ttm") is not None
+        else None,
+        dividend_yield=read_decimal(data["dividend_yield"])
+        if data.get("dividend_yield") is not None
+        else None,
+        dividends_period_end=read_str(data["dividends_period_end"])
+        if data.get("dividends_period_end") is not None
+        else None,
+        eps_period_end=read_str(data["eps_period_end"])
+        if data.get("eps_period_end") is not None
+        else None,
+        eps_ttm=read_decimal(data["eps_ttm"])
+        if data.get("eps_ttm") is not None
+        else None,
+        equity_as_of=read_str(data["equity_as_of"])
+        if data.get("equity_as_of") is not None
+        else None,
+        id=read_str(data["id"]),
+        market_cap=read_decimal(data["market_cap"])
+        if data.get("market_cap") is not None
+        else None,
+        pb_ratio=read_decimal(data["pb_ratio"])
+        if data.get("pb_ratio") is not None
+        else None,
+        pe_ratio=read_decimal(data["pe_ratio"])
+        if data.get("pe_ratio") is not None
+        else None,
+        ps_ratio=read_decimal(data["ps_ratio"])
+        if data.get("ps_ratio") is not None
+        else None,
+        revenue_period_end=read_str(data["revenue_period_end"])
+        if data.get("revenue_period_end") is not None
+        else None,
+        revenue_ttm=read_decimal(data["revenue_ttm"])
+        if data.get("revenue_ttm") is not None
+        else None,
+        shares_as_of=read_str(data["shares_as_of"])
+        if data.get("shares_as_of") is not None
+        else None,
+        shares_outstanding=read_decimal(data["shares_outstanding"])
+        if data.get("shares_outstanding") is not None
+        else None,
+        timestamp=read_str(data["timestamp"]),
+        total_equity=read_decimal(data["total_equity"])
+        if data.get("total_equity") is not None
+        else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquityValuationHistory(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityValuationHistory:
+    data = read_object(value)
+    return EquityValuationHistory(
+        company_id=read_str(data["company_id"]),
+        currency=read_str(data["currency"]),
+        id=read_str(data["id"]),
+        points=[
+            decode_EquityValuationPoint(item0) for item0 in read_list(data["points"])
+        ],
+        start=read_str(data["start"]) if data.get("start") is not None else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_EquityValuationPoint(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> EquityValuationPoint:
+    data = read_object(value)
+    return EquityValuationPoint(
+        date=read_str(data["date"]),
+        dividend_yield=read_decimal(data["dividend_yield"])
+        if data.get("dividend_yield") is not None
+        else None,
+        market_cap=read_decimal(data["market_cap"])
+        if data.get("market_cap") is not None
+        else None,
+        pb_ratio=read_decimal(data["pb_ratio"])
+        if data.get("pb_ratio") is not None
+        else None,
+        pe_ratio=read_decimal(data["pe_ratio"])
+        if data.get("pe_ratio") is not None
+        else None,
+        price=read_decimal(data["price"]) if data.get("price") is not None else None,
+        price_date=read_str(data["price_date"])
+        if data.get("price_date") is not None
+        else None,
+        ps_ratio=read_decimal(data["ps_ratio"])
+        if data.get("ps_ratio") is not None
+        else None,
+    )
+
+
 def decode_EventDetail(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> EventDetail:
@@ -2358,15 +4786,266 @@ def decode_ExtremeWindow(
     )
 
 
+def decode_Filing(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> Filing:
+    data = read_object(value)
+    return Filing(
+        amends=read_str(data["amends"]) if data.get("amends") is not None else None,
+        company_id=read_str(data["company_id"]),
+        filed_at=read_str(data["filed_at"]),
+        filer_id=read_str(data["filer_id"])
+        if data.get("filer_id") is not None
+        else None,
+        form=read_str(data["form"]),
+        fp=read_str(data["fp"]) if data.get("fp") is not None else None,
+        fy=read_int(data["fy"]) if data.get("fy") is not None else None,
+        id=read_str(data["id"]),
+        period_end=read_str(data["period_end"])
+        if data.get("period_end") is not None
+        else None,
+        title=read_str(data["title"]) if data.get("title") is not None else None,
+        type=read_str(data["type"]),
+        url=read_str(data["url"]) if data.get("url") is not None else None,
+        withdrawn=read_bool(data["withdrawn"])
+        if data.get("withdrawn") is not None
+        else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_FilingWebhookEvent(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> FilingWebhookEvent:
+    data = read_object(value)
+    return FilingWebhookEvent(
+        company_id=read_str(data["company_id"]),
+        filed_at=read_str(data["filed_at"]),
+        filing_id=read_str(data["filing_id"]),
+        form=read_str(data["form"]),
+        fp=read_str(data["fp"]) if data.get("fp") is not None else None,
+        fy=read_int(data["fy"]) if data.get("fy") is not None else None,
+        period_end=read_str(data["period_end"])
+        if data.get("period_end") is not None
+        else None,
+        subject_id=read_str(data["subject_id"])
+        if data.get("subject_id") is not None
+        else None,
+        type=read_str(data["type"]),
+    )
+
+
+def decode_FinancialRow(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> FinancialRow:
+    data = read_object(value)
+    return FinancialRow(
+        currency=read_str(data["currency"])
+        if data.get("currency") is not None
+        else None,
+        derived=[read_str(item0) for item0 in read_list(data["derived"])]
+        if data.get("derived") is not None
+        else None,
+        end=read_str(data["end"]),
+        fh=read_int(data["fh"]) if data.get("fh") is not None else None,
+        fq=read_int(data["fq"]) if data.get("fq") is not None else None,
+        fy=read_int(data["fy"]),
+        items={
+            key: read_decimal(item)
+            for key, item in data.items()
+            if item is not None
+            and key not in ["currency", "derived", "end", "fh", "fq", "fy"]
+        },
+    )
+
+
+def decode_Financials(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> Financials:
+    data = read_object(value)
+    return Financials(
+        annual=[decode_FinancialRow(item0) for item0 in read_list(data["annual"])]
+        if data.get("annual") is not None
+        else None,
+        as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
+        basis=read_str(data["basis"]) if data.get("basis") is not None else None,
+        currency=read_str(data["currency"])
+        if data.get("currency") is not None
+        else None,
+        from_fy=read_int(data["from_fy"]) if data.get("from_fy") is not None else None,
+        id=read_str(data["id"]),
+        quarterly=[decode_FinancialRow(item0) for item0 in read_list(data["quarterly"])]
+        if data.get("quarterly") is not None
+        else None,
+        semiannual=[
+            decode_FinancialRow(item0) for item0 in read_list(data["semiannual"])
+        ]
+        if data.get("semiannual") is not None
+        else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_FundDistribution(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> FundDistribution:
+    data = read_object(value)
+    return FundDistribution(
+        amount=read_decimal(data["amount"]),
+        currency=read_str(data["currency"]),
+        ex_date=read_str(data["ex_date"]),
+        kind=read_str(data["kind"]) if data.get("kind") is not None else None,
+        pay_date=read_str(data["pay_date"])
+        if data.get("pay_date") is not None
+        else None,
+        record_date=read_str(data["record_date"])
+        if data.get("record_date") is not None
+        else None,
+    )
+
+
+def decode_FundDistributions(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> FundDistributions:
+    data = read_object(value)
+    return FundDistributions(
+        distributions=[
+            decode_FundDistribution(item0) for item0 in read_list(data["distributions"])
+        ],
+        id=read_str(data["id"]),
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        start=read_str(data["start"]) if data.get("start") is not None else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_FundEtfPrice(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> FundEtfPrice:
+    data = read_object(value)
+    return FundEtfPrice(
+        change=read_decimal(data["change"]) if data.get("change") is not None else None,
+        change_percent=read_decimal(data["change_percent"])
+        if data.get("change_percent") is not None
+        else None,
+        currency=read_str(data["currency"]),
+        delayed=read_bool(data["delayed"]) if data.get("delayed") is not None else None,
+        id=read_str(data["id"]),
+        market_session=read_str(data["market_session"]),
+        previous_close=read_decimal(data["previous_close"])
+        if data.get("previous_close") is not None
+        else None,
+        price=read_decimal(data["price"]),
+        stale=read_bool(data["stale"]),
+        symbol=read_str(data["symbol"]),
+        timestamp=read_str(data["timestamp"]),
+        type=read_str(data["type"]),
+        volume=read_decimal(data["volume"]) if data.get("volume") is not None else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_FundNavPrice(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> FundNavPrice:
+    data = read_object(value)
+    return FundNavPrice(
+        change=read_decimal(data["change"]) if data.get("change") is not None else None,
+        change_percent=read_decimal(data["change_percent"])
+        if data.get("change_percent") is not None
+        else None,
+        currency=read_str(data["currency"]),
+        date=read_str(data["date"]),
+        id=read_str(data["id"]),
+        nav=read_decimal(data["nav"]),
+        previous_nav=read_decimal(data["previous_nav"])
+        if data.get("previous_nav") is not None
+        else None,
+        stale=read_bool(data["stale"]),
+        symbol=read_str(data["symbol"]),
+        type=read_str(data["type"]),
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_FundPriceError(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> FundPriceError:
+    data = read_object(value)
+    return FundPriceError(
+        code=read_str(data["code"]),
+        id=read_str(data["id"]),
+    )
+
+
+def decode_FundPrices(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> FundPrices:
+    data = read_object(value)
+    return FundPrices(
+        errors=[decode_FundPriceError(item0) for item0 in read_list(data["errors"])],
+        prices=[decode_FundPriceItem(item0) for item0 in read_list(data["prices"])],
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_FundProfile(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> FundProfile:
+    data = read_object(value)
+    return FundProfile(
+        country=read_str(data["country"]) if data.get("country") is not None else None,
+        currency=read_str(data["currency"]),
+        id=read_str(data["id"]),
+        mic=read_str(data["mic"]) if data.get("mic") is not None else None,
+        name=read_str(data["name"]),
+        symbol=read_str(data["symbol"]),
+        type=read_str(data["type"]),
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_FundSearchResult(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> FundSearchResult:
+    data = read_object(value)
+    return FundSearchResult(
+        country=read_str(data["country"]) if data.get("country") is not None else None,
+        currency=read_str(data["currency"]),
+        id=read_str(data["id"]),
+        mic=read_str(data["mic"]) if data.get("mic") is not None else None,
+        name=read_str(data["name"]),
+        symbol=read_str(data["symbol"]),
+        type=read_str(data["type"]),
+    )
+
+
+def decode_FundSearchResults(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> FundSearchResults:
+    data = read_object(value)
+    return FundSearchResults(
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        results=[
+            decode_FundSearchResult(item0) for item0 in read_list(data["results"])
+        ],
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
 def decode_FxBar(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> FxBar:
     data = read_object(value)
     return FxBar(
-        close=read_str(data["close"]),
-        high=read_str(data["high"]),
-        low=read_str(data["low"]),
-        open=read_str(data["open"]),
+        close=read_decimal(data["close"]),
+        high=read_decimal(data["high"]),
+        low=read_decimal(data["low"]),
+        open=read_decimal(data["open"]),
         timestamp=read_str(data["timestamp"]),
     )
 
@@ -2573,6 +5252,9 @@ def decode_GdpGrowthHistoryObservation(
 ) -> GdpGrowthHistoryObservation:
     data = read_object(value)
     return GdpGrowthHistoryObservation(
+        first_reported_at=read_str(data["first_reported_at"])
+        if data.get("first_reported_at") is not None
+        else None,
         period=read_str(data["period"]),
         quarter_over_quarter=read_decimal(data["quarter_over_quarter"])
         if data.get("quarter_over_quarter") is not None
@@ -2620,8 +5302,56 @@ def decode_GdpHistoryObservation(
 ) -> GdpHistoryObservation:
     data = read_object(value)
     return GdpHistoryObservation(
+        first_reported_at=read_str(data["first_reported_at"])
+        if data.get("first_reported_at") is not None
+        else None,
         period=read_str(data["period"]),
         value=read_decimal(data["value"]),
+    )
+
+
+def decode_Holder(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> Holder:
+    data = read_object(value)
+    return Holder(
+        event_date=read_str(data["event_date"])
+        if data.get("event_date") is not None
+        else None,
+        filed=read_str(data["filed"]),
+        filing_id=read_str(data["filing_id"]),
+        holder=read_str(data["holder"]),
+        percent=read_decimal(data["percent"])
+        if data.get("percent") is not None
+        else None,
+        security=decode_HolderSecurity(data["security"])
+        if data.get("security") is not None
+        else None,
+        shares=read_decimal(data["shares"]) if data.get("shares") is not None else None,
+    )
+
+
+def decode_HolderSecurity(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> HolderSecurity:
+    data = read_object(value)
+    return HolderSecurity(
+        class_=read_str(data["class"]) if data.get("class") is not None else None,
+        isin=read_str(data["isin"]) if data.get("isin") is not None else None,
+    )
+
+
+def decode_HoldersPage(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> HoldersPage:
+    data = read_object(value)
+    return HoldersPage(
+        filed_from=read_str(data["filed_from"])
+        if data.get("filed_from") is not None
+        else None,
+        holders=[decode_Holder(item0) for item0 in read_list(data["holders"])],
+        id=read_str(data["id"]),
+        meta=meta if meta is not None else ResponseMeta(),
     )
 
 
@@ -2672,6 +5402,9 @@ def decode_InflationHistoryObservation(
 ) -> InflationHistoryObservation:
     data = read_object(value)
     return InflationHistoryObservation(
+        first_reported_at=read_str(data["first_reported_at"])
+        if data.get("first_reported_at") is not None
+        else None,
         month_over_month=read_decimal(data["month_over_month"])
         if data.get("month_over_month") is not None
         else None,
@@ -2698,6 +5431,46 @@ def decode_LabourForceParticipation(
         if data.get("source") is not None
         else None,
         meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_LatestFiling(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> LatestFiling:
+    data = read_object(value)
+    return LatestFiling(
+        company_id=read_str(data["company_id"]),
+        filed=read_str(data["filed"]),
+        form=read_str(data["form"]),
+        id=read_str(data["id"]),
+        title=read_str(data["title"]) if data.get("title") is not None else None,
+        type=read_str(data["type"]),
+    )
+
+
+def decode_LatestFilingsPage(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> LatestFilingsPage:
+    data = read_object(value)
+    return LatestFilingsPage(
+        filings=[decode_LatestFiling(item0) for item0 in read_list(data["filings"])],
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_ListedFiling(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> ListedFiling:
+    data = read_object(value)
+    return ListedFiling(
+        filed=read_str(data["filed"]),
+        form=read_str(data["form"]),
+        id=read_str(data["id"]),
+        period_end=read_str(data["period_end"])
+        if data.get("period_end") is not None
+        else None,
+        title=read_str(data["title"]) if data.get("title") is not None else None,
+        type=read_str(data["type"]),
     )
 
 
@@ -3057,6 +5830,32 @@ def decode_PhysicalSeriesPage(
     )
 
 
+def decode_PointPolicyRate(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> PointPolicyRate:
+    data = read_object(value)
+    return PointPolicyRate(
+        announced_on=read_str(data["announced_on"])
+        if data.get("announced_on") is not None
+        else None,
+        authority=read_str(data["authority"]),
+        country=read_str(data["country"]),
+        currency=read_str(data["currency"]),
+        effective_on=read_str(data["effective_on"])
+        if data.get("effective_on") is not None
+        else None,
+        instrument=read_str(data["instrument"]),
+        observed_on=read_str(data["observed_on"])
+        if data.get("observed_on") is not None
+        else None,
+        qualifier=read_str(data["qualifier"]),
+        rate=read_decimal(data["rate"]),
+        rate_type=read_str(data["rate_type"]),
+        unit=read_str(data["unit"]),
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
 def decode_PolicyPath(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> PolicyPath:
@@ -3136,6 +5935,23 @@ def decode_PolicyPathOdds(
         p_cut=read_str(data["p_cut"]),
         p_hike=read_str(data["p_hike"]),
         p_hold=read_str(data["p_hold"]),
+    )
+
+
+def decode_PolicyRateHistoryResponse(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> PolicyRateHistoryResponse:
+    data = read_object(value)
+    return PolicyRateHistoryResponse(
+        country=read_str(data["country"]),
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        observations=[
+            decode_PolicyRateObservation(item0)
+            for item0 in read_list(data["observations"])
+        ],
+        meta=meta if meta is not None else ResponseMeta(),
     )
 
 
@@ -3460,6 +6276,32 @@ def decode_Quote(
     )
 
 
+def decode_RangePolicyRate(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> RangePolicyRate:
+    data = read_object(value)
+    return RangePolicyRate(
+        announced_on=read_str(data["announced_on"])
+        if data.get("announced_on") is not None
+        else None,
+        authority=read_str(data["authority"]),
+        country=read_str(data["country"]),
+        currency=read_str(data["currency"]),
+        effective_on=read_str(data["effective_on"])
+        if data.get("effective_on") is not None
+        else None,
+        instrument=read_str(data["instrument"]),
+        lower_bound=read_decimal(data["lower_bound"]),
+        observed_on=read_str(data["observed_on"])
+        if data.get("observed_on") is not None
+        else None,
+        rate_type=read_str(data["rate_type"]),
+        unit=read_str(data["unit"]),
+        upper_bound=read_decimal(data["upper_bound"]),
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
 def decode_RateHistory(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> RateHistory:
@@ -3487,8 +6329,21 @@ def decode_RateHistoryObservation(
 ) -> RateHistoryObservation:
     data = read_object(value)
     return RateHistoryObservation(
+        first_reported_at=read_str(data["first_reported_at"])
+        if data.get("first_reported_at") is not None
+        else None,
         period=read_str(data["period"]),
         rate=read_decimal(data["rate"]),
+    )
+
+
+def decode_RegistryCoverage(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> RegistryCoverage:
+    data = read_object(value)
+    return RegistryCoverage(
+        companies=read_int(data["companies"]),
+        registry=read_str(data["registry"]),
     )
 
 
@@ -3497,6 +6352,7 @@ def decode_ResourceHistory(
 ) -> ResourceHistory:
     data = read_object(value)
     return ResourceHistory(
+        as_of=read_str(data["as_of"]) if data.get("as_of") is not None else None,
         country=read_str(data["country"]),
         currency=read_str(data["currency"])
         if data.get("currency") is not None
@@ -3522,6 +6378,9 @@ def decode_ResourceObservation(
 ) -> ResourceObservation:
     data = read_object(value)
     return ResourceObservation(
+        first_reported_at=read_str(data["first_reported_at"])
+        if data.get("first_reported_at") is not None
+        else None,
         period=read_str(data["period"]),
         released_on=read_str(data["released_on"])
         if data.get("released_on") is not None
@@ -3585,6 +6444,18 @@ def decode_ScalarOutcome(
     )
 
 
+def decode_SecurityListing(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> SecurityListing:
+    data = read_object(value)
+    return SecurityListing(
+        code=read_str(data["code"]),
+        from_=read_str(data["from"]) if data.get("from") is not None else None,
+        mic=read_str(data["mic"]),
+        to=read_str(data["to"]) if data.get("to") is not None else None,
+    )
+
+
 def decode_SeriesSource(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> SeriesSource:
@@ -3592,6 +6463,34 @@ def decode_SeriesSource(
     return SeriesSource(
         distributor=read_str(data["distributor"]),
         publisher=read_str(data["publisher"]),
+    )
+
+
+def decode_SplitsCalendar(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> SplitsCalendar:
+    data = read_object(value)
+    return SplitsCalendar(
+        entries=[
+            decode_SplitsCalendarEntry(item0) for item0 in read_list(data["entries"])
+        ],
+        next_cursor=read_cursor(data["next_cursor"])
+        if data.get("next_cursor") is not None
+        else None,
+        meta=meta if meta is not None else ResponseMeta(),
+    )
+
+
+def decode_SplitsCalendarEntry(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> SplitsCalendarEntry:
+    data = read_object(value)
+    return SplitsCalendarEntry(
+        date=read_str(data["date"]),
+        id=read_str(data["id"]),
+        name=read_str(data["name"]),
+        ratio=read_str(data["ratio"]),
+        symbol=read_str(data["symbol"]),
     )
 
 
@@ -3688,6 +6587,9 @@ def decode_TradeHistoryObservation(
     return TradeHistoryObservation(
         exports=read_decimal(data["exports"])
         if data.get("exports") is not None
+        else None,
+        first_reported_at=read_str(data["first_reported_at"])
+        if data.get("first_reported_at") is not None
         else None,
         imports=read_decimal(data["imports"])
         if data.get("imports") is not None
@@ -3806,6 +6708,9 @@ def decode_WebhookDestinationCreated(
 ) -> WebhookDestinationCreated:
     data = read_object(value)
     return WebhookDestinationCreated(
+        companies=[read_str(item0) for item0 in read_list(data["companies"])]
+        if data.get("companies") is not None
+        else None,
         config_version=read_int(data["config_version"]),
         countries=[read_str(item0) for item0 in read_list(data["countries"])],
         created_at=read_str(data["created_at"]),
@@ -3828,6 +6733,9 @@ def decode_WebhookDestinationInput(
 ) -> WebhookDestinationInput:
     data = read_object(value)
     return WebhookDestinationInput(
+        companies=[read_str(item0) for item0 in read_list(data["companies"])]
+        if data.get("companies") is not None
+        else None,
         countries=[read_str(item0) for item0 in read_list(data["countries"])],
         enabled=read_bool(data["enabled"]) if data.get("enabled") is not None else None,
         families=[read_str(item0) for item0 in read_list(data["families"])],
@@ -3854,6 +6762,9 @@ def decode_WebhookDestinationResponse(
 ) -> WebhookDestinationResponse:
     data = read_object(value)
     return WebhookDestinationResponse(
+        companies=[read_str(item0) for item0 in read_list(data["companies"])]
+        if data.get("companies") is not None
+        else None,
         config_version=read_int(data["config_version"]),
         countries=[read_str(item0) for item0 in read_list(data["countries"])],
         created_at=read_str(data["created_at"]),
@@ -3879,6 +6790,9 @@ def decode_WebhookEvent(
         cursor=read_str(data["cursor"]) if data.get("cursor") is not None else None,
         event_id=read_str(data["event_id"]),
         family=read_str(data["family"]) if data.get("family") is not None else None,
+        filing=decode_FilingWebhookEvent(data["filing"])
+        if data.get("filing") is not None
+        else None,
         holiday_generation=read_int(data["holiday_generation"])
         if data.get("holiday_generation") is not None
         else None,
@@ -3983,6 +6897,32 @@ def decode_YieldPoint(
     )
 
 
+def decode_FundPrice(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> FundPrice:
+    data = read_object(value)
+    if data.get("type") == "etf":
+        return decode_FundEtfPrice(data, meta)
+    if data.get("type") == "mutual_fund":
+        return decode_FundNavPrice(data, meta)
+    return FundPriceUnknown(
+        data, meta if meta is not None else ResponseMeta(), raw_body
+    )
+
+
+def decode_FundPriceItem(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> FundPriceItem:
+    data = read_object(value)
+    if data.get("type") == "etf":
+        return decode_FundEtfPrice(data, meta)
+    if data.get("type") == "mutual_fund":
+        return decode_FundNavPrice(data, meta)
+    return FundPriceItemUnknown(
+        data, meta if meta is not None else ResponseMeta(), raw_body
+    )
+
+
 def decode_PalmoilHistory(
     value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
 ) -> PalmoilHistory:
@@ -4050,5 +6990,31 @@ def decode_PalmoilSeries(
     if data.get("observation_type") == "scalar":
         return decode_PalmoilScalarSeries(data, meta)
     return PalmoilSeriesUnknown(
+        data, meta if meta is not None else ResponseMeta(), raw_body
+    )
+
+
+def decode_PolicyRate(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> PolicyRate:
+    data = read_object(value)
+    if data.get("rate_type") == "point":
+        return decode_PointPolicyRate(data, meta)
+    if data.get("rate_type") == "range":
+        return decode_RangePolicyRate(data, meta)
+    return PolicyRateUnknown(
+        data, meta if meta is not None else ResponseMeta(), raw_body
+    )
+
+
+def decode_PolicyRateObservation(
+    value: object, meta: ResponseMeta | None = None, raw_body: bytes = b""
+) -> PolicyRateObservation:
+    data = read_object(value)
+    if data.get("rate_type") == "point":
+        return decode_PointPolicyRate(data, meta)
+    if data.get("rate_type") == "range":
+        return decode_RangePolicyRate(data, meta)
+    return PolicyRateObservationUnknown(
         data, meta if meta is not None else ResponseMeta(), raw_body
     )
